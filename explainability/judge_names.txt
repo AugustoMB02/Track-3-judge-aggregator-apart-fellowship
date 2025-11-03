@@ -1,0 +1,10 @@
+Truthfulness / Factual Accuracy
+Harmlessness / Safety
+Helpfulness / Utility
+Honesty / Transparency
+Explanatory Depth / Detail
+Instruction Following / Compliance
+Clarity / Understandability
+Conciseness / Efficiency
+Logical Consistency / Reasoning
+Creativity / Originality
