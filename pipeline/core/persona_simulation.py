@@ -89,49 +89,21 @@ class PersonaSimulator:
         
         # Load prompt templates
         self.system_prompt_template = self._load_prompt_template(
-            system_prompt_path or Path("pipelines/prompts/system_prompt_template.txt")
+            system_prompt_path or Path("pipeline/prompts/system_prompt_template.txt")
         )
         self.user_prompt_template = self._load_prompt_template(
-            user_prompt_path or Path("pipelines/prompts/user_prompt_template.txt")
+            user_prompt_path or Path("pipeline/prompts/user_prompt_template.txt")
         )
     
     def _load_prompt_template(self, path: Path) -> str:
         """Load a prompt template from file."""
         if not path.exists():
-            # Try alternate paths
-            alt_paths = [
-                Path("project/human_feedback_simulation") / path.name,
-                Path(".") / path.name
-            ]
-            for alt_path in alt_paths:
-                if alt_path.exists():
-                    path = alt_path
-                    break
-            else:
-                # Use default templates
-                if "system" in path.name:
-                    return """You are {PERSONA_NAME}.  Read a task and its candidate answer, reflect briefly, then decide
-how much you personally like the answer on a 0-10 scale (0 = terrible, 10 = perfect).
+            raise FileNotFoundError(
+                f"Prompt template not found at {path}. "
+                f"Expected prompt files at 'pipeline/prompts/system_prompt_template.txt' "
+                f"and 'pipeline/prompts/user_prompt_template.txt'"
+            )
 
-• Use your own taste; no rubric is enforced.
-• Think silently first – do not show your reasoning.  
-• Answer only with this JSON (no extra keys, no commentary):
-
-{{
-  "analysis": "< ≤ 2 short sentences >",
-  "score": <int 0-10>
-}}"""
-                else:
-                    return """==== ORIGINAL TASK ====
-{USER_PROMPT}
-
-==== CANDIDATE ANSWER ====
-{MODEL_ANSWER}
-
-==== YOUR JOB ====
-You are {PERSONA_NAME}: {PERSONA_BIO}
-Rate the answer as you see fit and output the JSON object above."""
-        
         with open(path, 'r') as f:
             return f.read()
     
