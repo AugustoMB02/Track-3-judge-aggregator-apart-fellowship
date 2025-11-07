@@ -54,6 +54,7 @@ Actionable methodology for building evaluation systems:
 - Use YAML-based judge system (from refactoring)
 - Generate candidate judge rubrics programmatically
 - Test multiple variations (A/B testing)
+- Run `experiments/track3_automated_selection/llm_rubric_variation_agents.py` to ideate, vet, and author new rubric variants with GPT-based agents. Exported YAML files land in `experiments/track3_automated_selection/generated_judges/` for review before merging into the canonical registry.
 
 ## Expected Outcomes
 
