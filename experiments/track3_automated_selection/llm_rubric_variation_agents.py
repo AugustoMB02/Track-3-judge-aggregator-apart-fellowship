@@ -52,7 +52,7 @@ import judge_rubrics  # type: ignore  # noqa: E402
 class LLMConfig:
     """Configuration options for OpenAI chat completions."""
 
-    model: str = "gpt-4o-mini"
+    model: str = "openai/gpt-4.1-nano"
     temperature: float = 0.4
     max_tokens: int = 2048
 
@@ -69,7 +69,7 @@ class ChatCompletionClient:
                 "for Martian-backed OpenAI calls."
             )
 
-        base_url = martian_url.rstrip("/") + "/openai/v2/"
+        base_url = martian_url.rstrip("/") + "/v1/"
         try:
             self._client = OpenAI(api_key=martian_key, base_url=base_url)
         except OpenAIError as exc:

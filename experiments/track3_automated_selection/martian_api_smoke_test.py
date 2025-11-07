@@ -1,4 +1,9 @@
-"""Minimal script to exercise the Martian API route without forcing a model."""
+"""Minimal script to test Martian API via OpenAI SDK.
+
+Per https://docs.withmartian.com/integrations/openai-sdk:
+  - base_url: https://api.withmartian.com/v1
+  - model: provider/model-name (e.g., openai/gpt-4.1-nano)
+"""
 
 from __future__ import annotations
 
@@ -26,8 +31,8 @@ def main() -> int:
         print("Missing MARTIAN_API_KEY or MARTIAN_API_URL environment variables.", file=sys.stderr)
         return 2
 
-    model = os.environ.get("MARTIAN_MODEL", "openai/gpt-4o-mini").strip()
-    client = OpenAI(api_key=martian_key, base_url=martian_url.rstrip("/") + "/openai/v2")
+    model = os.environ.get("MARTIAN_MODEL", "openai/gpt-4.1-nano").strip()
+    client = OpenAI(api_key=martian_key, base_url=martian_url.rstrip("/") + "/v1")
 
     try:
         response = client.chat.completions.create(

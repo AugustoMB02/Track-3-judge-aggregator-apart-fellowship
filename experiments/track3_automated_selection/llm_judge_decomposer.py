@@ -56,7 +56,7 @@ MARTIAN_API_URL = os.environ.get("MARTIAN_API_URL")
 class LLMConfig:
     """Configuration for OpenAI chat completions."""
 
-    model: str = "gpt-4o-mini"
+    model: str = "openai/gpt-4.1-nano"
     temperature: float = 0.4
     max_tokens: int = 2048
 
@@ -73,7 +73,7 @@ class ChatCompletionClient:
         try:
             self._client = OpenAI(
                 api_key=MARTIAN_API_KEY,
-                base_url=f"{MARTIAN_API_URL.rstrip('/')}/openai/v2",
+                base_url=f"{MARTIAN_API_URL.rstrip('/')}/v1",
             )
         except OpenAIError as exc:
             raise RuntimeError("Failed to initialize OpenAI client for Martian gateway.") from exc
