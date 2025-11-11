@@ -33,6 +33,7 @@ import judge_rubrics  # type: ignore  # noqa: E402
 # Import the decomposer function
 from llm_judge_decomposer import (  # noqa: E402
     ChatCompletionClient,
+    InlineListDumper,
     LLMConfig,
     decompose_judge_recursively,
 )
@@ -83,7 +84,7 @@ def batch_decompose_judges(
 
     payload = {"judges": all_judges}
     with output_path.open("w", encoding="utf-8") as handle:
-        yaml.safe_dump(payload, handle, sort_keys=False, allow_unicode=False)
+        yaml.dump(payload, handle, Dumper=InlineListDumper, sort_keys=False, allow_unicode=False)
 
     print(f"\n{'='*60}")
     print(f"✓ Batch decomposition complete!")

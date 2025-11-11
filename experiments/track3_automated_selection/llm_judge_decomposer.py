@@ -37,6 +37,22 @@ import yaml
 from dotenv import load_dotenv
 from openai import OpenAI, OpenAIError
 
+
+# Configure YAML to represent lists inline (e.g., [0.0, 0.9] not multiline)
+class InlineListDumper(yaml.SafeDumper):
+    pass
+
+
+def _represent_list_inline(dumper: Any, data: List[Any]) -> Any:
+    """Represent lists inline in YAML."""
+    if len(data) == 2 and isinstance(data[0], (int, float)) and isinstance(data[1], (int, float)):
+        # Range format: keep inline
+        return dumper.represent_sequence("tag:yaml.org,2002:seq", data, flow_style=True)
+    return dumper.represent_sequence("tag:yaml.org,2002:seq", data)
+
+
+InlineListDumper.add_representer(list, _represent_list_inline)
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 PIPELINE_UTILS = REPO_ROOT / "pipeline" / "utils"
 if str(REPO_ROOT) not in sys.path:
@@ -336,25 +352,42 @@ def _merge_dimension_to_rubric(
     dimension: Dict[str, Any],
     child_rubric: Dict[str, Any],
 ) -> Dict[str, Any]:
-    """Convert a dimension + authored rubric into a judge definition."""
+    """Convert a dimension + authored rubric into a judge definition.
+    
+    Maps 5-level criteria to standard ranges matching judges.yaml format:
+    - Level 0: [0.0, 0.9]
+    - Level 1: [1.0, 1.9]
+    - Level 2: [2.0, 2.9]
+    - Level 3: [3.0, 3.9]
+    - Level 4: [4.0, 4.0]
+    """
     dim_id = dimension.get("dimension_id", "unknown")
     dim_name = dimension.get("dimension_name", "Unknown")
 
     judge_id = f"{parent_id}-{dim_id}"
     judge_name = f"{dim_name}"
 
+    # Standard 5-level ranges (no gaps, matches judges.yaml format)
+    standard_ranges = [
+        [0.0, 0.9],
+        [1.0, 1.9],
+        [2.0, 2.9],
+        [3.0, 3.9],
+        [4.0, 4.0],
+    ]
+
     criteria = []
-    for item in child_rubric.get("criteria", []):
-        score = item.get("score", 0)
+    criteria_items = child_rubric.get("criteria", [])
+    
+    for idx, item in enumerate(criteria_items):
         label = item.get("label", "")
         indicators = item.get("indicators", [])
-
-        # Map score to range [score, score + 0.8] with appropriate spacing
-        range_start = float(score)
-        range_end = float(score) + 0.8 if score < 4 else 4.0
+        
+        # Use standard range based on position (capped at 5 levels)
+        range_pair = standard_ranges[min(idx, len(standard_ranges) - 1)]
 
         criteria.append({
-            "range": [range_start, range_end],
+            "range": range_pair,
             "label": label,
             "indicators": indicators,
         })
@@ -362,13 +395,13 @@ def _merge_dimension_to_rubric(
     return {
         "id": judge_id,
         "name": judge_name,
-        "description": child_rubric.get("description", ""),
-        "definition": f"Evaluate {dim_name.lower()} based on {dimension.get('focus', '')}.",
-        "scoring_description": f"Score ranges from 0 (poor) to 4 (excellent) on {dim_name.lower()}.",
-        "guidelines": dimension.get("example_indicators", []),
-        "criteria": criteria,
-        "score_range": [0.0, 4.0],
         "version": "1.0",
+        "description": child_rubric.get("description", ""),
+        "scoring_description": f"Score how well the response demonstrates {dim_name.lower()}",
+        "definition": child_rubric.get("description", ""),
+        "criteria": criteria,
+        "guidelines": dimension.get("example_indicators", []),
+        "score_range": [0.0, 4.0],
         "parent_id": parent_id,
     }
 
@@ -380,15 +413,29 @@ def decompose_judge_recursively(
     max_depth: int = 2,
     current_depth: int = 0,
     all_judges: Optional[List[Dict[str, Any]]] = None,
+    include_parent: bool = True,
 ) -> List[Dict[str, Any]]:
-    """Recursively decompose a judge into sub-judges up to max_depth."""
+    """Recursively decompose a judge into sub-judges up to max_depth.
+    
+    Args:
+        judge_id: Judge to decompose
+        client: LLM client
+        max_depth: Maximum decomposition depth
+        current_depth: Current recursion depth
+        all_judges: Accumulator for all judges
+        include_parent: If True and at depth 0, include the parent judge
+    """
     if all_judges is None:
         all_judges = []
 
+    base_judge = judge_rubrics.get_judge_info(judge_id)
+    
+    # Add parent judge at depth 0 if requested
+    if current_depth == 0 and include_parent:
+        all_judges.append(base_judge)
+
     if current_depth >= max_depth:
         return all_judges
-
-    base_judge = judge_rubrics.get_judge_info(judge_id)
 
     decomposition_agent = DecompositionAgent(client)
     brainstorm_agent = BrainstormAgent(client)
@@ -471,7 +518,7 @@ def generate_decomposition(
 
     payload = {"judges": all_judges}
     with output_path.open("w", encoding="utf-8") as handle:
-        yaml.safe_dump(payload, handle, sort_keys=False, allow_unicode=False)
+        yaml.dump(payload, handle, Dumper=InlineListDumper, sort_keys=False, allow_unicode=False)
 
     return output_path
 
