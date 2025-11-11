@@ -10,6 +10,65 @@
 2. Can we iteratively propose complementary judges to fill gaps?
 3. Do selection heuristics generalize across task types?
 
+## Completed Work
+
+### 3.0 LLM-Driven Judge Decomposition Pipeline ✅
+- **Status**: COMPLETED
+- **Implementation**: Three-agent LLM orchestration pipeline for recursive judge decomposition
+- **Key Components**:
+  - **DecompositionAgent**: Analyzes judges and identifies 3-5 orthogonal sub-dimensions
+  - **BrainstormAgent**: Authors detailed 5-level rubrics for each dimension
+  - **ValidationAgent**: Validates decomposition coverage and minimal overlap
+- **Files**:
+  - `llm_judge_decomposer.py`: Core recursive decomposition engine
+  - `decompose_all_judges.py`: Batch processor for all judges
+- **Output**: 55 hierarchical judges (10 parents + 45 children) with parent-child relationships
+  - Generated file: `generated_judges/all-judges-decomposed-*.yaml`
+  - Format: Matches canonical `judges.yaml` format exactly
+  - Parent tracking: Each child judge includes `parent_id` for lineage analysis
+
+#### Quick Start
+
+Generate decomposed judges:
+```bash
+# Decompose all judges (10 parents → 55 total with children)
+python experiments/track3_automated_selection/decompose_all_judges.py \
+    --max-depth 1 \
+    --output experiments/track3_automated_selection/generated_judges
+
+# Decompose single judge
+python experiments/track3_automated_selection/llm_judge_decomposer.py \
+    truthfulness-judge \
+    --max-depth 1
+```
+
+#### Architecture
+
+**DecompositionAgent** → **BrainstormAgent** → **ValidationAgent**
+1. Decompose parent judge into orthogonal dimensions
+2. Author 5-level rubric for each dimension
+3. Validate coverage and overlap
+
+**Generated Judge Format**:
+- Score ranges: [0.0, 0.9], [1.0, 1.9], [2.0, 2.9], [3.0, 3.9], [4.0, 4.0] (no gaps)
+- All fields match `judges.yaml` canonical format
+- Parent judge included in output with `parent_id` on all children
+
+#### Configuration
+```bash
+# Environment variables
+export MARTIAN_API_URL=https://api.withmartian.com
+export MARTIAN_API_KEY=<your-api-key>
+
+# CLI options
+--max-depth INT           # Maximum recursion depth (default: 1)
+--model STR              # Martian model (default: openai/gpt-4.1-nano)
+--temperature FLOAT      # Sampling temperature (default: 0.4)
+--max-tokens INT         # Max tokens per completion (default: 2048)
+--output PATH            # Output directory (default: generated_judges/)
+--judges JUDGE_IDS       # Specific judges (default: all)
+```
+
 ## Planned Experiments
 
 ### 3.1 Iterative Judge Selection Pipeline
@@ -49,12 +108,6 @@ Actionable methodology for building evaluation systems:
 - Analyze disagreement patterns between aggregator predictions and ground truth
 - Identify systematic errors (e.g., "overvalues verbosity")
 - Propose judge dimension to address gap
-
-**Judge Proposal**:
-- Use YAML-based judge system (from refactoring)
-- Generate candidate judge rubrics programmatically
-- Test multiple variations (A/B testing)
-- Run `experiments/track3_automated_selection/llm_rubric_variation_agents.py` to ideate, vet, and author new rubric variants with GPT-based agents. Exported YAML files land in `experiments/track3_automated_selection/generated_judges/` for review before merging into the canonical registry.
 
 ## Expected Outcomes
 
