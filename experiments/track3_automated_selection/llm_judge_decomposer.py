@@ -489,8 +489,8 @@ def main() -> None:
     )
     parser.add_argument(
         "--model",
-        default="gpt-4o-mini",
-        help="OpenAI chat model name (default: gpt-4o-mini)",
+        default="openai/gpt-4.1-nano",
+        help="Martian model name (default: openai/gpt-4.1-nano)",
     )
     parser.add_argument(
         "--temperature", type=float, default=0.4, help="Sampling temperature"
