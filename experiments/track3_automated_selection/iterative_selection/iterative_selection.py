@@ -52,6 +52,11 @@ from experiments.track3_automated_selection.iterative_selection.gap_analyzer imp
     GapAnalysisResult,
     identify_least_important_judge,
 )
+from experiments.track3_automated_selection.judge_decomposition.llm_judge_decomposer import (
+    ChatCompletionClient,
+    LLMConfig,
+    ParentJudgeCreatorAgent,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -59,6 +64,10 @@ logger = logging.getLogger(__name__)
 @dataclass
 class SelectionConfig:
     """Configuration for iterative judge selection."""
+    
+    # Metadata
+    name: str = "iterative-selection"
+    description: str = ""
     
     # Initial judge set
     initial_judge_file: str = "judges/helpsteer2/depth_0_parents.yaml"
@@ -158,8 +167,21 @@ class IterativeJudgeSelector:
         self.judge_set_evaluator = JudgeSetEvaluator(
             correlation_threshold=config.max_correlation
         )
+        
+        # Initialize LLM client for gap analysis if needed
+        if config.use_llm_suggestions:
+            llm_config = LLMConfig(
+                model=config.llm_model,
+                temperature=0.4,
+                max_tokens=2048,
+            )
+            llm_client = ChatCompletionClient(llm_config)
+        else:
+            llm_client = None
+        
         self.gap_analyzer = GapAnalyzer(
-            use_llm_suggestions=config.use_llm_suggestions
+            use_llm_suggestions=config.use_llm_suggestions,
+            llm_client=llm_client,
         )
         
         # State tracking
@@ -191,6 +213,17 @@ class IterativeJudgeSelector:
                 self.df = pickle.load(f)
         else:
             raise ValueError("Must provide df or config.data_file")
+        
+        # Extract target values if needed (for workshop data with human_feedback dict)
+        if self.config.target_column not in self.df.columns:
+            if "human_feedback" in self.df.columns:
+                # Extract average score from human_feedback dict
+                logger.info(f"Extracting target from human_feedback column")
+                self.df[self.config.target_column] = self.df["human_feedback"].apply(
+                    lambda x: x.get("score", x.get("average_score", 0)) if isinstance(x, dict) else 0
+                )
+            else:
+                raise ValueError(f"Target column '{self.config.target_column}' not found in data")
         
         logger.info(f"Loaded data with {len(self.df)} samples")
     
