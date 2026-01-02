@@ -85,11 +85,13 @@ class SelectionConfig:
     validation_split: float = 0.15  # Fraction of train for validation
     
     # Stopping criteria
-    max_iterations: int = 10
-    min_judges: int = 3
-    max_judges: int = 15
-    r2_improvement_threshold: float = 0.01  # Stop if R² improves less than this
-    plateau_patience: int = 2  # Stop after this many iterations without improvement
+    max_iterations: int = 50  # Max iterations for backward elimination
+    min_judges: int = 3  # Absolute minimum (safety)
+    target_judges: int = 10  # Target number of judges to select
+    max_judges: int = 100  # Maximum starting pool size
+    r2_degradation_threshold: float = 0.02  # Stop if R² drops more than this
+    plateau_patience: int = 3  # Stop after this many iterations without improvement
+    selection_mode: str = "backward"  # "backward" or "forward"
     
     # Redundancy thresholds
     max_correlation: float = 0.9  # Remove if pair exceeds this
@@ -420,8 +422,10 @@ class IterativeJudgeSelector:
             improvement=improvement,
         )
         
-        # Update best R² if improved
-        if improvement > self.config.r2_improvement_threshold:
+        # Update best R² and plateau counter
+        # In backward elimination, we track the best R² achieved so far
+        # We're willing to accept small drops, but track if we stop improving
+        if current_r2 > self.best_r2:
             self.best_r2 = current_r2
             self.plateau_count = 0
         else:
@@ -458,11 +462,19 @@ class IterativeJudgeSelector:
         if iteration >= self.config.max_iterations:
             return True, "max_iterations_reached"
         
-        # Minimum judges reached
-        if n_judges <= self.config.min_judges:
-            return True, "min_judges_reached"
+        # Target number of judges reached (main stopping criterion for backward elimination)
+        if n_judges <= self.config.target_judges:
+            return True, f"target_judges_reached_{self.config.target_judges}"
         
-        # Plateau detected
+        # Absolute minimum judges reached (safety)
+        if n_judges <= self.config.min_judges:
+            return True, "min_judges_safety_limit"
+        
+        # Performance degradation too severe
+        if improvement < -self.config.r2_degradation_threshold:
+            return True, f"performance_degraded_by_{abs(improvement):.4f}"
+        
+        # Plateau detected (no improvement for N iterations)
         if self.plateau_count >= self.config.plateau_patience:
             return True, f"plateau_detected_after_{self.plateau_count}_iterations"
         
@@ -566,11 +578,13 @@ class IterativeJudgeSelector:
                 result.importance_scores,
             )
             
-            if judge_to_remove and len(current_judge_names) > self.config.min_judges:
-                logger.info(f"Removing judge: {judge_to_remove}")
+            if judge_to_remove and len(current_judge_names) > self.config.target_judges:
+                logger.info(f"Removing judge: {judge_to_remove} (importance: {result.importance_scores.get(judge_to_remove, 0):.4f})")
                 current_judge_names = [j for j in current_judge_names if j != judge_to_remove]
                 self.current_judges = [j for j in self.current_judges if j["id"] != judge_to_remove]
                 removed = judge_to_remove
+            elif len(current_judge_names) <= self.config.target_judges:
+                logger.info(f"Reached target of {self.config.target_judges} judges. Stopping removal.")
             
             # TODO: Propose new judge based on gap analysis
             # new_judge = self._propose_new_judge(...)

@@ -1,0 +1,41 @@
+# Backward Elimination Configuration
+# Select optimal 10 judges from a larger pool
+
+name: "backward-selection-experiment"
+description: "Select best 10 judges from pool of 50+ using backward elimination"
+
+# Initial judge set - START WITH ALL AVAILABLE JUDGES
+# This should point to a file with your full pool of candidate judges
+initial_judge_file: "judges/helpsteer2/depth_0_parents.yaml"  # Replace with your full pool
+
+# Protected judges (will never be removed)
+protected_judges: []  # Leave empty to let algorithm decide, or add must-keep judges
+
+# Data configuration
+data_file: "datasets/processed/your_dataset.pkl"  # Your dataset
+target_column: "target"  # Or "human_score", "preference", etc.
+train_test_split: 0.3
+validation_split: 0.15
+
+# Stopping criteria for BACKWARD ELIMINATION
+max_iterations: 50  # Should be >= (starting_pool_size - target_judges)
+target_judges: 10   # GOAL: Select exactly 10 judges
+min_judges: 5       # Safety: Never go below this
+r2_degradation_threshold: 0.02  # Stop if removing a judge drops R² by more than 2%
+plateau_patience: 3  # Stop if no improvement for 3 iterations
+selection_mode: "backward"
+
+# Redundancy threshold
+max_correlation: 0.9  # Remove highly correlated judges
+
+# Judge proposal (not used in backward elimination)
+proposal_mode: "decompose"
+use_llm_suggestions: false
+
+# GAM settings (if using GAM-based selection)
+gam_n_splines: 10
+gam_lam: 0.6
+
+# Output
+output_dir: "results/backward_selection"
+save_intermediate: true
