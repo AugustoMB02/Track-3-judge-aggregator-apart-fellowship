@@ -300,6 +300,39 @@ class MLPJudgeSelector(IterativeJudgeSelector):
         current_r2 = test_metrics.get("r2", 0.0)
         improvement = current_r2 - self.best_r2
         
+        # Check stopping criteria
+        should_stop, stop_reason = self._check_stopping_criteria(
+            iteration=iteration,
+            n_judges=len(judge_names),
+            current_r2=current_r2,
+            improvement=improvement,
+        )
+        
+        # Save model checkpoint
+        if self.config.save_intermediate:
+            model_path = self.output_dir / f"iteration_{iteration:02d}" / "mlp_model.pt"
+            model_path.parent.mkdir(exist_ok=True, parents=True)
+            mlp.save_model(model_path)
+        
+        # Create result object
+        result = IterationResult(
+            iteration=iteration,
+            judge_names=judge_names,
+            n_judges=len(judge_names),
+            train_metrics=train_metrics,
+            test_metrics=test_metrics,
+            judge_set_metrics=judge_set_metrics.to_dict(),
+            importance_scores=combined_importance,
+            removed_judge=removed_judge,
+            added_judge=added_judge,
+            gap_analysis=gap_result.to_dict(),
+            improvement=improvement,
+            should_stop=should_stop,
+            stop_reason=stop_reason,
+        )
+        
+        return result
+        
     def _check_stopping_criteria(
         self,
         iteration: int,
@@ -330,27 +363,3 @@ class MLPJudgeSelector(IterativeJudgeSelector):
             return True, f"plateau_detected_after_{self.plateau_count}_iterations"
         
         return False, None
-        
-        # Save model checkpoint
-        if self.config.save_intermediate:
-            model_path = self.output_dir / f"iteration_{iteration:02d}" / "mlp_model.pt"
-            model_path.parent.mkdir(exist_ok=True, parents=True)
-            mlp.save_model(model_path)
-        
-        result = IterationResult(
-            iteration=iteration,
-            judge_names=judge_names,
-            n_judges=len(judge_names),
-            train_metrics=train_metrics,
-            test_metrics=test_metrics,
-            judge_set_metrics=judge_set_metrics.to_dict(),
-            importance_scores=combined_importance,
-            removed_judge=removed_judge,
-            added_judge=added_judge,
-            gap_analysis=gap_result.to_dict(),
-            improvement=improvement,
-            should_stop=should_stop,
-            stop_reason=stop_reason,
-        )
-        
-        return result

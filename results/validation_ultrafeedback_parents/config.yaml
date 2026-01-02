@@ -1,0 +1,23 @@
+data_file: datasets/processed/ultrafeedback_validation.pkl
+description: Validate backward elimination pipeline with 10 UltraFeedback parent judges
+gam_lam: 0.6
+gam_n_splines: 10
+initial_judge_file: judges/ultrafeedback/depth_0_parents.yaml
+llm_model: openai/gpt-5-nano
+max_correlation: 0.9
+max_iterations: 20
+max_judges: 100
+min_judges: 5
+name: validation-ultrafeedback-parents
+output_dir: results/validation_ultrafeedback_parents
+plateau_patience: 3
+proposal_mode: decompose
+protected_judges: []
+r2_degradation_threshold: 0.05
+save_intermediate: true
+selection_mode: backward
+target_column: target
+target_judges: 6
+train_test_split: 0.3
+use_llm_suggestions: true
+validation_split: 0.15

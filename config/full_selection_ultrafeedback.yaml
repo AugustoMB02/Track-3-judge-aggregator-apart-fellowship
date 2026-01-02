@@ -1,0 +1,38 @@
+# Full Judge Selection Experiment
+# Select 10 optimal judges from pool of 54 decomposed judges
+
+name: "full-selection-ultrafeedback-decomposed"
+description: "Select 10 judges from 54 decomposed UltraFeedback judges (10 parents + 44 children)"
+
+# Initial judge set - All decomposed judges (54 total)
+initial_judge_file: "experiments/track3_automated_selection/generated_judges/all-judges-decomposed.yaml"
+
+# No protected judges - let algorithm decide
+protected_judges: []
+
+# Data configuration
+# NOTE: This requires scoring the dataset with all 54 judges first
+# For now, this is a template for when data is ready
+data_file: "datasets/processed/ultrafeedback_full_scored.pkl"
+target_column: "target"
+train_test_split: 0.3
+validation_split: 0.15
+
+# Stopping criteria for BACKWARD ELIMINATION
+max_iterations: 50  # 54 -> 10 requires 44 removals
+target_judges: 10   # Select 10 judges from 54
+min_judges: 8       # Safety threshold
+r2_degradation_threshold: 0.03  # Stop if R² drops by more than 3%
+plateau_patience: 5
+selection_mode: "backward"
+
+# Redundancy threshold
+max_correlation: 0.9
+
+# GAM settings
+gam_n_splines: 10
+gam_lam: 0.6
+
+# Output
+output_dir: "results/full_selection_ultrafeedback"
+save_intermediate: true

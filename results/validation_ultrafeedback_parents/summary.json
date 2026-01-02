@@ -1,0 +1,44 @@
+{
+  "total_iterations": 5,
+  "final_n_judges": 6,
+  "final_r2": 0.6964959287494727,
+  "best_r2": -Infinity,
+  "stop_reason": "target_judges_reached_6",
+  "iterations": [
+    {
+      "iteration": 0,
+      "n_judges": 10,
+      "test_r2": 0.697611743132222,
+      "removed": "explanatory-depth-judge",
+      "added": null
+    },
+    {
+      "iteration": 1,
+      "n_judges": 9,
+      "test_r2": 0.6902704764488946,
+      "removed": "creativity-judge",
+      "added": null
+    },
+    {
+      "iteration": 2,
+      "n_judges": 8,
+      "test_r2": 0.702532813951291,
+      "removed": "harmlessness-judge",
+      "added": null
+    },
+    {
+      "iteration": 3,
+      "n_judges": 7,
+      "test_r2": 0.7013580623708309,
+      "removed": "honesty-judge",
+      "added": null
+    },
+    {
+      "iteration": 4,
+      "n_judges": 6,
+      "test_r2": 0.6964959287494727,
+      "removed": null,
+      "added": null
+    }
+  ]
+}
