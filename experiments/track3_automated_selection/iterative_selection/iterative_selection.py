@@ -58,6 +58,11 @@ from experiments.track3_automated_selection.judge_decomposition.llm_judge_decomp
     ParentJudgeCreatorAgent,
 )
 
+from experiments.track2_judge_interpretability.explainability.fetch_attributions import (
+    gam_interp,
+    contribution_based_importance,
+)
+
 logger = logging.getLogger(__name__)
 
 
@@ -340,6 +345,51 @@ class IterativeJudgeSelector:
         
         # Get importance scores
         importance = gam.get_feature_importance()
+        
+        # Enhanced importance calculation using Track 2 methods
+        try:
+            # Prepare data for attribution analysis
+            # gam_interp expects a DataFrame with 'judge_scores' column
+            interp_df = pd.DataFrame({'judge_scores': list(X_test)})
+            
+            attributions = gam_interp(
+                gam.model, 
+                interp_df, 
+                {'n_splines': self.config.gam_n_splines}
+            )
+            contrib_importance_list = contribution_based_importance(attributions)
+            
+            # Map back to judge names
+            contrib_importance = {
+                name: score 
+                for name, score in zip(judge_names, contrib_importance_list)
+            }
+            
+            # Combine with p-value importance
+            # Normalize both to 0-1 range to make them comparable
+            p_vals = np.array([importance[name] for name in judge_names])
+            c_vals = np.array([contrib_importance[name] for name in judge_names])
+            
+            def normalize(v):
+                if v.max() > v.min():
+                    return (v - v.min()) / (v.max() - v.min())
+                return v
+            
+            p_norm = normalize(p_vals)
+            c_norm = normalize(c_vals)
+            
+            # Update importance dictionary with combined score (50/50 weight)
+            combined_importance = {}
+            for i, name in enumerate(judge_names):
+                combined_importance[name] = 0.5 * p_norm[i] + 0.5 * c_norm[i]
+            
+            # Log the difference
+            logger.info("Combined importance scores calculated (P-value + Contribution)")
+            importance = combined_importance
+            
+        except Exception as e:
+            logger.warning(f"Failed to calculate contribution-based importance: {e}")
+            # Fallback to just p-value importance (already in 'importance' variable)
         
         # Evaluate judge set
         judge_set_metrics = self.judge_set_evaluator.evaluate(

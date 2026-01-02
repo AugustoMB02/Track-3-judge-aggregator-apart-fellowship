@@ -56,13 +56,17 @@ def contribution_based_importance(attributions):
     Returns:
         list: List of feature importance scores
     """
-    
+    all_contributions = []
     for attrib in attributions:
         # Sum absolute contributions for each feature
-        contribution = []
-        for i in attrib: 
-            contribution.append(abs(i)/sum(abs(np.array(attrib))))
-    variance_importance = importance_scores(contribution)
+        total_abs = sum(abs(np.array(attrib)))
+        if total_abs == 0:
+            norm_attrib = [0] * len(attrib)
+        else:
+            norm_attrib = [abs(i)/total_abs for i in attrib]
+        all_contributions.append(norm_attrib)
+        
+    variance_importance = importance_scores(all_contributions)
         
     return variance_importance
 
