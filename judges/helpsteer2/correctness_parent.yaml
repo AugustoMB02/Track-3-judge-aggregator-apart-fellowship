@@ -1,0 +1,98 @@
+judges:
+- id: helpsteer2-correctness-judge
+  name: correctness Judge
+  version: '1.0'
+  description: Evaluates the factual accuracy of an AI response and whether it fulfills
+    all requirements stated in the user instruction. It detects hallucinations, false
+    or misleading claims, and checks for complete task execution.
+  scoring_description: Score 0-4 based on factual accuracy and completeness relative
+    to the prompt. Ignore stylistic quality; focus on verifiable correctness and whether
+    all required elements are addressed.
+  definition: Correctness measures whether the response is factually accurate, non-misleading,
+    and free of hallucinations while fully covering the requested tasks and constraints.
+    A correct response grounds claims in widely accepted knowledge or the provided
+    context, avoids inventing details, and produces accurate outputs, steps, or code.
+    When information is unknown or inherently uncertain (e.g., predictions), correctness
+    requires clearly stating uncertainty rather than asserting false facts. For procedural
+    outputs (code, math, step-by-step), correctness depends on proper methods, valid
+    references/APIs, and right results. Completeness means every required component
+    of the instruction is addressed without necessary omissions.
+  criteria:
+  - range:
+    - 0.0
+    - 0.9
+    label: Completely Incorrect
+    indicators:
+    - Does not attempt the requested task or responds to a different/irrelevant task.
+    - Most claims are false, contradict prompt facts, or are fabricated (e.g., invented
+      data, entities, APIs).
+    - Essential constraints or requirements are ignored entirely (e.g., missing all
+      requested outputs).
+    - Procedures/code/math are fundamentally wrong or impossible (e.g., non-existent
+      functions as core solution, impossible results).
+  - range:
+    - 1.0
+    - 1.9
+    label: Mostly Incorrect
+    indicators:
+    - Attempts the task but fulfills few requirements; multiple key elements are missing
+      or wrong.
+    - Contains multiple major factual errors or several hallucinated/irrelevant assertions.
+    - Misidentifies core concepts, tools, or entities (e.g., wrong technology, API,
+      or domain facts).
+    - Procedures/code/math are largely unusable without major fixes or produce incorrect
+      outputs.
+  - range:
+    - 2.0
+    - 2.9
+    label: Partially Correct
+    indicators:
+    - Meets some requirements but misses at least one important detail or subtask
+      specified by the prompt.
+    - Includes a mix of correct and incorrect information (e.g., 1 major or several
+      minor factual inaccuracies).
+    - Relies on unsupported assumptions or vague claims that could mislead, though
+      some core content is right.
+    - Procedures/code/math show the right general approach but need nontrivial corrections
+      to work or be fully accurate.
+  - range:
+    - 3.0
+    - 3.9
+    label: Mostly Correct
+    indicators:
+    - Addresses all core requirements; at most a minor detail or edge case is missing.
+    - No false, misleading, or hallucinated statements; minor imprecision that does
+      not affect outcomes may appear.
+    - Methods, references, and entities are valid and appropriate; computations/steps
+      are correct.
+    - Procedures/code/math are essentially correct and would work with only trivial
+      adjustments (if any).
+  - range:
+    - 4.0
+    - 4.0
+    label: Fully Correct
+    indicators:
+    - All requested tasks, constraints, and details are completely satisfied with
+      no omissions.
+    - All claims are accurate, precise, and verifiable; no hallucinations or misleading
+      statements.
+    - Uses correct concepts, entities, and APIs/libraries; outputs, computations,
+      or steps are right end-to-end.
+    - Procedures/code/math are correct and ready-to-use as presented, assuming standard
+      environment and stated assumptions.
+  guidelines:
+  - Judge only factual accuracy and task completion relative to the prompt; do not
+    consider style, tone, or level of detail beyond what is required to be correct.
+  - Treat invented details or unsupported specifics not grounded in the prompt or
+    widely accepted knowledge as hallucinations; for unknown or future facts, correctness
+    requires acknowledging uncertainty rather than asserting false certainty.
+  - 'Assess completeness strictly against the instruction: if any required element
+    is missing or wrong, cap the score accordingly; give partial credit when substantial
+    portions are correct but note major vs. minor errors.'
+  score_range:
+  - 0.0
+  - 4.0
+  dataset: helpsteer2
+  parent_id: null
+  auto_generated: true
+  dimension: correctness

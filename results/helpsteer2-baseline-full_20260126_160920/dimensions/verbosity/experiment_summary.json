@@ -1,0 +1,58 @@
+{
+  "experiment_name": "helpsteer2-baseline-full",
+  "dimension": "verbosity",
+  "dataset": "helpsteer2",
+  "target": "target_human_aggregated",
+  "judge_files": [
+    "judges/helpsteer2/depth_0_parents.yaml",
+    "judges/helpsteer2/depth_1_children.yaml"
+  ],
+  "judges": [
+    "helpsteer2-verbosity-judge-minimal-overage",
+    "helpsteer2-verbosity-judge-structural-expansion",
+    "helpsteer2-verbosity-judge-extras-density",
+    "helpsteer2-verbosity-judge-redundancy",
+    "helpsteer2-verbosity-judge-framing-padding"
+  ],
+  "n_judges": 5,
+  "random_seed": 42,
+  "gam_results": {
+    "train": {
+      "mse": 0.3481027487392319,
+      "mae": 0.44215483463193056,
+      "r2": 0.3783053337033031,
+      "spearman_rho": 0.5673641309190603,
+      "kendall_tau": 0.4622604614916607,
+      "pearson_r": 0.6150665949056631
+    },
+    "val": {
+      "mse": 0.36404522373334336,
+      "mae": 0.45446984998637663,
+      "r2": 0.3720489545361857,
+      "spearman_rho": 0.5648286054841991,
+      "kendall_tau": 0.4581084185609333,
+      "pearson_r": 0.6106209844194821
+    },
+    "test": {
+      "mse": 0.3561211819983643,
+      "mae": 0.44923871312971747,
+      "r2": 0.408037307523773,
+      "spearman_rho": 0.5728891209958878,
+      "kendall_tau": 0.46667458709701126,
+      "pearson_r": 0.6399294917820799
+    }
+  },
+  "baseline_results": {
+    "human_rubric_judge": {
+      "mse": 0.5050430504305043,
+      "mae": 0.4273062730627306,
+      "r2": 0.16049182395833606,
+      "spearman_rho": 0.44898724001565554,
+      "kendall_tau": 0.4174015345456212,
+      "pearson_r": 0.48568116196476474
+    }
+  },
+  "run_dir": "results/helpsteer2-baseline-full_20260126_160920",
+  "dimension_dir": "results/helpsteer2-baseline-full_20260126_160920/dimensions/verbosity",
+  "timestamp": "2026-01-26T16:26:26.959692"
+}

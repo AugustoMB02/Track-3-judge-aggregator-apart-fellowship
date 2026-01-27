@@ -1,0 +1,309 @@
+{
+  "iteration": 45,
+  "judge_names": [
+    "truthfulness-judge-factual-accuracy",
+    "helpfulness-judge-completeness",
+    "instruction-following-judge-attention-to-detail",
+    "clarity-judge-conceptual clarity",
+    "clarity-judge-accessibility",
+    "clarity-judge-coherence",
+    "conciseness-judge",
+    "conciseness-judge-wording-efficiency",
+    "logical-consistency-judge-validity-and-soundness",
+    "creativity-judge-relevance-and-balance"
+  ],
+  "n_judges": 10,
+  "train_metrics": {
+    "mse": 1.5511223903177187,
+    "mae": 0.8448167400483744,
+    "r2": 0.7739783448108093,
+    "spearman_rho": 0.8355039072755829,
+    "kendall_tau": 0.6787141419608587,
+    "pearson_r": 0.879765697733145
+  },
+  "val_metrics": {
+    "mse": 2.515690136465467,
+    "mae": 1.0366098325598065,
+    "r2": 0.654502962412062,
+    "spearman_rho": 0.798749163800867,
+    "kendall_tau": 0.647856108630177,
+    "pearson_r": 0.8172015962059327
+  },
+  "test_metrics": {
+    "mse": 1.8972661487990854,
+    "mae": 0.9078746404583171,
+    "r2": 0.7283747105908995,
+    "spearman_rho": 0.8301972158800438,
+    "kendall_tau": 0.6650819195969897,
+    "pearson_r": 0.8541524754630767
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.7283747105908995,
+      "mse": 1.8972661487990854,
+      "mae": 0.9078746404583171,
+      "spearman_rho": 0.8301972158800439,
+      "kendall_tau": 0.6650819195969897,
+      "pearson_r": 0.8541524754630767
+    },
+    "coverage": {
+      "variance_explained": 0.7906888754926611,
+      "coverage_score": 0.7906888754926611
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.8069490671592411,
+      "max_pairwise_correlation": 0.9226552181976726,
+      "redundancy_score": 0.19305093284075892,
+      "highly_correlated_pairs": [
+        {
+          "judge_a": "clarity-judge-conceptual clarity",
+          "judge_b": "clarity-judge-coherence",
+          "correlation": 0.9226552181976726
+        },
+        {
+          "judge_a": "clarity-judge-conceptual clarity",
+          "judge_b": "creativity-judge-relevance-and-balance",
+          "correlation": 0.9184830958961085
+        },
+        {
+          "judge_a": "clarity-judge-coherence",
+          "judge_b": "conciseness-judge-wording-efficiency",
+          "correlation": 0.901378398699508
+        },
+        {
+          "judge_a": "clarity-judge-coherence",
+          "judge_b": "creativity-judge-relevance-and-balance",
+          "correlation": 0.9183610868287814
+        }
+      ]
+    },
+    "diversity": {
+      "effective_dimensionality": 1.399293698663067,
+      "diversity_index": 0.13992936986630672
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.39362037568762487,
+      "entropy": 0.8771686186037806
+    },
+    "composite_score": 0.5160837198763052
+  },
+  "importance_scores": {
+    "truthfulness-judge-factual-accuracy": 0.41990968760102276,
+    "helpfulness-judge-completeness": 1.0,
+    "instruction-following-judge-attention-to-detail": 0.28013414654767615,
+    "clarity-judge-conceptual clarity": 0.27135422390865216,
+    "clarity-judge-accessibility": 0.29443687319013306,
+    "clarity-judge-coherence": 0.11580088017569087,
+    "conciseness-judge": 0.26262217752341754,
+    "conciseness-judge-wording-efficiency": 0.5340571766560631,
+    "logical-consistency-judge-validity-and-soundness": 0.8172730653302891,
+    "creativity-judge-relevance-and-balance": 0.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [
+      {
+        "type": "systematic_over",
+        "description": "Model systematically overpredicts by 0.142 on average",
+        "severity": 0.07098885652835496,
+        "affected_samples": 70,
+        "characteristics": {
+          "mean_overprediction": 0.14197771305670992,
+          "std": 1.5797254398979128
+        },
+        "suggested_dimension": "critical-evaluation"
+      },
+      {
+        "type": "high_variance",
+        "description": "High error variance when 'clarity-judge-conceptual clarity' scores are low",
+        "severity": 0.6000112935067712,
+        "affected_samples": 78,
+        "characteristics": {
+          "judge": "clarity-judge-conceptual clarity",
+          "low_score_error_var": 3.94481339526165,
+          "high_score_error_var": 1.6336413105685703
+        },
+        "suggested_dimension": "clarity-judge-conceptual clarity-specificity"
+      },
+      {
+        "type": "cluster",
+        "description": "Cluster 1: Model overpredicts for samples with distinctive judge score patterns",
+        "severity": 0.7842065923163255,
+        "affected_samples": 45,
+        "characteristics": {
+          "cluster_id": 1,
+          "mean_error": -0.07981722694667297,
+          "mean_abs_error": 1.6258325287066453,
+          "notable_judges": [
+            [
+              "helpfulness-judge-completeness",
+              -0.9641269841269835
+            ],
+            [
+              "logical-consistency-judge-validity-and-soundness",
+              -1.1104761904761904
+            ],
+            [
+              "instruction-following-judge-attention-to-detail",
+              -1.236190476190476
+            ]
+          ]
+        },
+        "suggested_dimension": "cross-dimension-interaction"
+      }
+    ],
+    "overall_error_stats": {
+      "mean_error": -0.14197771305670992,
+      "std_error": 1.5797254398979128,
+      "mean_abs_error": 1.0366098325598065,
+      "median_abs_error": 0.7197964467056837,
+      "max_abs_error": 9.053896979550995,
+      "pct_high_error": 60.0,
+      "skewness": -1.152086163694029,
+      "kurtosis": 8.12291063497668
+    },
+    "judge_error_correlations": {
+      "truthfulness-judge-factual-accuracy": -0.16469581073672718,
+      "helpfulness-judge-completeness": -0.031224867852404282,
+      "instruction-following-judge-attention-to-detail": -0.12038767620482271,
+      "clarity-judge-conceptual clarity": 0.030557651008751272,
+      "clarity-judge-accessibility": -0.06372773751003954,
+      "clarity-judge-coherence": -0.07597539582383842,
+      "conciseness-judge": -0.12021323523100952,
+      "conciseness-judge-wording-efficiency": -0.08699333396436312,
+      "logical-consistency-judge-validity-and-soundness": -0.09310425056438291,
+      "creativity-judge-relevance-and-balance": -0.07018420262490582
+    },
+    "suggested_dimensions": [
+      "clarity-judge-conceptual clarity-specificity",
+      "cross-dimension-interaction"
+    ],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 60.0% samples with error > 0.5\nMean absolute error: 1.037\nError skewness: -1.152\n\nIdentified 3 gap patterns:\n  1. [systematic_over] Model systematically overpredicts by 0.142 on average\n     Severity: 0.07, Affected: 70 samples\n  2. [high_variance] High error variance when 'clarity-judge-conceptual clarity' scores are low\n     Severity: 0.60, Affected: 78 samples\n  3. [cluster] Cluster 1: Model overpredicts for samples with distinctive judge score patterns\n     Severity: 0.78, Affected: 45 samples\n\nSuggested new dimensions: clarity-judge-conceptual clarity-specificity, cross-dimension-interaction"
+  },
+  "attribution_correlations": {
+    "truthfulness-judge-factual-accuracy": {
+      "truthfulness-judge-factual-accuracy": 1.0,
+      "helpfulness-judge-completeness": -0.30221558241976615,
+      "instruction-following-judge-attention-to-detail": 0.7067264706678881,
+      "clarity-judge-conceptual clarity": -0.6958672642796875,
+      "clarity-judge-accessibility": 0.5962605848095933,
+      "clarity-judge-coherence": -0.4866070258135536,
+      "conciseness-judge": 0.6093094285278011,
+      "conciseness-judge-wording-efficiency": 0.6620031802257056,
+      "logical-consistency-judge-validity-and-soundness": 0.4799324011002439,
+      "creativity-judge-relevance-and-balance": 0.616955710452409
+    },
+    "helpfulness-judge-completeness": {
+      "truthfulness-judge-factual-accuracy": -0.30221558241976615,
+      "helpfulness-judge-completeness": 1.0,
+      "instruction-following-judge-attention-to-detail": -0.5626393907268482,
+      "clarity-judge-conceptual clarity": 0.3958223814133734,
+      "clarity-judge-accessibility": -0.30651256581528186,
+      "clarity-judge-coherence": 0.24429893801027905,
+      "conciseness-judge": -0.3079466402034127,
+      "conciseness-judge-wording-efficiency": -0.5709267044218548,
+      "logical-consistency-judge-validity-and-soundness": -0.3955356053726986,
+      "creativity-judge-relevance-and-balance": -0.7217610325180248
+    },
+    "instruction-following-judge-attention-to-detail": {
+      "truthfulness-judge-factual-accuracy": 0.7067264706678881,
+      "helpfulness-judge-completeness": -0.5626393907268482,
+      "instruction-following-judge-attention-to-detail": 1.0,
+      "clarity-judge-conceptual clarity": -0.7298408197773599,
+      "clarity-judge-accessibility": 0.6674748284827697,
+      "clarity-judge-coherence": -0.4162539673376819,
+      "conciseness-judge": 0.6432704594611995,
+      "conciseness-judge-wording-efficiency": 0.8188994721143711,
+      "logical-consistency-judge-validity-and-soundness": 0.6185074807407628,
+      "creativity-judge-relevance-and-balance": 0.8006478898574665
+    },
+    "clarity-judge-conceptual clarity": {
+      "truthfulness-judge-factual-accuracy": -0.6958672642796875,
+      "helpfulness-judge-completeness": 0.3958223814133734,
+      "instruction-following-judge-attention-to-detail": -0.7298408197773599,
+      "clarity-judge-conceptual clarity": 1.0,
+      "clarity-judge-accessibility": -0.630837090288008,
+      "clarity-judge-coherence": 0.5643936149022906,
+      "conciseness-judge": -0.6819607360029919,
+      "conciseness-judge-wording-efficiency": -0.8209493571376175,
+      "logical-consistency-judge-validity-and-soundness": -0.5467982472439071,
+      "creativity-judge-relevance-and-balance": -0.7315649203389586
+    },
+    "clarity-judge-accessibility": {
+      "truthfulness-judge-factual-accuracy": 0.5962605848095933,
+      "helpfulness-judge-completeness": -0.30651256581528186,
+      "instruction-following-judge-attention-to-detail": 0.6674748284827697,
+      "clarity-judge-conceptual clarity": -0.630837090288008,
+      "clarity-judge-accessibility": 1.0,
+      "clarity-judge-coherence": -0.33627651367873235,
+      "conciseness-judge": 0.6616550281934558,
+      "conciseness-judge-wording-efficiency": 0.670983194197471,
+      "logical-consistency-judge-validity-and-soundness": 0.5713770821622671,
+      "creativity-judge-relevance-and-balance": 0.5426546600620675
+    },
+    "clarity-judge-coherence": {
+      "truthfulness-judge-factual-accuracy": -0.4866070258135536,
+      "helpfulness-judge-completeness": 0.24429893801027905,
+      "instruction-following-judge-attention-to-detail": -0.4162539673376819,
+      "clarity-judge-conceptual clarity": 0.5643936149022906,
+      "clarity-judge-accessibility": -0.33627651367873235,
+      "clarity-judge-coherence": 1.0,
+      "conciseness-judge": -0.477013191114187,
+      "conciseness-judge-wording-efficiency": -0.5789724552996752,
+      "logical-consistency-judge-validity-and-soundness": -0.03597660404342688,
+      "creativity-judge-relevance-and-balance": -0.532195713263212
+    },
+    "conciseness-judge": {
+      "truthfulness-judge-factual-accuracy": 0.6093094285278011,
+      "helpfulness-judge-completeness": -0.3079466402034127,
+      "instruction-following-judge-attention-to-detail": 0.6432704594611995,
+      "clarity-judge-conceptual clarity": -0.6819607360029919,
+      "clarity-judge-accessibility": 0.6616550281934558,
+      "clarity-judge-coherence": -0.477013191114187,
+      "conciseness-judge": 1.0,
+      "conciseness-judge-wording-efficiency": 0.7796910079132019,
+      "logical-consistency-judge-validity-and-soundness": 0.44943301530802704,
+      "creativity-judge-relevance-and-balance": 0.6185391718234483
+    },
+    "conciseness-judge-wording-efficiency": {
+      "truthfulness-judge-factual-accuracy": 0.6620031802257056,
+      "helpfulness-judge-completeness": -0.5709267044218548,
+      "instruction-following-judge-attention-to-detail": 0.8188994721143711,
+      "clarity-judge-conceptual clarity": -0.8209493571376175,
+      "clarity-judge-accessibility": 0.670983194197471,
+      "clarity-judge-coherence": -0.5789724552996752,
+      "conciseness-judge": 0.7796910079132019,
+      "conciseness-judge-wording-efficiency": 1.0,
+      "logical-consistency-judge-validity-and-soundness": 0.6028813234863482,
+      "creativity-judge-relevance-and-balance": 0.8616880937472813
+    },
+    "logical-consistency-judge-validity-and-soundness": {
+      "truthfulness-judge-factual-accuracy": 0.4799324011002439,
+      "helpfulness-judge-completeness": -0.3955356053726986,
+      "instruction-following-judge-attention-to-detail": 0.6185074807407628,
+      "clarity-judge-conceptual clarity": -0.5467982472439071,
+      "clarity-judge-accessibility": 0.5713770821622671,
+      "clarity-judge-coherence": -0.03597660404342688,
+      "conciseness-judge": 0.44943301530802704,
+      "conciseness-judge-wording-efficiency": 0.6028813234863482,
+      "logical-consistency-judge-validity-and-soundness": 1.0,
+      "creativity-judge-relevance-and-balance": 0.4536381146326795
+    },
+    "creativity-judge-relevance-and-balance": {
+      "truthfulness-judge-factual-accuracy": 0.616955710452409,
+      "helpfulness-judge-completeness": -0.7217610325180248,
+      "instruction-following-judge-attention-to-detail": 0.8006478898574665,
+      "clarity-judge-conceptual clarity": -0.7315649203389586,
+      "clarity-judge-accessibility": 0.5426546600620675,
+      "clarity-judge-coherence": -0.532195713263212,
+      "conciseness-judge": 0.6185391718234483,
+      "conciseness-judge-wording-efficiency": 0.8616880937472813,
+      "logical-consistency-judge-validity-and-soundness": 0.4536381146326795,
+      "creativity-judge-relevance-and-balance": 1.0
+    }
+  },
+  "improvement": -0.002117491497737767,
+  "should_stop": false,
+  "stop_reason": null
+}

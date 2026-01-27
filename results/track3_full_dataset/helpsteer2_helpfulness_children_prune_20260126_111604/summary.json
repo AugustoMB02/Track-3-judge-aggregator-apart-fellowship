@@ -1,0 +1,30 @@
+{
+  "total_iterations": 3,
+  "final_n_judges": 3,
+  "final_r2": 0.1788463083315962,
+  "best_r2": 0.19934346574191542,
+  "stop_reason": "target_judges_reached_3",
+  "iterations": [
+    {
+      "iteration": 0,
+      "n_judges": 5,
+      "test_r2": 0.18477981380828945,
+      "removed": "helpsteer2-helpfulness-judge-actionability-and-specificity",
+      "added": null
+    },
+    {
+      "iteration": 1,
+      "n_judges": 4,
+      "test_r2": 0.17974832708940724,
+      "removed": "helpsteer2-helpfulness-judge-organization-for-immediate-application",
+      "added": null
+    },
+    {
+      "iteration": 2,
+      "n_judges": 3,
+      "test_r2": 0.1788463083315962,
+      "removed": null,
+      "added": null
+    }
+  ]
+}

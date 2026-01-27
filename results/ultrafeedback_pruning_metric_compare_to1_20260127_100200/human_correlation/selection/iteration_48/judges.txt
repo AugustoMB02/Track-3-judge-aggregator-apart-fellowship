@@ -1,0 +1,7 @@
+helpfulness-judge-clarity
+explanatory-depth-judge-clarity
+clarity-judge-language-appropriateness
+clarity-judge-conceptual clarity
+conciseness-judge-information-density
+conciseness-judge-content-relevance
+logical-consistency-judge-logical-structure

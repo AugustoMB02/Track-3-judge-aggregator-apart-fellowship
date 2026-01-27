@@ -136,6 +136,7 @@ class IterationResult:
     
     # Aggregator metrics
     train_metrics: Dict[str, float]
+    val_metrics: Dict[str, float]
     test_metrics: Dict[str, float]
     
     # Judge set metrics
@@ -255,7 +256,10 @@ class IterativeJudgeSelector:
         logger.info(f"Loaded {len(judges)} initial judges")
         return judges
     
-    def _prepare_data(self, judge_names: List[str]) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    def _prepare_data(
+        self,
+        judge_names: List[str],
+    ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
         """
         Prepare train/test data from DataFrame.
         
@@ -263,7 +267,7 @@ class IterativeJudgeSelector:
             judge_names: Names of judges to include in features
             
         Returns:
-            X_train, X_test, y_train, y_test
+            X_train, X_val, X_test, y_train, y_val, y_test
         """
         if self.df is None:
             raise ValueError("Data not loaded. Call load_data() first.")
@@ -274,16 +278,21 @@ class IterativeJudgeSelector:
             all_scores = np.array(self.df["judge_scores"].tolist())
             
             # Get indices of judges we want to keep
-            # We need the original full judge list to map indices
-            if not hasattr(self, '_original_judge_names'):
-                # First call - store original judge names
-                self._original_judge_names = judge_names.copy()
+            # We need the original full judge list from the dataset to map indices
+            if not hasattr(self, "_judge_id_order"):
+                if "judge_ids" in self.df.columns:
+                    self._judge_id_order = list(self.df["judge_ids"].iloc[0])
+                else:
+                    self._judge_id_order = list(self.df.attrs.get("judge_ids", []))
+                if not self._judge_id_order:
+                    logger.warning("Missing judge_ids in dataset; falling back to current judge order.")
+                    self._judge_id_order = judge_names.copy()
             
             # Find column indices for the requested judges
             col_indices = []
             for name in judge_names:
-                if name in self._original_judge_names:
-                    col_indices.append(self._original_judge_names.index(name))
+                if name in self._judge_id_order:
+                    col_indices.append(self._judge_id_order.index(name))
             
             if col_indices:
                 X = all_scores[:, col_indices]
@@ -302,13 +311,24 @@ class IterativeJudgeSelector:
         y = self.df[self.config.target_column].values
         
         # Split data
-        X_train, X_test, y_train, y_test = train_test_split(
+        X_train_full, X_test, y_train_full, y_test = train_test_split(
             X, y,
             test_size=self.config.train_test_split,
             random_state=42,
         )
         
-        return X_train, X_test, y_train, y_test
+        if self.config.validation_split and 0 < self.config.validation_split < 1:
+            X_train, X_val, y_train, y_val = train_test_split(
+                X_train_full,
+                y_train_full,
+                test_size=self.config.validation_split,
+                random_state=42,
+            )
+        else:
+            X_train, y_train = X_train_full, y_train_full
+            X_val, y_val = X_train_full, y_train_full
+        
+        return X_train, X_val, X_test, y_train, y_val, y_test
     
     def _train_aggregator(
         self,
@@ -330,8 +350,10 @@ class IterativeJudgeSelector:
         iteration: int,
         judge_names: List[str],
         X_train: np.ndarray,
+        X_val: np.ndarray,
         X_test: np.ndarray,
         y_train: np.ndarray,
+        y_val: np.ndarray,
         y_test: np.ndarray,
         removed_judge: Optional[str] = None,
         added_judge: Optional[str] = None,
@@ -347,20 +369,22 @@ class IterativeJudgeSelector:
         
         # Get predictions
         train_predictions = gam.predict(X_train)
+        val_predictions = gam.predict(X_val)
         test_predictions = gam.predict(X_test)
         
         # Compute regression metrics
         train_metrics = compute_metrics(y_train, train_predictions)
+        val_metrics = compute_metrics(y_val, val_predictions)
         test_metrics = compute_metrics(y_test, test_predictions)
         
-        # Get importance scores
-        importance = gam.get_feature_importance(X_test)
+        # Get importance scores (validation only to avoid test leakage)
+        importance = gam.get_feature_importance(X_val)
         
         # Enhanced importance calculation using Track 2 methods
         attribution_correlations = None
         try:
             # Prepare data for attribution analysis
-            interp_df = pd.DataFrame({"judge_scores": list(X_test)})
+            interp_df = pd.DataFrame({"judge_scores": list(X_val)})
             
             attributions = gam_interp(
                 gam.model,
@@ -416,14 +440,14 @@ class IterativeJudgeSelector:
         
         # Gap analysis
         gap_result = self.gap_analyzer.analyze(
-            predictions=test_predictions,
-            targets=y_test,
-            judge_scores=X_test,
+            predictions=val_predictions,
+            targets=y_val,
+            judge_scores=X_val,
             judge_names=judge_names,
         )
         
-        # Calculate improvement
-        current_r2 = test_metrics.get("r2", 0.0)
+        # Calculate improvement (validation-only to avoid test leakage)
+        current_r2 = val_metrics.get("r2", 0.0)
         improvement = current_r2 - self.best_r2
         
         # Check stopping criteria
@@ -453,6 +477,7 @@ class IterativeJudgeSelector:
             judge_names=judge_names,
             n_judges=len(judge_names),
             train_metrics=train_metrics,
+            val_metrics=val_metrics,
             test_metrics=test_metrics,
             judge_set_metrics=judge_set_metrics.to_dict(),
             importance_scores=importance,
@@ -793,23 +818,26 @@ class IterativeJudgeSelector:
             logger.info(f"{'='*60}")
             
             # Prepare data for current judge set
-            X_train, X_test, y_train, y_test = self._prepare_data(current_judge_names)
+            X_train, X_val, X_test, y_train, y_val, y_test = self._prepare_data(current_judge_names)
             
             # Evaluate current iteration
             result = self._evaluate_iteration(
                 iteration=iteration,
                 judge_names=current_judge_names,
                 X_train=X_train,
+                X_val=X_val,
                 X_test=X_test,
                 y_train=y_train,
+                y_val=y_val,
                 y_test=y_test,
             )
             
             self.iteration_results.append(result)
             
             # Log results
+            logger.info(f"Validation R²: {result.val_metrics.get('r2', 0):.4f}")
             logger.info(f"Test R²: {result.test_metrics.get('r2', 0):.4f}")
-            logger.info(f"Improvement: {result.improvement:.4f}")
+            logger.info(f"Improvement (val): {result.improvement:.4f}")
             logger.info(f"Composite score: {result.judge_set_metrics.get('composite_score', 0):.4f}")
             
             # Save intermediate results
@@ -828,9 +856,9 @@ class IterativeJudgeSelector:
             # Select judge to remove based on configured pruning strategy
             judge_to_remove = self._select_judge_to_remove(
                 importance_scores=result.importance_scores,
-                judge_scores=X_test,
+                judge_scores=X_val,
                 judge_names=current_judge_names,
-                targets=y_test,
+                targets=y_val,
                 attribution_correlations=result.attribution_correlations,
             )
             
@@ -906,7 +934,7 @@ class IterativeJudgeSelector:
         logger.info(f"\nFinal summary saved to {self.output_dir / 'summary.json'}")
         logger.info(f"Final judge count: {summary['final_n_judges']}")
         logger.info(f"Final test R²: {summary['final_r2']:.4f}")
-        logger.info(f"Best R² achieved: {summary['best_r2']:.4f}")
+        logger.info(f"Best validation R² achieved: {summary['best_r2']:.4f}")
 
 
 def main():

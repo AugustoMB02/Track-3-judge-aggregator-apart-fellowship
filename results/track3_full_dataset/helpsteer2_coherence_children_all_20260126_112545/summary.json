@@ -1,0 +1,16 @@
+{
+  "total_iterations": 1,
+  "final_n_judges": 5,
+  "final_r2": 0.11075366638272022,
+  "best_r2": 0.09216291646350994,
+  "stop_reason": "target_judges_reached_5",
+  "iterations": [
+    {
+      "iteration": 0,
+      "n_judges": 5,
+      "test_r2": 0.11075366638272022,
+      "removed": null,
+      "added": null
+    }
+  ]
+}

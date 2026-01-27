@@ -1,0 +1,58 @@
+{
+  "experiment_name": "helpsteer2-baseline-full",
+  "dimension": "helpfulness",
+  "dataset": "helpsteer2",
+  "target": "target_human_aggregated",
+  "judge_files": [
+    "judges/helpsteer2/depth_0_parents.yaml",
+    "judges/helpsteer2/depth_1_children.yaml"
+  ],
+  "judges": [
+    "helpsteer2-helpfulness-judge-relevance-to-intent",
+    "helpsteer2-helpfulness-judge-actionability-and-specificity",
+    "helpsteer2-helpfulness-judge-completeness-of-solution",
+    "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions",
+    "helpsteer2-helpfulness-judge-organization-for-immediate-application"
+  ],
+  "n_judges": 5,
+  "random_seed": 42,
+  "gam_results": {
+    "train": {
+      "mse": 1.3113489008921344,
+      "mae": 0.9111980331726502,
+      "r2": 0.18372506631472207,
+      "spearman_rho": 0.3356130033304344,
+      "kendall_tau": 0.25802260482394007,
+      "pearson_r": 0.4286336000131547
+    },
+    "val": {
+      "mse": 1.3110202566699354,
+      "mae": 0.9203032031651889,
+      "r2": 0.18321480598832096,
+      "spearman_rho": 0.3404650366369358,
+      "kendall_tau": 0.26102471655044635,
+      "pearson_r": 0.4284989383986526
+    },
+    "test": {
+      "mse": 1.338202063316666,
+      "mae": 0.9226344293198177,
+      "r2": 0.19264396350617652,
+      "spearman_rho": 0.35297922486974287,
+      "kendall_tau": 0.271577335251531,
+      "pearson_r": 0.4389912612789534
+    }
+  },
+  "baseline_results": {
+    "human_rubric_judge": {
+      "mse": 1.466420664206642,
+      "mae": 0.9138991389913899,
+      "r2": 0.1152878868291235,
+      "spearman_rho": 0.372366141407246,
+      "kendall_tau": 0.32643432167875036,
+      "pearson_r": 0.43697640514475683
+    }
+  },
+  "run_dir": "results/helpsteer2-baseline-full_20260126_150019",
+  "dimension_dir": "results/helpsteer2-baseline-full_20260126_150019/dimensions/helpfulness",
+  "timestamp": "2026-01-26T15:43:04.333341"
+}

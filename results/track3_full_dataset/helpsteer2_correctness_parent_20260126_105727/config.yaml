@@ -1,0 +1,25 @@
+data_file: datasets/helpsteer2_correctness_parent_dataset.pkl
+description: Single correctness parent judge baseline
+gam_lam: 0.6
+gam_n_splines: 10
+initial_judge_file: judges/helpsteer2/correctness_parent.yaml
+llm_model: openai/gpt-5-nano
+max_correlation: 0.9
+max_iterations: 10
+max_judges: 1
+min_judges: 3
+name: helpsteer2-correctness-parent-only
+output_dir: results/track3_full_dataset/helpsteer2_correctness_parent_20260126_105727
+plateau_patience: 1
+proposal_mode: decompose
+protected_judges: []
+pruning_strategy: importance
+r2_degradation_threshold: null
+r2_improvement_threshold: 0.0
+save_intermediate: true
+selection_mode: backward
+target_column: target
+target_judges: 1
+train_test_split: 0.3
+use_llm_suggestions: false
+validation_split: 0.15

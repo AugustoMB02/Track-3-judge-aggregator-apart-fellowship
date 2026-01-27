@@ -1,0 +1,121 @@
+{
+  "total_iterations": 16,
+  "final_n_judges": 15,
+  "final_r2": 0.3679720883683417,
+  "best_r2": 0.3711113378642149,
+  "stop_reason": "target_judges_reached_15",
+  "iterations": [
+    {
+      "iteration": 0,
+      "n_judges": 30,
+      "test_r2": 0.3711113378642149,
+      "removed": "helpsteer2-complexity-judge",
+      "added": null
+    },
+    {
+      "iteration": 1,
+      "n_judges": 29,
+      "test_r2": 0.3705295054806369,
+      "removed": "helpsteer2-verbosity-judge-framing-padding",
+      "added": null
+    },
+    {
+      "iteration": 2,
+      "n_judges": 28,
+      "test_r2": 0.3699335245534152,
+      "removed": "helpsteer2-verbosity-judge-redundancy",
+      "added": null
+    },
+    {
+      "iteration": 3,
+      "n_judges": 27,
+      "test_r2": 0.36988072124449034,
+      "removed": "helpsteer2-correctness-judge-requirement-coverage",
+      "added": null
+    },
+    {
+      "iteration": 4,
+      "n_judges": 26,
+      "test_r2": 0.3696887723539831,
+      "removed": "helpsteer2-helpfulness-judge-relevance-to-intent",
+      "added": null
+    },
+    {
+      "iteration": 5,
+      "n_judges": 25,
+      "test_r2": 0.36878168452857574,
+      "removed": "helpsteer2-verbosity-judge-structural-expansion",
+      "added": null
+    },
+    {
+      "iteration": 6,
+      "n_judges": 24,
+      "test_r2": 0.36937743458834893,
+      "removed": "helpsteer2-correctness-judge-procedural-correctness",
+      "added": null
+    },
+    {
+      "iteration": 7,
+      "n_judges": 23,
+      "test_r2": 0.3684256425766741,
+      "removed": "helpsteer2-verbosity-judge-extras-density",
+      "added": null
+    },
+    {
+      "iteration": 8,
+      "n_judges": 22,
+      "test_r2": 0.3693191049386475,
+      "removed": "helpsteer2-complexity-judge-lexical-sophistication",
+      "added": null
+    },
+    {
+      "iteration": 9,
+      "n_judges": 21,
+      "test_r2": 0.36900764215480775,
+      "removed": "helpsteer2-complexity-judge-formalism-and-references",
+      "added": null
+    },
+    {
+      "iteration": 10,
+      "n_judges": 20,
+      "test_r2": 0.36830091617258975,
+      "removed": "helpsteer2-helpfulness-judge-organization-for-immediate-application",
+      "added": null
+    },
+    {
+      "iteration": 11,
+      "n_judges": 19,
+      "test_r2": 0.3677177648846499,
+      "removed": "helpsteer2-coherence-judge",
+      "added": null
+    },
+    {
+      "iteration": 12,
+      "n_judges": 18,
+      "test_r2": 0.36778273828175023,
+      "removed": "helpsteer2-correctness-judge-uncertainty-handling",
+      "added": null
+    },
+    {
+      "iteration": 13,
+      "n_judges": 17,
+      "test_r2": 0.3691651007340354,
+      "removed": "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions",
+      "added": null
+    },
+    {
+      "iteration": 14,
+      "n_judges": 16,
+      "test_r2": 0.3686350879387238,
+      "removed": "helpsteer2-helpfulness-judge-actionability-and-specificity",
+      "added": null
+    },
+    {
+      "iteration": 15,
+      "n_judges": 15,
+      "test_r2": 0.3679720883683417,
+      "removed": null,
+      "added": null
+    }
+  ]
+}

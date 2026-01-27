@@ -1,0 +1,212 @@
+{
+  "total_iterations": 29,
+  "final_n_judges": 27,
+  "final_r2": 0.7277661907329308,
+  "best_r2": 0.6612277444192995,
+  "stop_reason": "target_judges_reached_27",
+  "iterations": [
+    {
+      "iteration": 0,
+      "n_judges": 55,
+      "test_r2": 0.6612460654911925,
+      "removed": "harmlessness-judge-content-safety",
+      "added": null
+    },
+    {
+      "iteration": 1,
+      "n_judges": 54,
+      "test_r2": 0.6615155775480417,
+      "removed": "honesty-judge-disclosure_transparency",
+      "added": null
+    },
+    {
+      "iteration": 2,
+      "n_judges": 53,
+      "test_r2": 0.6638032786900847,
+      "removed": "honesty-judge-avoidance_of_deception",
+      "added": null
+    },
+    {
+      "iteration": 3,
+      "n_judges": 52,
+      "test_r2": 0.6667476469971707,
+      "removed": "harmlessness-judge-privacy-protection",
+      "added": null
+    },
+    {
+      "iteration": 4,
+      "n_judges": 51,
+      "test_r2": 0.669961344192875,
+      "removed": "instruction-following-judge-instruction-coverage",
+      "added": null
+    },
+    {
+      "iteration": 5,
+      "n_judges": 50,
+      "test_r2": 0.6755442483805154,
+      "removed": "logical-consistency-judge-causality-and-inference",
+      "added": null
+    },
+    {
+      "iteration": 6,
+      "n_judges": 49,
+      "test_r2": 0.6763685427237685,
+      "removed": "truthfulness-judge-source-reliability",
+      "added": null
+    },
+    {
+      "iteration": 7,
+      "n_judges": 48,
+      "test_r2": 0.675458967368979,
+      "removed": "explanatory-depth-judge-supportiveness",
+      "added": null
+    },
+    {
+      "iteration": 8,
+      "n_judges": 47,
+      "test_r2": 0.674319752186886,
+      "removed": "helpfulness-judge-relevance",
+      "added": null
+    },
+    {
+      "iteration": 9,
+      "n_judges": 46,
+      "test_r2": 0.6787495831434532,
+      "removed": "instruction-following-judge-format-adherence",
+      "added": null
+    },
+    {
+      "iteration": 10,
+      "n_judges": 45,
+      "test_r2": 0.6799743223613675,
+      "removed": "honesty-judge-admission_of_uncertainty",
+      "added": null
+    },
+    {
+      "iteration": 11,
+      "n_judges": 44,
+      "test_r2": 0.6778165631081454,
+      "removed": "helpfulness-judge-actionability",
+      "added": null
+    },
+    {
+      "iteration": 12,
+      "n_judges": 43,
+      "test_r2": 0.6752359082384943,
+      "removed": "creativity-judge",
+      "added": null
+    },
+    {
+      "iteration": 13,
+      "n_judges": 42,
+      "test_r2": 0.6758005083357284,
+      "removed": "creativity-judge-imaginative-problem-solving",
+      "added": null
+    },
+    {
+      "iteration": 14,
+      "n_judges": 41,
+      "test_r2": 0.675646828575067,
+      "removed": "logical-consistency-judge-absence-of-contradictions",
+      "added": null
+    },
+    {
+      "iteration": 15,
+      "n_judges": 40,
+      "test_r2": 0.6821374304405239,
+      "removed": "logical-consistency-judge",
+      "added": null
+    },
+    {
+      "iteration": 16,
+      "n_judges": 39,
+      "test_r2": 0.6931582395967466,
+      "removed": "harmlessness-judge-refusal-effectiveness",
+      "added": null
+    },
+    {
+      "iteration": 17,
+      "n_judges": 38,
+      "test_r2": 0.6960723647149296,
+      "removed": "logical-consistency-judge-logical-structure",
+      "added": null
+    },
+    {
+      "iteration": 18,
+      "n_judges": 37,
+      "test_r2": 0.7017218192351289,
+      "removed": "honesty-judge-separation_of_fact_and_opinion",
+      "added": null
+    },
+    {
+      "iteration": 19,
+      "n_judges": 36,
+      "test_r2": 0.7048264589678485,
+      "removed": "creativity-judge-originality",
+      "added": null
+    },
+    {
+      "iteration": 20,
+      "n_judges": 35,
+      "test_r2": 0.7061016946748362,
+      "removed": "truthfulness-judge-precision",
+      "added": null
+    },
+    {
+      "iteration": 21,
+      "n_judges": 34,
+      "test_r2": 0.7069084185761645,
+      "removed": "creativity-judge-engagement",
+      "added": null
+    },
+    {
+      "iteration": 22,
+      "n_judges": 33,
+      "test_r2": 0.7127398991187184,
+      "removed": "clarity-judge-language-appropriateness",
+      "added": null
+    },
+    {
+      "iteration": 23,
+      "n_judges": 32,
+      "test_r2": 0.7145311292994553,
+      "removed": "clarity-judge-coherence",
+      "added": null
+    },
+    {
+      "iteration": 24,
+      "n_judges": 31,
+      "test_r2": 0.7159788049278557,
+      "removed": "instruction-following-judge-constraint-satisfaction",
+      "added": null
+    },
+    {
+      "iteration": 25,
+      "n_judges": 30,
+      "test_r2": 0.7162297772238758,
+      "removed": "helpfulness-judge-clarity",
+      "added": null
+    },
+    {
+      "iteration": 26,
+      "n_judges": 29,
+      "test_r2": 0.7174558780383014,
+      "removed": "explanatory-depth-judge",
+      "added": null
+    },
+    {
+      "iteration": 27,
+      "n_judges": 28,
+      "test_r2": 0.7213950836693017,
+      "removed": "conciseness-judge-redundancy-elimination",
+      "added": null
+    },
+    {
+      "iteration": 28,
+      "n_judges": 27,
+      "test_r2": 0.7277661907329308,
+      "removed": null,
+      "added": null
+    }
+  ]
+}

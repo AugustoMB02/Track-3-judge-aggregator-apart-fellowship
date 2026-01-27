@@ -1,0 +1,99 @@
+{
+  "iteration": 54,
+  "judge_names": [
+    "instruction-following-judge-format-adherence"
+  ],
+  "n_judges": 1,
+  "train_metrics": {
+    "mse": 5.547462195597381,
+    "mae": 1.8901096912986919,
+    "r2": 0.1916520608721567,
+    "spearman_rho": 0.43064511926627747,
+    "kendall_tau": 0.3450121101274941,
+    "pearson_r": 0.4377810728280521
+  },
+  "val_metrics": {
+    "mse": 5.839148893081078,
+    "mae": 1.93509062950028,
+    "r2": 0.19806950174362503,
+    "spearman_rho": 0.45390544181648046,
+    "kendall_tau": 0.3622134673418923,
+    "pearson_r": 0.46527856823122404
+  },
+  "test_metrics": {
+    "mse": 5.47897760892098,
+    "mae": 1.8752695366844636,
+    "r2": 0.21559298381455416,
+    "spearman_rho": 0.48745448208884,
+    "kendall_tau": 0.3896647284386959,
+    "pearson_r": 0.46493426648190367
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.21559298381455416,
+      "mse": 5.47897760892098,
+      "mae": 1.8752695366844636,
+      "spearman_rho": 0.48745448208884007,
+      "kendall_tau": 0.3896647284386959,
+      "pearson_r": 0.4649342664819036
+    },
+    "coverage": {
+      "variance_explained": 0.2004918469617173,
+      "coverage_score": 0.2004918469617173
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.0,
+      "max_pairwise_correlation": 0.0,
+      "redundancy_score": 1.0,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.0,
+      "diversity_index": 1.0
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.0,
+      "entropy": 0.0
+    },
+    "composite_score": 0.5263355629181652
+  },
+  "importance_scores": {
+    "instruction-following-judge-format-adherence": 0.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [
+      {
+        "type": "systematic_over",
+        "description": "Model systematically overpredicts by 0.342 on average",
+        "severity": 0.17078832264968208,
+        "affected_samples": 85,
+        "characteristics": {
+          "mean_overprediction": 0.34157664529936416,
+          "std": 2.392169368683394
+        },
+        "suggested_dimension": "critical-evaluation"
+      }
+    ],
+    "overall_error_stats": {
+      "mean_error": -0.34157664529936416,
+      "std_error": 2.392169368683394,
+      "mean_abs_error": 1.93509062950028,
+      "median_abs_error": 1.6071428571428572,
+      "max_abs_error": 7.749576744923834,
+      "pct_high_error": 85.23809523809524,
+      "skewness": -0.5643529424778386,
+      "kurtosis": -0.36194879731156115
+    },
+    "judge_error_correlations": {
+      "instruction-following-judge-format-adherence": 0.04957044323557982
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 85.2% samples with error > 0.5\nMean absolute error: 1.935\nError skewness: -0.564\n\nIdentified 1 gap patterns:\n  1. [systematic_over] Model systematically overpredicts by 0.342 on average\n     Severity: 0.17, Affected: 85 samples"
+  },
+  "attribution_correlations": null,
+  "improvement": -0.5057457859004669,
+  "should_stop": true,
+  "stop_reason": "target_judges_reached_1"
+}

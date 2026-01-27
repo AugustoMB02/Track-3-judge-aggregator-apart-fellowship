@@ -1,0 +1,121 @@
+{
+  "iteration": 52,
+  "judge_names": [
+    "helpfulness-judge-completeness",
+    "instruction-following-judge-attention-to-detail",
+    "conciseness-judge-wording-efficiency"
+  ],
+  "n_judges": 3,
+  "train_metrics": {
+    "mse": 1.9559110774753146,
+    "mae": 0.9844152707957128,
+    "r2": 0.7149945988186706,
+    "spearman_rho": 0.7893298152094115,
+    "kendall_tau": 0.6367537255762256,
+    "pearson_r": 0.8455748934787369
+  },
+  "val_metrics": {
+    "mse": 2.336126552403721,
+    "mae": 1.0797619826375617,
+    "r2": 0.6791636650370562,
+    "spearman_rho": 0.8126714110498632,
+    "kendall_tau": 0.6634467874261486,
+    "pearson_r": 0.8289084776424247
+  },
+  "test_metrics": {
+    "mse": 1.7375805740505366,
+    "mae": 0.9370266545752001,
+    "r2": 0.751236363650481,
+    "spearman_rho": 0.8171758271275094,
+    "kendall_tau": 0.6602487519525458,
+    "pearson_r": 0.8675250550486984
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.751236363650481,
+      "mse": 1.7375805740505366,
+      "mae": 0.9370266545752001,
+      "spearman_rho": 0.8171758271275094,
+      "kendall_tau": 0.6602487519525458,
+      "pearson_r": 0.8675250550486983
+    },
+    "coverage": {
+      "variance_explained": 0.7634463289081905,
+      "coverage_score": 0.7634463289081905
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.8257409200195034,
+      "max_pairwise_correlation": 0.8742531031391569,
+      "redundancy_score": 0.1742590799804966,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.2429321888545302,
+      "diversity_index": 0.4143107296181767
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.556504919897526,
+      "entropy": 0.4080256368265487
+    },
+    "composite_score": 0.5708977731615652
+  },
+  "importance_scores": {
+    "helpfulness-judge-completeness": 0.0,
+    "instruction-following-judge-attention-to-detail": 0.19795287096918124,
+    "conciseness-judge-wording-efficiency": 1.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [
+      {
+        "type": "systematic_over",
+        "description": "Model systematically overpredicts by 0.224 on average",
+        "severity": 0.11183645272477534,
+        "affected_samples": 84,
+        "characteristics": {
+          "mean_overprediction": 0.22367290544955068,
+          "std": 1.5119844522254444
+        },
+        "suggested_dimension": "critical-evaluation"
+      }
+    ],
+    "overall_error_stats": {
+      "mean_error": -0.22367290544955068,
+      "std_error": 1.5119844522254444,
+      "mean_abs_error": 1.0797619826375617,
+      "median_abs_error": 0.8305156685451487,
+      "max_abs_error": 8.130207045198627,
+      "pct_high_error": 68.0952380952381,
+      "skewness": -0.9895262127566142,
+      "kurtosis": 5.791681294230871
+    },
+    "judge_error_correlations": {
+      "helpfulness-judge-completeness": -0.014781528035597645,
+      "instruction-following-judge-attention-to-detail": -0.06715979600852252,
+      "conciseness-judge-wording-efficiency": -0.04339662557379
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 68.1% samples with error > 0.5\nMean absolute error: 1.080\nError skewness: -0.990\n\nIdentified 1 gap patterns:\n  1. [systematic_over] Model systematically overpredicts by 0.224 on average\n     Severity: 0.11, Affected: 84 samples"
+  },
+  "attribution_correlations": {
+    "helpfulness-judge-completeness": {
+      "helpfulness-judge-completeness": 1.0,
+      "instruction-following-judge-attention-to-detail": 0.020308393221071606,
+      "conciseness-judge-wording-efficiency": 0.01972178892039201
+    },
+    "instruction-following-judge-attention-to-detail": {
+      "helpfulness-judge-completeness": 0.020308393221071606,
+      "instruction-following-judge-attention-to-detail": 1.0,
+      "conciseness-judge-wording-efficiency": 0.8501355003040215
+    },
+    "conciseness-judge-wording-efficiency": {
+      "helpfulness-judge-completeness": 0.01972178892039201,
+      "instruction-following-judge-attention-to-detail": 0.8501355003040215,
+      "conciseness-judge-wording-efficiency": 1.0
+    }
+  },
+  "improvement": 0.004060523320319476,
+  "should_stop": false,
+  "stop_reason": null
+}

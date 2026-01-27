@@ -1,10 +1,10 @@
 # Iterative Judge Selection Experiment Configuration (Prune Half)
 
-name: "iterative-selection-helpsteer2-prune-half"
-description: "Prune to half the judges (rounded up) for HelpSteer2 helpfulness"
+name: "iterative-selection-helpsteer2-prune-half-full"
+description: "Prune to half the judges (30 -> 15) for HelpSteer2 full dataset"
 
 # Initial judge set configuration
-initial_judge_file: "judges/helpsteer2/depth_0_parents.yaml"
+initial_judge_file: "judges/helpsteer2/all_judges.yaml"
 
 # Judges that should never be removed (core evaluation dimensions)
 protected_judges:
@@ -12,18 +12,18 @@ protected_judges:
   - "helpsteer2-correctness-judge"
 
 # Data configuration
-data_file: "datasets/data_with_judge_scores.pkl"
+data_file: "datasets/helpsteer2_track3_full_dataset.pkl"
 target_column: "target"
 train_test_split: 0.3
 validation_split: 0.15
 
 # Stopping criteria
-max_iterations: 10
-min_judges: 3
-target_judges: 3  # 5 -> 3 judges (half rounded up)
-max_judges: 15
-r2_improvement_threshold: 0.01
-plateau_patience: 2
+max_iterations: 20
+min_judges: 15
+target_judges: 15  # 30 -> 15 judges
+max_judges: 30
+r2_improvement_threshold: 0.0
+plateau_patience: 50
 
 # Redundancy control
 max_correlation: 0.9

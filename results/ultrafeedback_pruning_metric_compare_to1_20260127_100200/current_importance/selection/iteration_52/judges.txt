@@ -1,0 +1,3 @@
+truthfulness-judge-factual-accuracy
+conciseness-judge-wording-efficiency
+logical-consistency-judge-validity-and-soundness

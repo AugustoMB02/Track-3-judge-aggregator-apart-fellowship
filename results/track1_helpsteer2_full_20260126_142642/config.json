@@ -1,0 +1,22 @@
+{
+  "input": "datasets/helpsteer2_full_30_judges_recomputed.pkl",
+  "n_samples": 20324,
+  "n_judges": 30,
+  "dimensions": [
+    "helpfulness",
+    "correctness",
+    "coherence",
+    "complexity",
+    "verbosity"
+  ],
+  "test_size": 0.2,
+  "seed": 42,
+  "model": "GAM",
+  "baselines": [
+    "mean",
+    "median",
+    "max",
+    "best_single_judge"
+  ],
+  "baseline_scope": "dimension"
+}

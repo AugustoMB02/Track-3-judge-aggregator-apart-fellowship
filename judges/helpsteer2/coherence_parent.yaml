@@ -1,0 +1,97 @@
+judges:
+- id: helpsteer2-coherence-judge
+  name: coherence Judge
+  version: '1.0'
+  description: "Evaluates how clear, self-consistent, and logically ordered an assistant\u2019\
+    s response is. Focuses on whether the writing is easy to follow, free of internal\
+    \ contradictions, and avoids unnecessary repetition or redundancy."
+  scoring_description: Score based on clarity, logical flow, internal consistency,
+    and absence of redundancy. Ignore correctness or helpfulness; assess only how
+    coherent the response is as written.
+  definition: Coherence measures whether a response maintains a single, logical line
+    of thought without contradicting itself, confusing shifts, or unclear references.
+    A coherent answer uses consistent terminology, keeps pronouns and variables unambiguous,
+    and presents ideas in a logical order with smooth transitions. It should not repeat
+    the same point needlessly or include extraneous text that disrupts flow. Formatting
+    and structure (lists, steps, code blocks) should aid readability and not introduce
+    confusion.
+  criteria:
+  - range:
+    - 0.0
+    - 0.9
+    label: Completely Incoherent
+    indicators:
+    - Frequent contradictions or mutually incompatible statements render the message
+      nonsensical.
+    - Sentences or fragments are disjointed (word salad), with no logical progression
+      between parts.
+    - Abrupt topic shifts unrelated to the prompt or to prior sentences with no connective
+      logic.
+    - Heavy redundancy or looping text that obscures meaning (e.g., repeated paragraphs/lines).
+    - Broken structure or formatting makes content unintelligible (e.g., mangled lists/code).
+  - range:
+    - 1.0
+    - 1.9
+    label: Mostly Incoherent
+    indicators:
+    - Overall hard to follow with multiple confusing passages; only small portions
+      are clear.
+    - At least one clear internal inconsistency or contradiction that undermines the
+      message.
+    - Frequent unclear references (pronouns, variables, terms) that the reader cannot
+      resolve.
+    - Noticeable repetition of ideas or steps that adds little meaning and disrupts
+      flow.
+    - Disorganized structure with poor or missing transitions between major points.
+  - range:
+    - 2.0
+    - 2.9
+    label: Somewhat Coherent
+    indicators:
+    - Main idea is discernible but there are a few confusing sentences or awkward
+      jumps.
+    - Minor inconsistency in terminology or framing (e.g., changes terms mid-answer)
+      without direct contradiction.
+    - Some redundancy (repeating points) or run-on sentences that mildly hinder flow.
+    - Structure is present but ordering is suboptimal, requiring reader effort to
+      follow.
+    - References (pronouns/variables) are occasionally ambiguous but usually inferable
+      from context.
+  - range:
+    - 3.0
+    - 3.9
+    label: Mostly Coherent
+    indicators:
+    - Clear overall flow with logical ordering of ideas and mostly smooth transitions.
+    - No substantive contradictions; statements align with each other throughout.
+    - Terminology and references are largely consistent; minor phrasing hiccups only.
+    - Little to no unnecessary repetition; occasional mild verbosity does not impede
+      clarity.
+    - Formatting and structure (lists, steps, code) generally support readability.
+  - range:
+    - 4.0
+    - 4.0
+    label: Perfectly Coherent
+    indicators:
+    - Consistently clear, logically sequenced, and easy to follow from start to finish.
+    - Zero internal contradictions or mixed signals; stance and statements remain
+      aligned.
+    - No redundant content; each sentence advances the explanation or task.
+    - Consistent terminology, pronouns, and variable names; references are unambiguous.
+    - Structure and transitions are crisp and purposeful, enhancing readability (e.g.,
+      well-ordered steps).
+  guidelines:
+  - Evaluate coherence independently of correctness, helpfulness, complexity, or verbosity;
+    a wrong or brief answer can still be coherent.
+  - Weigh internal contradictions and disruptive redundancy heavily; if a clear contradiction
+    exists, do not assign the top score.
+  - "Use the overall reading experience: if most text matches a level\u2019s indicators,\
+    \ choose that level; minor typos that do not affect clarity should not lower the\
+    \ score below 3."
+  score_range:
+  - 0.0
+  - 4.0
+  dataset: helpsteer2
+  parent_id: null
+  auto_generated: true
+  dimension: coherence

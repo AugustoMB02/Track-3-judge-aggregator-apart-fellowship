@@ -1,0 +1,121 @@
+{
+  "iteration": 0,
+  "judge_names": [
+    "helpsteer2-correctness-judge"
+  ],
+  "n_judges": 1,
+  "train_metrics": {
+    "mse": 1.2878393408304587,
+    "mae": 0.9154481370748377,
+    "r2": 0.20333390550275388,
+    "spearman_rho": 0.36822304330396444,
+    "kendall_tau": 0.31241121040770137,
+    "pearson_r": 0.45092607085822134
+  },
+  "val_metrics": {
+    "mse": 1.250652733577389,
+    "mae": 0.8958816366630522,
+    "r2": 0.22551746870733158,
+    "spearman_rho": 0.4097542672354999,
+    "kendall_tau": 0.35006471360783786,
+    "pearson_r": 0.475427097128878
+  },
+  "test_metrics": {
+    "mse": 1.255142405431662,
+    "mae": 0.9038241491851317,
+    "r2": 0.22131647353487938,
+    "spearman_rho": 0.39362382946655017,
+    "kendall_tau": 0.3351649405326454,
+    "pearson_r": 0.4710210854202593
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.22131647353487938,
+      "mse": 1.255142405431662,
+      "mae": 0.9038241491851317,
+      "spearman_rho": 0.39362382946655017,
+      "kendall_tau": 0.3351649405326454,
+      "pearson_r": 0.4710210854202593
+    },
+    "coverage": {
+      "variance_explained": 0.20906031374495793,
+      "coverage_score": 0.20906031374495793
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.0,
+      "max_pairwise_correlation": 0.0,
+      "redundancy_score": 1.0,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.0,
+      "diversity_index": 1.0
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.0,
+      "entropy": 0.0
+    },
+    "composite_score": 0.5303386521629434
+  },
+  "importance_scores": {
+    "helpsteer2-correctness-judge": 0.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [
+      {
+        "type": "high_variance",
+        "description": "High error variance when 'helpsteer2-correctness-judge' scores are low",
+        "severity": 0.5227107200024952,
+        "affected_samples": 1035,
+        "characteristics": {
+          "judge": "helpsteer2-correctness-judge",
+          "low_score_error_var": 1.7152170560888107,
+          "high_score_error_var": 0.8103471779192815
+        },
+        "suggested_dimension": "helpsteer2-correctness-judge-specificity"
+      },
+      {
+        "type": "cluster",
+        "description": "Cluster 0: Model underpredicts for samples with distinctive judge score patterns",
+        "severity": 0.8078731914608739,
+        "affected_samples": 201,
+        "characteristics": {
+          "cluster_id": 0,
+          "mean_error": 0.012587863974335922,
+          "mean_abs_error": 1.4475175139643421,
+          "notable_judges": [
+            [
+              "helpsteer2-correctness-judge",
+              -2.9184911897867734
+            ]
+          ]
+        },
+        "suggested_dimension": "cross-dimension-interaction"
+      }
+    ],
+    "overall_error_stats": {
+      "mean_error": 0.014938873079439587,
+      "std_error": 1.118226078952063,
+      "mean_abs_error": 0.8958816366630522,
+      "median_abs_error": 0.6039862701792686,
+      "max_abs_error": 3.3960137298207314,
+      "pct_high_error": 73.52389878163073,
+      "skewness": -0.6399895309433847,
+      "kurtosis": 0.34005052470357144
+    },
+    "judge_error_correlations": {
+      "helpsteer2-correctness-judge": 0.016652442003777055
+    },
+    "suggested_dimensions": [
+      "helpsteer2-correctness-judge-specificity",
+      "cross-dimension-interaction"
+    ],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 73.5% samples with error > 0.5\nMean absolute error: 0.896\nError skewness: -0.640\n\nIdentified 2 gap patterns:\n  1. [high_variance] High error variance when 'helpsteer2-correctness-judge' scores are low\n     Severity: 0.52, Affected: 1035 samples\n  2. [cluster] Cluster 0: Model underpredicts for samples with distinctive judge score patterns\n     Severity: 0.81, Affected: 201 samples\n\nSuggested new dimensions: helpsteer2-correctness-judge-specificity, cross-dimension-interaction"
+  },
+  "attribution_correlations": null,
+  "improvement": Infinity,
+  "should_stop": true,
+  "stop_reason": "target_judges_reached_1"
+}

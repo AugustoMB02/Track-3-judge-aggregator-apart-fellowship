@@ -1,0 +1,181 @@
+{
+  "iteration": 17,
+  "judge_names": [
+    "helpsteer2-helpfulness-judge-completeness-of-solution",
+    "helpsteer2-correctness-judge-factual-accuracy",
+    "helpsteer2-correctness-judge-grounding-and-non-hallucination",
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing",
+    "helpsteer2-coherence-judge-concision-and-non-redundancy",
+    "helpsteer2-complexity-judge-terminology-density",
+    "helpsteer2-complexity-judge-syntactic-complexity",
+    "helpsteer2-verbosity-judge-minimal-overage"
+  ],
+  "n_judges": 8,
+  "train_metrics": {
+    "mse": 0.27209633076613393,
+    "mae": 0.411197318068666,
+    "r2": 0.35284785974133526,
+    "spearman_rho": 0.502291840473891,
+    "kendall_tau": 0.3704288471935868,
+    "pearson_r": 0.5940110404902899
+  },
+  "test_metrics": {
+    "mse": 0.27516343394109316,
+    "mae": 0.4121344030941023,
+    "r2": 0.35609096097769843,
+    "spearman_rho": 0.5006860948599517,
+    "kendall_tau": 0.36844330739813874,
+    "pearson_r": 0.5969575800664242
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.35609096097769843,
+      "mse": 0.27516343394109316,
+      "mae": 0.4121344030941023,
+      "spearman_rho": 0.5006860948599519,
+      "kendall_tau": 0.36844330739813874,
+      "pearson_r": 0.5969575800664242
+    },
+    "coverage": {
+      "variance_explained": 0.3423082999402284,
+      "coverage_score": 0.3423082999402284
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.406840737915468,
+      "max_pairwise_correlation": 0.7156665686015146,
+      "redundancy_score": 0.5931592620845321,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 3.4574186867214043,
+      "diversity_index": 0.43217733584017554
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.27543137112893223,
+      "entropy": 0.9111149398117124
+    },
+    "composite_score": 0.41596536396406664
+  },
+  "importance_scores": {
+    "helpsteer2-helpfulness-judge-completeness-of-solution": 0.31594757895748016,
+    "helpsteer2-correctness-judge-factual-accuracy": 0.8927125196430794,
+    "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.778272530925621,
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.7693066147677704,
+    "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.513355483877536,
+    "helpsteer2-complexity-judge-terminology-density": 0.6368256721072838,
+    "helpsteer2-complexity-judge-syntactic-complexity": 0.0,
+    "helpsteer2-verbosity-judge-minimal-overage": 1.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [],
+    "overall_error_stats": {
+      "mean_error": 0.0009421715587448691,
+      "std_error": 0.5245593829623554,
+      "mean_abs_error": 0.4121344030941023,
+      "median_abs_error": 0.3391313447659683,
+      "max_abs_error": 2.2023224382309365,
+      "pct_high_error": 30.747786159396522,
+      "skewness": -0.6378679307108355,
+      "kurtosis": 0.5454059911389084
+    },
+    "judge_error_correlations": {
+      "helpsteer2-helpfulness-judge-completeness-of-solution": 0.025831200789943005,
+      "helpsteer2-correctness-judge-factual-accuracy": 0.03809016382823254,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.0029411675685411384,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.022968754750327884,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.009051073797234438,
+      "helpsteer2-complexity-judge-terminology-density": -0.0002856647789810443,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.01774333438882431,
+      "helpsteer2-verbosity-judge-minimal-overage": 0.0060443850830189175
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 30.7% samples with error > 0.5\nMean absolute error: 0.412\nError skewness: -0.638\n\nIdentified 0 gap patterns:"
+  },
+  "attribution_correlations": {
+    "helpsteer2-helpfulness-judge-completeness-of-solution": {
+      "helpsteer2-helpfulness-judge-completeness-of-solution": 1.0,
+      "helpsteer2-correctness-judge-factual-accuracy": -0.10299698191127239,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": -0.12063661978841557,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": -0.17287159389844753,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": -0.09966054151897172,
+      "helpsteer2-complexity-judge-terminology-density": -0.06347711423220055,
+      "helpsteer2-complexity-judge-syntactic-complexity": -0.1709766957194669,
+      "helpsteer2-verbosity-judge-minimal-overage": -0.05291302157555728
+    },
+    "helpsteer2-correctness-judge-factual-accuracy": {
+      "helpsteer2-helpfulness-judge-completeness-of-solution": -0.10299698191127239,
+      "helpsteer2-correctness-judge-factual-accuracy": 1.0,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.6753879325349468,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.6746880873572614,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.505104200731672,
+      "helpsteer2-complexity-judge-terminology-density": 0.2178689651151725,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.3530070883012578,
+      "helpsteer2-verbosity-judge-minimal-overage": 0.1886353373012679
+    },
+    "helpsteer2-correctness-judge-grounding-and-non-hallucination": {
+      "helpsteer2-helpfulness-judge-completeness-of-solution": -0.12063661978841557,
+      "helpsteer2-correctness-judge-factual-accuracy": 0.6753879325349468,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 1.0,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.5731007292848455,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.4770082675160481,
+      "helpsteer2-complexity-judge-terminology-density": 0.20698750030244617,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.34285288562267074,
+      "helpsteer2-verbosity-judge-minimal-overage": 0.15110343838047613
+    },
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing": {
+      "helpsteer2-helpfulness-judge-completeness-of-solution": -0.17287159389844753,
+      "helpsteer2-correctness-judge-factual-accuracy": 0.6746880873572614,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.5731007292848455,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 1.0,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.5791893605262337,
+      "helpsteer2-complexity-judge-terminology-density": 0.23803874351799945,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.49034726100760295,
+      "helpsteer2-verbosity-judge-minimal-overage": 0.2773090473790849
+    },
+    "helpsteer2-coherence-judge-concision-and-non-redundancy": {
+      "helpsteer2-helpfulness-judge-completeness-of-solution": -0.09966054151897172,
+      "helpsteer2-correctness-judge-factual-accuracy": 0.505104200731672,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.4770082675160481,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.5791893605262337,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 1.0,
+      "helpsteer2-complexity-judge-terminology-density": 0.19429682540536217,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.2848597201907111,
+      "helpsteer2-verbosity-judge-minimal-overage": 0.11450235841899291
+    },
+    "helpsteer2-complexity-judge-terminology-density": {
+      "helpsteer2-helpfulness-judge-completeness-of-solution": -0.06347711423220055,
+      "helpsteer2-correctness-judge-factual-accuracy": 0.2178689651151725,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.20698750030244617,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.23803874351799945,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.19429682540536217,
+      "helpsteer2-complexity-judge-terminology-density": 1.0,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.3572288262066304,
+      "helpsteer2-verbosity-judge-minimal-overage": 0.27782702358822425
+    },
+    "helpsteer2-complexity-judge-syntactic-complexity": {
+      "helpsteer2-helpfulness-judge-completeness-of-solution": -0.1709766957194669,
+      "helpsteer2-correctness-judge-factual-accuracy": 0.3530070883012578,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.34285288562267074,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.49034726100760295,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.2848597201907111,
+      "helpsteer2-complexity-judge-terminology-density": 0.3572288262066304,
+      "helpsteer2-complexity-judge-syntactic-complexity": 1.0,
+      "helpsteer2-verbosity-judge-minimal-overage": 0.5819414105507122
+    },
+    "helpsteer2-verbosity-judge-minimal-overage": {
+      "helpsteer2-helpfulness-judge-completeness-of-solution": -0.05291302157555728,
+      "helpsteer2-correctness-judge-factual-accuracy": 0.1886353373012679,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.15110343838047613,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.2773090473790849,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.11450235841899291,
+      "helpsteer2-complexity-judge-terminology-density": 0.27782702358822425,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.5819414105507122,
+      "helpsteer2-verbosity-judge-minimal-overage": 1.0
+    }
+  },
+  "improvement": -0.011333832102194963,
+  "should_stop": false,
+  "stop_reason": null
+}

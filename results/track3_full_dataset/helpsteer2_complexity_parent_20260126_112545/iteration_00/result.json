@@ -1,0 +1,87 @@
+{
+  "iteration": 0,
+  "judge_names": [
+    "helpsteer2-complexity-judge"
+  ],
+  "n_judges": 1,
+  "train_metrics": {
+    "mse": 0.3629262376114484,
+    "mae": 0.467132811611652,
+    "r2": 0.2477749304711543,
+    "spearman_rho": 0.4766763969788751,
+    "kendall_tau": 0.43117413851356023,
+    "pearson_r": 0.4977700139101297
+  },
+  "val_metrics": {
+    "mse": 0.38282383005459253,
+    "mae": 0.4822743432866954,
+    "r2": 0.23137421134811853,
+    "spearman_rho": 0.4539476101321283,
+    "kendall_tau": 0.4098191472128522,
+    "pearson_r": 0.48139540948369786
+  },
+  "test_metrics": {
+    "mse": 0.37441535789490177,
+    "mae": 0.47488840893379747,
+    "r2": 0.2453301721489507,
+    "spearman_rho": 0.46396830828150787,
+    "kendall_tau": 0.4186351640379772,
+    "pearson_r": 0.49552197050332936
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.2453301721489507,
+      "mse": 0.37441535789490177,
+      "mae": 0.47488840893379747,
+      "spearman_rho": 0.46396830828150787,
+      "kendall_tau": 0.4186351640379772,
+      "pearson_r": 0.49552197050332936
+    },
+    "coverage": {
+      "variance_explained": 0.23814374812355277,
+      "coverage_score": 0.23814374812355277
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.0,
+      "max_pairwise_correlation": 0.0,
+      "redundancy_score": 1.0,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.0,
+      "diversity_index": 1.0
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.0,
+      "entropy": 0.0
+    },
+    "composite_score": 0.5457608184842908
+  },
+  "importance_scores": {
+    "helpsteer2-complexity-judge": 0.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [],
+    "overall_error_stats": {
+      "mean_error": 0.01220210228836761,
+      "std_error": 0.6186072572758395,
+      "mean_abs_error": 0.4822743432866954,
+      "median_abs_error": 0.3872959769622075,
+      "max_abs_error": 2.6127040230377925,
+      "pct_high_error": 40.46740467404674,
+      "skewness": 0.18064364116626477,
+      "kurtosis": 0.13156465779046256
+    },
+    "judge_error_correlations": {
+      "helpsteer2-complexity-judge": 0.011236521832880944
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 40.5% samples with error > 0.5\nMean absolute error: 0.482\nError skewness: 0.181\n\nIdentified 0 gap patterns:"
+  },
+  "attribution_correlations": null,
+  "improvement": Infinity,
+  "should_stop": true,
+  "stop_reason": "target_judges_reached_1"
+}

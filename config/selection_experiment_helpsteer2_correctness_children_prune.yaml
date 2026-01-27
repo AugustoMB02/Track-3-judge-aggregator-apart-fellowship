@@ -1,0 +1,31 @@
+# Iterative Selection Config (HelpSteer2 Correctness Children Pruned)
+
+name: "helpsteer2-correctness-children-prune"
+description: "Prune correctness children judges to 3"
+
+initial_judge_file: "judges/helpsteer2/correctness_children.yaml"
+protected_judges: []
+
+data_file: "datasets/helpsteer2_correctness_children_dataset.pkl"
+target_column: "target"
+train_test_split: 0.3
+validation_split: 0.15
+
+max_iterations: 10
+min_judges: 3
+target_judges: 3
+max_judges: 5
+r2_improvement_threshold: 0.0
+plateau_patience: 50
+
+max_correlation: 0.9
+
+proposal_mode: "decompose"
+use_llm_suggestions: false
+llm_model: "openai/gpt-5-nano"
+
+gam_n_splines: 10
+gam_lam: 0.6
+
+output_dir: "results/selection_correctness_children_prune"
+save_intermediate: true

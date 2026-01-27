@@ -1,0 +1,151 @@
+{
+  "iteration": 2,
+  "judge_names": [
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing",
+    "helpsteer2-coherence-judge-concision-and-non-redundancy",
+    "helpsteer2-coherence-judge-structure-and-formatting-support"
+  ],
+  "n_judges": 3,
+  "train_metrics": {
+    "mse": 0.37252051358885774,
+    "mae": 0.4703970268604504,
+    "r2": 0.10654730882946395,
+    "spearman_rho": 0.2436001942218523,
+    "kendall_tau": 0.19787128746645136,
+    "pearson_r": 0.32641737824174394
+  },
+  "val_metrics": {
+    "mse": 0.3663769671850774,
+    "mae": 0.4638399150541938,
+    "r2": 0.08980817106287575,
+    "spearman_rho": 0.2626233625509322,
+    "kendall_tau": 0.21381657030525816,
+    "pearson_r": 0.302717062556787
+  },
+  "test_metrics": {
+    "mse": 0.393565551616732,
+    "mae": 0.4783569712943137,
+    "r2": 0.10211835588187868,
+    "spearman_rho": 0.24806652599317738,
+    "kendall_tau": 0.20166453473837986,
+    "pearson_r": 0.31987359068767074
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.10211835588187868,
+      "mse": 0.393565551616732,
+      "mae": 0.4783569712943137,
+      "spearman_rho": 0.2480665259931774,
+      "kendall_tau": 0.20166453473837984,
+      "pearson_r": 0.31987359068767074
+    },
+    "coverage": {
+      "variance_explained": 0.10544617738170492,
+      "coverage_score": 0.10544617738170492
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.6687651006014983,
+      "max_pairwise_correlation": 0.8276689752472064,
+      "redundancy_score": 0.3312348993985017,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.5834399629754692,
+      "diversity_index": 0.5278133209918231
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.5207296140557183,
+      "entropy": 0.47834827824699383
+    },
+    "composite_score": 0.23374622190715744
+  },
+  "importance_scores": {
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.0,
+    "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.28025495096792113,
+    "helpsteer2-coherence-judge-structure-and-formatting-support": 1.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [
+      {
+        "type": "high_variance",
+        "description": "High error variance when 'helpsteer2-coherence-judge-logical-flow-and-sequencing' scores are low",
+        "severity": 0.528898514320178,
+        "affected_samples": 402,
+        "characteristics": {
+          "judge": "helpsteer2-coherence-judge-logical-flow-and-sequencing",
+          "low_score_error_var": 0.6189155924796294,
+          "high_score_error_var": 0.2825493150964676
+        },
+        "suggested_dimension": "helpsteer2-coherence-judge-logical-flow-and-sequencing-specificity"
+      },
+      {
+        "type": "cluster",
+        "description": "Cluster 1: Model underpredicts for samples with distinctive judge score patterns",
+        "severity": 0.8312311101310833,
+        "affected_samples": 55,
+        "characteristics": {
+          "cluster_id": 1,
+          "mean_error": 0.13984837777577938,
+          "mean_abs_error": 0.7711163350272098,
+          "notable_judges": [
+            [
+              "helpsteer2-coherence-judge-concision-and-non-redundancy",
+              -2.487772559543754
+            ],
+            [
+              "helpsteer2-coherence-judge-structure-and-formatting-support",
+              -2.7266588393156503
+            ],
+            [
+              "helpsteer2-coherence-judge-logical-flow-and-sequencing",
+              -2.9665615565246304
+            ]
+          ]
+        },
+        "suggested_dimension": "cross-dimension-interaction"
+      }
+    ],
+    "overall_error_stats": {
+      "mean_error": 0.018974608360269336,
+      "std_error": 0.604993331717509,
+      "mean_abs_error": 0.4638399150541938,
+      "median_abs_error": 0.29858782189214805,
+      "max_abs_error": 3.7998494693930356,
+      "pct_high_error": 30.38130381303813,
+      "skewness": -1.7910262839001947,
+      "kurtosis": 4.650347997099627
+    },
+    "judge_error_correlations": {
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": -0.028590223335902658,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": -0.04147224931126629,
+      "helpsteer2-coherence-judge-structure-and-formatting-support": -0.02243487254205294
+    },
+    "suggested_dimensions": [
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing-specificity",
+      "cross-dimension-interaction"
+    ],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 30.4% samples with error > 0.5\nMean absolute error: 0.464\nError skewness: -1.791\n\nIdentified 2 gap patterns:\n  1. [high_variance] High error variance when 'helpsteer2-coherence-judge-logical-flow-and-sequencing' scores are low\n     Severity: 0.53, Affected: 402 samples\n  2. [cluster] Cluster 1: Model underpredicts for samples with distinctive judge score patterns\n     Severity: 0.83, Affected: 55 samples\n\nSuggested new dimensions: helpsteer2-coherence-judge-logical-flow-and-sequencing-specificity, cross-dimension-interaction"
+  },
+  "attribution_correlations": {
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing": {
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 1.0,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.6640238184584341,
+      "helpsteer2-coherence-judge-structure-and-formatting-support": -0.45778143011114814
+    },
+    "helpsteer2-coherence-judge-concision-and-non-redundancy": {
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.6640238184584341,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 1.0,
+      "helpsteer2-coherence-judge-structure-and-formatting-support": -0.3668741711337855
+    },
+    "helpsteer2-coherence-judge-structure-and-formatting-support": {
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": -0.45778143011114814,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": -0.3668741711337855,
+      "helpsteer2-coherence-judge-structure-and-formatting-support": 1.0
+    }
+  },
+  "improvement": -0.003178227182905613,
+  "should_stop": true,
+  "stop_reason": "target_judges_reached_3"
+}

@@ -1,0 +1,3 @@
+explanatory-depth-judge-clarity
+clarity-judge-language-appropriateness
+conciseness-judge-content-relevance

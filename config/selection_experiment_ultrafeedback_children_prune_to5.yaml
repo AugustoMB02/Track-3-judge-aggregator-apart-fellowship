@@ -1,0 +1,31 @@
+# Iterative Selection Config (UltraFeedback Children Prune to 5)
+
+name: "ultrafeedback-children-prune-to-5"
+description: "Prune UltraFeedback child judges to 5 using workshop dataset"
+
+initial_judge_file: "experiments/track3_automated_selection/generated_judges/ultrafeedback_children_only.yaml"
+protected_judges: []
+
+data_file: "datasets/ultrafeedback_track3_children_dataset.pkl"
+target_column: "target"
+train_test_split: 0.3
+validation_split: 0.15
+
+max_iterations: 40
+min_judges: 5
+target_judges: 5
+max_judges: 45
+r2_improvement_threshold: 0.0
+plateau_patience: 50
+
+max_correlation: 0.9
+
+proposal_mode: "decompose"
+use_llm_suggestions: false
+llm_model: "openai/gpt-5-nano"
+
+gam_n_splines: 10
+gam_lam: 0.6
+
+output_dir: "results/selection_ultrafeedback_children_prune_to5"
+save_intermediate: true

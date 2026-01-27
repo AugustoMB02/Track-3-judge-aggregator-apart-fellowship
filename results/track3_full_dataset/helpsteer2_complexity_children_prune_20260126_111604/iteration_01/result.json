@@ -1,0 +1,121 @@
+{
+  "iteration": 1,
+  "judge_names": [
+    "helpsteer2-complexity-judge-lexical-sophistication",
+    "helpsteer2-complexity-judge-terminology-density",
+    "helpsteer2-complexity-judge-syntactic-complexity",
+    "helpsteer2-complexity-judge-formalism-and-references"
+  ],
+  "n_judges": 4,
+  "train_metrics": {
+    "mse": 0.33053489847920653,
+    "mae": 0.4523444898404759,
+    "r2": 0.32219433990900526,
+    "spearman_rho": 0.5486606870868016,
+    "kendall_tau": 0.4451945111380245,
+    "pearson_r": 0.5676220343637015
+  },
+  "val_metrics": {
+    "mse": 0.3200683052641655,
+    "mae": 0.4421935820573839,
+    "r2": 0.3216637839865363,
+    "spearman_rho": 0.5472591680724713,
+    "kendall_tau": 0.4439756792328855,
+    "pearson_r": 0.5673943421865948
+  },
+  "test_metrics": {
+    "mse": 0.3382128058505791,
+    "mae": 0.45595480794685467,
+    "r2": 0.30883752323947056,
+    "spearman_rho": 0.537734665269762,
+    "kendall_tau": 0.43514359464664726,
+    "pearson_r": 0.5561457484397336
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.30883752323947056,
+      "mse": 0.3382128058505791,
+      "mae": 0.45595480794685467,
+      "spearman_rho": 0.5377346652697621,
+      "kendall_tau": 0.4351435946466472,
+      "pearson_r": 0.5561457484397336
+    },
+    "coverage": {
+      "variance_explained": 0.2945064299518263,
+      "coverage_score": 0.2945064299518263
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.575847514113866,
+      "max_pairwise_correlation": 0.7923730802239817,
+      "redundancy_score": 0.42415248588613397,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.9320595431827576,
+      "diversity_index": 0.4830148857956894
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.49784574128570225,
+      "entropy": 0.5646716046479674
+    },
+    "composite_score": 0.36386976962251816
+  },
+  "importance_scores": {
+    "helpsteer2-complexity-judge-lexical-sophistication": 0.04304399740355249,
+    "helpsteer2-complexity-judge-terminology-density": 0.8875036029585764,
+    "helpsteer2-complexity-judge-syntactic-complexity": 1.0,
+    "helpsteer2-complexity-judge-formalism-and-references": 0.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [],
+    "overall_error_stats": {
+      "mean_error": -0.009184769197740911,
+      "std_error": 0.5656712342685898,
+      "mean_abs_error": 0.4421935820573839,
+      "median_abs_error": 0.3670981659406496,
+      "max_abs_error": 2.437132673988956,
+      "pct_high_error": 37.30084348641049,
+      "skewness": 0.1776518344325679,
+      "kurtosis": 0.335471971992539
+    },
+    "judge_error_correlations": {
+      "helpsteer2-complexity-judge-lexical-sophistication": -0.03427238578072929,
+      "helpsteer2-complexity-judge-terminology-density": -0.00889609890134614,
+      "helpsteer2-complexity-judge-syntactic-complexity": -0.006412217922406095,
+      "helpsteer2-complexity-judge-formalism-and-references": 0.018545570502700906
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 37.3% samples with error > 0.5\nMean absolute error: 0.442\nError skewness: 0.178\n\nIdentified 0 gap patterns:"
+  },
+  "attribution_correlations": {
+    "helpsteer2-complexity-judge-lexical-sophistication": {
+      "helpsteer2-complexity-judge-lexical-sophistication": 1.0,
+      "helpsteer2-complexity-judge-terminology-density": 0.5845038857612227,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.6334689437761399,
+      "helpsteer2-complexity-judge-formalism-and-references": 0.5018570215355515
+    },
+    "helpsteer2-complexity-judge-terminology-density": {
+      "helpsteer2-complexity-judge-lexical-sophistication": 0.5845038857612227,
+      "helpsteer2-complexity-judge-terminology-density": 1.0,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.3025902608666121,
+      "helpsteer2-complexity-judge-formalism-and-references": 0.5865239719153306
+    },
+    "helpsteer2-complexity-judge-syntactic-complexity": {
+      "helpsteer2-complexity-judge-lexical-sophistication": 0.6334689437761399,
+      "helpsteer2-complexity-judge-terminology-density": 0.3025902608666121,
+      "helpsteer2-complexity-judge-syntactic-complexity": 1.0,
+      "helpsteer2-complexity-judge-formalism-and-references": 0.4090007830302849
+    },
+    "helpsteer2-complexity-judge-formalism-and-references": {
+      "helpsteer2-complexity-judge-lexical-sophistication": 0.5018570215355515,
+      "helpsteer2-complexity-judge-terminology-density": 0.5865239719153306,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.4090007830302849,
+      "helpsteer2-complexity-judge-formalism-and-references": 1.0
+    }
+  },
+  "improvement": 0.0024232181215074755,
+  "should_stop": false,
+  "stop_reason": null
+}

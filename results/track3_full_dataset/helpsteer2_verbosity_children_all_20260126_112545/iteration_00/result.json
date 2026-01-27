@@ -1,0 +1,135 @@
+{
+  "iteration": 0,
+  "judge_names": [
+    "helpsteer2-verbosity-judge-minimal-overage",
+    "helpsteer2-verbosity-judge-structural-expansion",
+    "helpsteer2-verbosity-judge-extras-density",
+    "helpsteer2-verbosity-judge-redundancy",
+    "helpsteer2-verbosity-judge-framing-padding"
+  ],
+  "n_judges": 5,
+  "train_metrics": {
+    "mse": 0.3485226532941553,
+    "mae": 0.4413985569523193,
+    "r2": 0.3766428264428774,
+    "spearman_rho": 0.5646860268269455,
+    "kendall_tau": 0.4598627450183204,
+    "pearson_r": 0.6137125003842242
+  },
+  "val_metrics": {
+    "mse": 0.3780099314385447,
+    "mae": 0.4652211877528152,
+    "r2": 0.36698879385819305,
+    "spearman_rho": 0.5676412014546128,
+    "kendall_tau": 0.4597171626174304,
+    "pearson_r": 0.6065492690492178
+  },
+  "test_metrics": {
+    "mse": 0.3564772384747499,
+    "mae": 0.449115748417591,
+    "r2": 0.40744545238824836,
+    "spearman_rho": 0.5723947596759533,
+    "kendall_tau": 0.46616090991330195,
+    "pearson_r": 0.639429975819185
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.40744545238824836,
+      "mse": 0.3564772384747499,
+      "mae": 0.449115748417591,
+      "spearman_rho": 0.5723947596759533,
+      "kendall_tau": 0.46616090991330195,
+      "pearson_r": 0.639429975819185
+    },
+    "coverage": {
+      "variance_explained": 0.38925662957742757,
+      "coverage_score": 0.38925662957742757
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.3406101885539675,
+      "max_pairwise_correlation": 0.7746803659494043,
+      "redundancy_score": 0.6593898114460325,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 2.862377150598129,
+      "diversity_index": 0.5724754301196258
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.31441105042874073,
+      "entropy": 0.8390588260914511
+    },
+    "composite_score": 0.4872025551839166
+  },
+  "importance_scores": {
+    "helpsteer2-verbosity-judge-minimal-overage": 1.0,
+    "helpsteer2-verbosity-judge-structural-expansion": 0.5387232392794393,
+    "helpsteer2-verbosity-judge-extras-density": 0.5531409141581688,
+    "helpsteer2-verbosity-judge-redundancy": 0.8551863537545528,
+    "helpsteer2-verbosity-judge-framing-padding": 0.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [],
+    "overall_error_stats": {
+      "mean_error": -0.00741874854894796,
+      "std_error": 0.6147803620875607,
+      "mean_abs_error": 0.4652211877528152,
+      "median_abs_error": 0.35561753547058406,
+      "max_abs_error": 2.2447604106123555,
+      "pct_high_error": 38.00738007380074,
+      "skewness": 0.28925772105855435,
+      "kurtosis": 0.6073925675658098
+    },
+    "judge_error_correlations": {
+      "helpsteer2-verbosity-judge-minimal-overage": 0.04458444135090293,
+      "helpsteer2-verbosity-judge-structural-expansion": 0.04311605834375669,
+      "helpsteer2-verbosity-judge-extras-density": 0.04373183727841701,
+      "helpsteer2-verbosity-judge-redundancy": 0.006557702718742318,
+      "helpsteer2-verbosity-judge-framing-padding": -0.039585112405399726
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 38.0% samples with error > 0.5\nMean absolute error: 0.465\nError skewness: 0.289\n\nIdentified 0 gap patterns:"
+  },
+  "attribution_correlations": {
+    "helpsteer2-verbosity-judge-minimal-overage": {
+      "helpsteer2-verbosity-judge-minimal-overage": 1.0,
+      "helpsteer2-verbosity-judge-structural-expansion": 0.5897714387974659,
+      "helpsteer2-verbosity-judge-extras-density": 0.7040155040356665,
+      "helpsteer2-verbosity-judge-redundancy": 0.23480422223580955,
+      "helpsteer2-verbosity-judge-framing-padding": 0.26228303172816764
+    },
+    "helpsteer2-verbosity-judge-structural-expansion": {
+      "helpsteer2-verbosity-judge-minimal-overage": 0.5897714387974659,
+      "helpsteer2-verbosity-judge-structural-expansion": 1.0,
+      "helpsteer2-verbosity-judge-extras-density": 0.7441338211290318,
+      "helpsteer2-verbosity-judge-redundancy": 0.16492971298823275,
+      "helpsteer2-verbosity-judge-framing-padding": 0.07426464243169545
+    },
+    "helpsteer2-verbosity-judge-extras-density": {
+      "helpsteer2-verbosity-judge-minimal-overage": 0.7040155040356665,
+      "helpsteer2-verbosity-judge-structural-expansion": 0.7441338211290318,
+      "helpsteer2-verbosity-judge-extras-density": 1.0,
+      "helpsteer2-verbosity-judge-redundancy": 0.1386917518724896,
+      "helpsteer2-verbosity-judge-framing-padding": 0.10820954637108876
+    },
+    "helpsteer2-verbosity-judge-redundancy": {
+      "helpsteer2-verbosity-judge-minimal-overage": 0.23480422223580955,
+      "helpsteer2-verbosity-judge-structural-expansion": 0.16492971298823275,
+      "helpsteer2-verbosity-judge-extras-density": 0.1386917518724896,
+      "helpsteer2-verbosity-judge-redundancy": 1.0,
+      "helpsteer2-verbosity-judge-framing-padding": 0.30020420852354984
+    },
+    "helpsteer2-verbosity-judge-framing-padding": {
+      "helpsteer2-verbosity-judge-minimal-overage": 0.26228303172816764,
+      "helpsteer2-verbosity-judge-structural-expansion": 0.07426464243169545,
+      "helpsteer2-verbosity-judge-extras-density": 0.10820954637108876,
+      "helpsteer2-verbosity-judge-redundancy": 0.30020420852354984,
+      "helpsteer2-verbosity-judge-framing-padding": 1.0
+    }
+  },
+  "improvement": Infinity,
+  "should_stop": true,
+  "stop_reason": "target_judges_reached_5"
+}

@@ -1,0 +1,37 @@
+{
+  "total_iterations": 4,
+  "final_n_judges": 27,
+  "final_r2": 0.36988072124449034,
+  "best_r2": 0.3711113378642149,
+  "stop_reason": "plateau_detected_after_2_iterations",
+  "iterations": [
+    {
+      "iteration": 0,
+      "n_judges": 30,
+      "test_r2": 0.3711113378642149,
+      "removed": "helpsteer2-complexity-judge",
+      "added": null
+    },
+    {
+      "iteration": 1,
+      "n_judges": 29,
+      "test_r2": 0.3705295054806369,
+      "removed": "helpsteer2-verbosity-judge-framing-padding",
+      "added": null
+    },
+    {
+      "iteration": 2,
+      "n_judges": 28,
+      "test_r2": 0.3699335245534152,
+      "removed": "helpsteer2-verbosity-judge-redundancy",
+      "added": null
+    },
+    {
+      "iteration": 3,
+      "n_judges": 27,
+      "test_r2": 0.36988072124449034,
+      "removed": null,
+      "added": null
+    }
+  ]
+}

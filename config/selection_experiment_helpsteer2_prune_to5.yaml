@@ -1,0 +1,40 @@
+# Iterative Judge Selection Experiment Configuration (HelpSteer2 Prune to 5)
+
+name: "iterative-selection-helpsteer2-prune-to-5"
+description: "Prune HelpSteer2 full judge set to 5 judges"
+
+# Initial judge set configuration (children only)
+initial_judge_file: "judges/helpsteer2/depth_1_children.yaml"
+
+# No protected judges when pruning children-only set
+protected_judges: []
+
+# Data configuration
+data_file: "datasets/helpsteer2_track3_children_dataset.pkl"
+target_column: "target"
+train_test_split: 0.3
+validation_split: 0.15
+
+# Stopping criteria
+max_iterations: 30
+min_judges: 5
+target_judges: 5
+max_judges: 30
+r2_improvement_threshold: 0.0
+plateau_patience: 50
+
+# Redundancy control
+max_correlation: 0.9
+
+# Judge proposal settings
+proposal_mode: "decompose"
+use_llm_suggestions: false
+llm_model: "openai/gpt-5-nano"
+
+# GAM hyperparameters (from Track 2 tuning)
+gam_n_splines: 10
+gam_lam: 0.6
+
+# Output configuration
+output_dir: "results/selection_prune_to5"
+save_intermediate: true

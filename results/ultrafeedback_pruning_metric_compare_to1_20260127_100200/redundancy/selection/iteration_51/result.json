@@ -1,0 +1,133 @@
+{
+  "iteration": 51,
+  "judge_names": [
+    "harmlessness-judge-privacy-protection",
+    "harmlessness-judge-refusal-effectiveness",
+    "honesty-judge-admission_of_uncertainty",
+    "instruction-following-judge-format-adherence"
+  ],
+  "n_judges": 4,
+  "train_metrics": {
+    "mse": 3.7269617762896132,
+    "mae": 1.4891664137120464,
+    "r2": 0.4569261105622491,
+    "spearman_rho": 0.6368972558691697,
+    "kendall_tau": 0.4649186781572255,
+    "pearson_r": 0.6759723785229168
+  },
+  "val_metrics": {
+    "mse": 3.8508499172982433,
+    "mae": 1.4688444564434149,
+    "r2": 0.4711362821131916,
+    "spearman_rho": 0.660122945871938,
+    "kendall_tau": 0.4835453191509729,
+    "pearson_r": 0.689222083880163
+  },
+  "test_metrics": {
+    "mse": 3.6484203894578076,
+    "mae": 1.4961420031941806,
+    "r2": 0.4776677775019511,
+    "spearman_rho": 0.6614439157355214,
+    "kendall_tau": 0.48317654827862094,
+    "pearson_r": 0.6931871976033618
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.4776677775019511,
+      "mse": 3.6484203894578076,
+      "mae": 1.4961420031941806,
+      "spearman_rho": 0.6614439157355215,
+      "kendall_tau": 0.4831765482786209,
+      "pearson_r": 0.6931871976033618
+    },
+    "coverage": {
+      "variance_explained": 0.41957660438961,
+      "coverage_score": 0.41957660438961
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.23412608609016008,
+      "max_pairwise_correlation": 0.3755744043849345,
+      "redundancy_score": 0.7658739139098399,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 2.5639845121733655,
+      "diversity_index": 0.6409961280433414
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.42914903834593865,
+      "entropy": 0.7062032071732752
+    },
+    "composite_score": 0.5563564402693387
+  },
+  "importance_scores": {
+    "harmlessness-judge-privacy-protection": 0.80712453503593,
+    "harmlessness-judge-refusal-effectiveness": 1.0,
+    "honesty-judge-admission_of_uncertainty": 0.0,
+    "instruction-following-judge-format-adherence": 0.2595238559632947
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [
+      {
+        "type": "systematic_over",
+        "description": "Model systematically overpredicts by 0.165 on average",
+        "severity": 0.0824341007440104,
+        "affected_samples": 79,
+        "characteristics": {
+          "mean_overprediction": 0.1648682014880208,
+          "std": 1.9554202600557122
+        },
+        "suggested_dimension": "critical-evaluation"
+      }
+    ],
+    "overall_error_stats": {
+      "mean_error": -0.1648682014880208,
+      "std_error": 1.9554202600557122,
+      "mean_abs_error": 1.4688444564434149,
+      "median_abs_error": 1.073682763861114,
+      "max_abs_error": 7.672610991029305,
+      "pct_high_error": 75.23809523809524,
+      "skewness": -0.7447565924362831,
+      "kurtosis": 0.8604676352031202
+    },
+    "judge_error_correlations": {
+      "harmlessness-judge-privacy-protection": 0.006382485164967436,
+      "harmlessness-judge-refusal-effectiveness": 0.06039661460245323,
+      "honesty-judge-admission_of_uncertainty": 0.03191409648851984,
+      "instruction-following-judge-format-adherence": 0.06433187493903678
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 75.2% samples with error > 0.5\nMean absolute error: 1.469\nError skewness: -0.745\n\nIdentified 1 gap patterns:\n  1. [systematic_over] Model systematically overpredicts by 0.165 on average\n     Severity: 0.08, Affected: 79 samples"
+  },
+  "attribution_correlations": {
+    "harmlessness-judge-privacy-protection": {
+      "harmlessness-judge-privacy-protection": 1.0,
+      "harmlessness-judge-refusal-effectiveness": 0.29584096435682794,
+      "honesty-judge-admission_of_uncertainty": 0.2458517950057109,
+      "instruction-following-judge-format-adherence": 0.1477352963964751
+    },
+    "harmlessness-judge-refusal-effectiveness": {
+      "harmlessness-judge-privacy-protection": 0.29584096435682794,
+      "harmlessness-judge-refusal-effectiveness": 1.0,
+      "honesty-judge-admission_of_uncertainty": 0.14562283325221853,
+      "instruction-following-judge-format-adherence": 0.25728653529381607
+    },
+    "honesty-judge-admission_of_uncertainty": {
+      "harmlessness-judge-privacy-protection": 0.2458517950057109,
+      "harmlessness-judge-refusal-effectiveness": 0.14562283325221853,
+      "honesty-judge-admission_of_uncertainty": 1.0,
+      "instruction-following-judge-format-adherence": 0.13578766592541683
+    },
+    "instruction-following-judge-format-adherence": {
+      "harmlessness-judge-privacy-protection": 0.1477352963964751,
+      "harmlessness-judge-refusal-effectiveness": 0.25728653529381607,
+      "honesty-judge-admission_of_uncertainty": 0.13578766592541683,
+      "instruction-following-judge-format-adherence": 1.0
+    }
+  },
+  "improvement": -0.23267900553090037,
+  "should_stop": false,
+  "stop_reason": null
+}

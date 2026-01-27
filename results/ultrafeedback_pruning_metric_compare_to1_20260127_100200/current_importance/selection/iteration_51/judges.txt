@@ -1,0 +1,4 @@
+truthfulness-judge-factual-accuracy
+clarity-judge-conceptual clarity
+conciseness-judge-wording-efficiency
+logical-consistency-judge-validity-and-soundness

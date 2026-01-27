@@ -1,0 +1,109 @@
+{
+  "iteration": 2,
+  "judge_names": [
+    "helpsteer2-correctness-judge-factual-accuracy",
+    "helpsteer2-correctness-judge-grounding-and-non-hallucination",
+    "helpsteer2-correctness-judge-uncertainty-handling"
+  ],
+  "n_judges": 3,
+  "train_metrics": {
+    "mse": 1.2116472357997996,
+    "mae": 0.880245228476437,
+    "r2": 0.24506252272516416,
+    "spearman_rho": 0.3747160351496181,
+    "kendall_tau": 0.2933476434127045,
+    "pearson_r": 0.4950382105608511
+  },
+  "val_metrics": {
+    "mse": 1.2348210671736335,
+    "mae": 0.8898757334410049,
+    "r2": 0.24077341767151716,
+    "spearman_rho": 0.38786897264633186,
+    "kendall_tau": 0.3028593472923052,
+    "pearson_r": 0.4919415926504389
+  },
+  "test_metrics": {
+    "mse": 1.2208743404675035,
+    "mae": 0.8817543852528062,
+    "r2": 0.25850518062708727,
+    "spearman_rho": 0.3949033875511163,
+    "kendall_tau": 0.3091117591343957,
+    "pearson_r": 0.5087945279389339
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.25850518062708727,
+      "mse": 1.2208743404675035,
+      "mae": 0.8817543852528062,
+      "spearman_rho": 0.39490338755111637,
+      "kendall_tau": 0.3091117591343957,
+      "pearson_r": 0.5087945279389339
+    },
+    "coverage": {
+      "variance_explained": 0.2500084816568122,
+      "coverage_score": 0.2500084816568122
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.6407980456477312,
+      "max_pairwise_correlation": 0.7095753828253352,
+      "redundancy_score": 0.35920195435226876,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.6387715687375732,
+      "diversity_index": 0.5462571895791911
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.4633128742360333,
+      "entropy": 0.5598578634486366
+    },
+    "composite_score": 0.3344955973684894
+  },
+  "importance_scores": {
+    "helpsteer2-correctness-judge-factual-accuracy": 1.0,
+    "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.0,
+    "helpsteer2-correctness-judge-uncertainty-handling": 0.43891245764960585
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [],
+    "overall_error_stats": {
+      "mean_error": -0.04439768283858845,
+      "std_error": 1.1103377472337854,
+      "mean_abs_error": 0.8898757334410049,
+      "median_abs_error": 0.6997089777538443,
+      "max_abs_error": 3.452616747102822,
+      "pct_high_error": 74.16974169741697,
+      "skewness": -0.7347188572904559,
+      "kurtosis": 0.33994321546268225
+    },
+    "judge_error_correlations": {
+      "helpsteer2-correctness-judge-factual-accuracy": 0.009471991245481209,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": -0.0007013750856727022,
+      "helpsteer2-correctness-judge-uncertainty-handling": -0.012702293832193217
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 74.2% samples with error > 0.5\nMean absolute error: 0.890\nError skewness: -0.735\n\nIdentified 0 gap patterns:"
+  },
+  "attribution_correlations": {
+    "helpsteer2-correctness-judge-factual-accuracy": {
+      "helpsteer2-correctness-judge-factual-accuracy": 1.0,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.7250891379937404,
+      "helpsteer2-correctness-judge-uncertainty-handling": 0.5232091143548213
+    },
+    "helpsteer2-correctness-judge-grounding-and-non-hallucination": {
+      "helpsteer2-correctness-judge-factual-accuracy": 0.7250891379937404,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 1.0,
+      "helpsteer2-correctness-judge-uncertainty-handling": 0.5796975885674008
+    },
+    "helpsteer2-correctness-judge-uncertainty-handling": {
+      "helpsteer2-correctness-judge-factual-accuracy": 0.5232091143548213,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.5796975885674008,
+      "helpsteer2-correctness-judge-uncertainty-handling": 1.0
+    }
+  },
+  "improvement": -0.006669744621886298,
+  "should_stop": true,
+  "stop_reason": "target_judges_reached_3"
+}

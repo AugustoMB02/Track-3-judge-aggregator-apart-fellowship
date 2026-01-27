@@ -1,0 +1,135 @@
+{
+  "iteration": 53,
+  "judge_names": [
+    "instruction-following-judge-attention-to-detail",
+    "conciseness-judge-wording-efficiency"
+  ],
+  "n_judges": 2,
+  "train_metrics": {
+    "mse": 1.9957337227869982,
+    "mae": 0.9956303953637865,
+    "r2": 0.7091918457518961,
+    "spearman_rho": 0.7809600724135993,
+    "kendall_tau": 0.6361804887456182,
+    "pearson_r": 0.8421354541202343
+  },
+  "val_metrics": {
+    "mse": 2.3310291197912703,
+    "mae": 1.080010237597388,
+    "r2": 0.6798637305345424,
+    "spearman_rho": 0.8123962833674622,
+    "kendall_tau": 0.6690114739160069,
+    "pearson_r": 0.8287421854248151
+  },
+  "test_metrics": {
+    "mse": 1.7664116495772904,
+    "mae": 0.9491525730344068,
+    "r2": 0.7471087143805633,
+    "spearman_rho": 0.8018371899745972,
+    "kendall_tau": 0.6536719330712588,
+    "pearson_r": 0.8650927650449007
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.7471087143805633,
+      "mse": 1.7664116495772904,
+      "mae": 0.9491525730344068,
+      "spearman_rho": 0.8018371899745971,
+      "kendall_tau": 0.6536719330712588,
+      "pearson_r": 0.8650927650449007
+    },
+    "coverage": {
+      "variance_explained": 0.7520045481419828,
+      "coverage_score": 0.7520045481419828
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.7962649888273013,
+      "max_pairwise_correlation": 0.7962649888273013,
+      "redundancy_score": 0.20373501117269865,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.2010612173319029,
+      "diversity_index": 0.6005306086659514
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.4999999999,
+      "entropy": 3.221928094257404e-09
+    },
+    "composite_score": 0.610097519348352
+  },
+  "importance_scores": {
+    "instruction-following-judge-attention-to-detail": 1.0,
+    "conciseness-judge-wording-efficiency": 0.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [
+      {
+        "type": "systematic_over",
+        "description": "Model systematically overpredicts by 0.205 on average",
+        "severity": 0.10228835450620757,
+        "affected_samples": 84,
+        "characteristics": {
+          "mean_overprediction": 0.20457670901241515,
+          "std": 1.5130028056553364
+        },
+        "suggested_dimension": "critical-evaluation"
+      },
+      {
+        "type": "cluster",
+        "description": "Cluster 2: Model overpredicts for samples with distinctive judge score patterns",
+        "severity": 0.7596899903132949,
+        "affected_samples": 50,
+        "characteristics": {
+          "cluster_id": 2,
+          "mean_error": -0.10923230674521343,
+          "mean_abs_error": 1.6409459338772379,
+          "notable_judges": [
+            [
+              "conciseness-judge-wording-efficiency",
+              -0.332095238095238
+            ],
+            [
+              "instruction-following-judge-attention-to-detail",
+              -1.2661904761904759
+            ]
+          ]
+        },
+        "suggested_dimension": "cross-dimension-interaction"
+      }
+    ],
+    "overall_error_stats": {
+      "mean_error": -0.20457670901241515,
+      "std_error": 1.5130028056553364,
+      "mean_abs_error": 1.080010237597388,
+      "median_abs_error": 0.8139690237925112,
+      "max_abs_error": 8.10676852058879,
+      "pct_high_error": 67.61904761904762,
+      "skewness": -0.981928476245823,
+      "kurtosis": 5.606837487363723
+    },
+    "judge_error_correlations": {
+      "instruction-following-judge-attention-to-detail": -0.07848391360876676,
+      "conciseness-judge-wording-efficiency": -0.04734773304703734
+    },
+    "suggested_dimensions": [
+      "cross-dimension-interaction"
+    ],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 67.6% samples with error > 0.5\nMean absolute error: 1.080\nError skewness: -0.982\n\nIdentified 2 gap patterns:\n  1. [systematic_over] Model systematically overpredicts by 0.205 on average\n     Severity: 0.10, Affected: 84 samples\n  2. [cluster] Cluster 2: Model overpredicts for samples with distinctive judge score patterns\n     Severity: 0.76, Affected: 50 samples\n\nSuggested new dimensions: cross-dimension-interaction"
+  },
+  "attribution_correlations": {
+    "instruction-following-judge-attention-to-detail": {
+      "instruction-following-judge-attention-to-detail": 1.0,
+      "conciseness-judge-wording-efficiency": 0.843071866905175
+    },
+    "conciseness-judge-wording-efficiency": {
+      "instruction-following-judge-attention-to-detail": 0.843071866905175,
+      "conciseness-judge-wording-efficiency": 1.0
+    }
+  },
+  "improvement": 0.0007000654974862464,
+  "should_stop": false,
+  "stop_reason": null
+}

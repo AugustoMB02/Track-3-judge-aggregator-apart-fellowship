@@ -1,0 +1,30 @@
+{
+  "total_iterations": 3,
+  "final_n_judges": 3,
+  "final_r2": 0.10211835588187868,
+  "best_r2": 0.09298639824578137,
+  "stop_reason": "target_judges_reached_3",
+  "iterations": [
+    {
+      "iteration": 0,
+      "n_judges": 5,
+      "test_r2": 0.11075366638272022,
+      "removed": "helpsteer2-coherence-judge-referential-clarity-and-terminology",
+      "added": null
+    },
+    {
+      "iteration": 1,
+      "n_judges": 4,
+      "test_r2": 0.1100160832062077,
+      "removed": "helpsteer2-coherence-judge-internal-consistency",
+      "added": null
+    },
+    {
+      "iteration": 2,
+      "n_judges": 3,
+      "test_r2": 0.10211835588187868,
+      "removed": null,
+      "added": null
+    }
+  ]
+}

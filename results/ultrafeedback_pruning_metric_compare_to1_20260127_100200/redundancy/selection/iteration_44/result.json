@@ -1,0 +1,289 @@
+{
+  "iteration": 44,
+  "judge_names": [
+    "truthfulness-judge-source-reliability",
+    "harmlessness-judge",
+    "harmlessness-judge-content-safety",
+    "harmlessness-judge-privacy-protection",
+    "harmlessness-judge-refusal-effectiveness",
+    "honesty-judge-disclosure_transparency",
+    "honesty-judge-admission_of_uncertainty",
+    "explanatory-depth-judge-supportiveness",
+    "instruction-following-judge-format-adherence",
+    "conciseness-judge",
+    "creativity-judge-imaginative-problem-solving"
+  ],
+  "n_judges": 11,
+  "train_metrics": {
+    "mse": 2.184933065220367,
+    "mae": 1.065567322665104,
+    "r2": 0.6816226811234767,
+    "spearman_rho": 0.75123537210629,
+    "kendall_tau": 0.5774908496888898,
+    "pearson_r": 0.8256125690282408
+  },
+  "val_metrics": {
+    "mse": 2.4788732410848837,
+    "mae": 1.1013258126296237,
+    "r2": 0.6595592800017347,
+    "spearman_rho": 0.7700304119311303,
+    "kendall_tau": 0.5918225146933462,
+    "pearson_r": 0.8135722444497748
+  },
+  "test_metrics": {
+    "mse": 2.247543286404716,
+    "mae": 1.077880026156091,
+    "r2": 0.6782266968629656,
+    "spearman_rho": 0.7383792677966001,
+    "kendall_tau": 0.5639177175326479,
+    "pearson_r": 0.8236377223413194
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.6782266968629656,
+      "mse": 2.247543286404716,
+      "mae": 1.077880026156091,
+      "spearman_rho": 0.7383792677966001,
+      "kendall_tau": 0.5639177175326477,
+      "pearson_r": 0.8236377223413194
+    },
+    "coverage": {
+      "variance_explained": 0.6936799199712598,
+      "coverage_score": 0.6936799199712598
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.3444799299151295,
+      "max_pairwise_correlation": 0.8246461303188624,
+      "redundancy_score": 0.6555200700848705,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 4.215702205218323,
+      "diversity_index": 0.38324565501984753
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.6746938103896192,
+      "entropy": 0.6420957137290297
+    },
+    "composite_score": 0.6177798077603819
+  },
+  "importance_scores": {
+    "truthfulness-judge-source-reliability": 0.02555091566830165,
+    "harmlessness-judge": 0.31468838666490256,
+    "harmlessness-judge-content-safety": 0.0708696564207548,
+    "harmlessness-judge-privacy-protection": 0.0,
+    "harmlessness-judge-refusal-effectiveness": 0.05194730114520704,
+    "honesty-judge-disclosure_transparency": 0.011288078072624594,
+    "honesty-judge-admission_of_uncertainty": 0.04990523794970003,
+    "explanatory-depth-judge-supportiveness": 0.3506589496936183,
+    "instruction-following-judge-format-adherence": 0.12959857674729863,
+    "conciseness-judge": 1.0,
+    "creativity-judge-imaginative-problem-solving": 0.013746680278861492
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [
+      {
+        "type": "high_variance",
+        "description": "High error variance when 'explanatory-depth-judge-supportiveness' scores are low",
+        "severity": 0.6616757251999008,
+        "affected_samples": 80,
+        "characteristics": {
+          "judge": "explanatory-depth-judge-supportiveness",
+          "low_score_error_var": 4.033424655810913,
+          "high_score_error_var": 1.5139431122368754
+        },
+        "suggested_dimension": "explanatory-depth-judge-supportiveness-specificity"
+      },
+      {
+        "type": "high_variance",
+        "description": "High error variance when 'creativity-judge-imaginative-problem-solving' scores are low",
+        "severity": 0.541213034713388,
+        "affected_samples": 88,
+        "characteristics": {
+          "judge": "creativity-judge-imaginative-problem-solving",
+          "low_score_error_var": 3.603748698871483,
+          "high_score_error_var": 1.6546627426388263
+        },
+        "suggested_dimension": "creativity-judge-imaginative-problem-solving-specificity"
+      }
+    ],
+    "overall_error_stats": {
+      "mean_error": -0.07081297977954429,
+      "std_error": 1.5728505214989839,
+      "mean_abs_error": 1.1013258126296237,
+      "median_abs_error": 0.8294939362530682,
+      "max_abs_error": 7.409432284791148,
+      "pct_high_error": 66.66666666666666,
+      "skewness": -1.11551226233346,
+      "kurtosis": 3.7104664650544956
+    },
+    "judge_error_correlations": {
+      "truthfulness-judge-source-reliability": -0.12162632805134059,
+      "harmlessness-judge": -0.008294062120687892,
+      "harmlessness-judge-content-safety": -0.07541434973144986,
+      "harmlessness-judge-privacy-protection": -0.04176216453195358,
+      "harmlessness-judge-refusal-effectiveness": 0.014686851802509487,
+      "honesty-judge-disclosure_transparency": 0.019362111222242375,
+      "honesty-judge-admission_of_uncertainty": -0.010333894583879615,
+      "explanatory-depth-judge-supportiveness": 0.06917467394945266,
+      "instruction-following-judge-format-adherence": 0.02380590980237076,
+      "conciseness-judge": -0.08817893639035573,
+      "creativity-judge-imaginative-problem-solving": 0.0433997641575686
+    },
+    "suggested_dimensions": [
+      "explanatory-depth-judge-supportiveness-specificity",
+      "creativity-judge-imaginative-problem-solving-specificity"
+    ],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 66.7% samples with error > 0.5\nMean absolute error: 1.101\nError skewness: -1.116\n\nIdentified 2 gap patterns:\n  1. [high_variance] High error variance when 'explanatory-depth-judge-supportiveness' scores are low\n     Severity: 0.66, Affected: 80 samples\n  2. [high_variance] High error variance when 'creativity-judge-imaginative-problem-solving' scores are low\n     Severity: 0.54, Affected: 88 samples\n\nSuggested new dimensions: explanatory-depth-judge-supportiveness-specificity, creativity-judge-imaginative-problem-solving-specificity"
+  },
+  "attribution_correlations": {
+    "truthfulness-judge-source-reliability": {
+      "truthfulness-judge-source-reliability": 1.0,
+      "harmlessness-judge": 0.2865402021449643,
+      "harmlessness-judge-content-safety": 0.2701562517096838,
+      "harmlessness-judge-privacy-protection": 0.1279066456664652,
+      "harmlessness-judge-refusal-effectiveness": 0.2758968675710995,
+      "honesty-judge-disclosure_transparency": -0.07744327365664495,
+      "honesty-judge-admission_of_uncertainty": 0.30293491283835466,
+      "explanatory-depth-judge-supportiveness": 0.4052729630935721,
+      "instruction-following-judge-format-adherence": 0.2755140250278279,
+      "conciseness-judge": 0.4582630994544773,
+      "creativity-judge-imaginative-problem-solving": -0.23574519363940902
+    },
+    "harmlessness-judge": {
+      "truthfulness-judge-source-reliability": 0.2865402021449643,
+      "harmlessness-judge": 1.0,
+      "harmlessness-judge-content-safety": 0.3222226488590017,
+      "harmlessness-judge-privacy-protection": 0.35203441139755415,
+      "harmlessness-judge-refusal-effectiveness": 0.4035517231969273,
+      "honesty-judge-disclosure_transparency": -0.009007597530772116,
+      "honesty-judge-admission_of_uncertainty": 0.33579637274985996,
+      "explanatory-depth-judge-supportiveness": 0.34611082286864747,
+      "instruction-following-judge-format-adherence": 0.1477647958779227,
+      "conciseness-judge": 0.4245802042482754,
+      "creativity-judge-imaginative-problem-solving": -0.31863235012898167
+    },
+    "harmlessness-judge-content-safety": {
+      "truthfulness-judge-source-reliability": 0.2701562517096838,
+      "harmlessness-judge": 0.3222226488590017,
+      "harmlessness-judge-content-safety": 1.0,
+      "harmlessness-judge-privacy-protection": -0.11183756138178666,
+      "harmlessness-judge-refusal-effectiveness": 0.2136896024607433,
+      "honesty-judge-disclosure_transparency": 0.008122734350509184,
+      "honesty-judge-admission_of_uncertainty": 0.20683815624641283,
+      "explanatory-depth-judge-supportiveness": 0.3543020509286,
+      "instruction-following-judge-format-adherence": 0.21869875640872696,
+      "conciseness-judge": 0.34260947506212075,
+      "creativity-judge-imaginative-problem-solving": -0.16448602307231838
+    },
+    "harmlessness-judge-privacy-protection": {
+      "truthfulness-judge-source-reliability": 0.1279066456664652,
+      "harmlessness-judge": 0.35203441139755415,
+      "harmlessness-judge-content-safety": -0.11183756138178666,
+      "harmlessness-judge-privacy-protection": 1.0,
+      "harmlessness-judge-refusal-effectiveness": 0.06989447069345935,
+      "honesty-judge-disclosure_transparency": -0.050974322806084396,
+      "honesty-judge-admission_of_uncertainty": 0.1706401668353667,
+      "explanatory-depth-judge-supportiveness": 0.10386638970954104,
+      "instruction-following-judge-format-adherence": 0.07568722422780899,
+      "conciseness-judge": 0.3346494951816549,
+      "creativity-judge-imaginative-problem-solving": -0.18304346167913238
+    },
+    "harmlessness-judge-refusal-effectiveness": {
+      "truthfulness-judge-source-reliability": 0.2758968675710995,
+      "harmlessness-judge": 0.4035517231969273,
+      "harmlessness-judge-content-safety": 0.2136896024607433,
+      "harmlessness-judge-privacy-protection": 0.06989447069345935,
+      "harmlessness-judge-refusal-effectiveness": 1.0,
+      "honesty-judge-disclosure_transparency": 0.05401494997225547,
+      "honesty-judge-admission_of_uncertainty": 0.2367914759653915,
+      "explanatory-depth-judge-supportiveness": 0.3281630300412065,
+      "instruction-following-judge-format-adherence": 0.2800763957328043,
+      "conciseness-judge": 0.2816805908216634,
+      "creativity-judge-imaginative-problem-solving": -0.15320770477330625
+    },
+    "honesty-judge-disclosure_transparency": {
+      "truthfulness-judge-source-reliability": -0.07744327365664495,
+      "harmlessness-judge": -0.009007597530772116,
+      "harmlessness-judge-content-safety": 0.008122734350509184,
+      "harmlessness-judge-privacy-protection": -0.050974322806084396,
+      "harmlessness-judge-refusal-effectiveness": 0.05401494997225547,
+      "honesty-judge-disclosure_transparency": 1.0,
+      "honesty-judge-admission_of_uncertainty": 0.07428944459191303,
+      "explanatory-depth-judge-supportiveness": 0.0019171486913073695,
+      "instruction-following-judge-format-adherence": 0.031084707951414128,
+      "conciseness-judge": 0.011080358539878887,
+      "creativity-judge-imaginative-problem-solving": -0.0427944531757493
+    },
+    "honesty-judge-admission_of_uncertainty": {
+      "truthfulness-judge-source-reliability": 0.30293491283835466,
+      "harmlessness-judge": 0.33579637274985996,
+      "harmlessness-judge-content-safety": 0.20683815624641283,
+      "harmlessness-judge-privacy-protection": 0.1706401668353667,
+      "harmlessness-judge-refusal-effectiveness": 0.2367914759653915,
+      "honesty-judge-disclosure_transparency": 0.07428944459191303,
+      "honesty-judge-admission_of_uncertainty": 1.0,
+      "explanatory-depth-judge-supportiveness": 0.26760293874711605,
+      "instruction-following-judge-format-adherence": 0.061414684618197726,
+      "conciseness-judge": 0.23483941188093346,
+      "creativity-judge-imaginative-problem-solving": -0.29562338132509647
+    },
+    "explanatory-depth-judge-supportiveness": {
+      "truthfulness-judge-source-reliability": 0.4052729630935721,
+      "harmlessness-judge": 0.34611082286864747,
+      "harmlessness-judge-content-safety": 0.3543020509286,
+      "harmlessness-judge-privacy-protection": 0.10386638970954104,
+      "harmlessness-judge-refusal-effectiveness": 0.3281630300412065,
+      "honesty-judge-disclosure_transparency": 0.0019171486913073695,
+      "honesty-judge-admission_of_uncertainty": 0.26760293874711605,
+      "explanatory-depth-judge-supportiveness": 1.0,
+      "instruction-following-judge-format-adherence": 0.39886536794272665,
+      "conciseness-judge": 0.38862584753180607,
+      "creativity-judge-imaginative-problem-solving": -0.686509548836425
+    },
+    "instruction-following-judge-format-adherence": {
+      "truthfulness-judge-source-reliability": 0.2755140250278279,
+      "harmlessness-judge": 0.1477647958779227,
+      "harmlessness-judge-content-safety": 0.21869875640872696,
+      "harmlessness-judge-privacy-protection": 0.07568722422780899,
+      "harmlessness-judge-refusal-effectiveness": 0.2800763957328043,
+      "honesty-judge-disclosure_transparency": 0.031084707951414128,
+      "honesty-judge-admission_of_uncertainty": 0.061414684618197726,
+      "explanatory-depth-judge-supportiveness": 0.39886536794272665,
+      "instruction-following-judge-format-adherence": 1.0,
+      "conciseness-judge": 0.3877050884503746,
+      "creativity-judge-imaginative-problem-solving": -0.19111819833011923
+    },
+    "conciseness-judge": {
+      "truthfulness-judge-source-reliability": 0.4582630994544773,
+      "harmlessness-judge": 0.4245802042482754,
+      "harmlessness-judge-content-safety": 0.34260947506212075,
+      "harmlessness-judge-privacy-protection": 0.3346494951816549,
+      "harmlessness-judge-refusal-effectiveness": 0.2816805908216634,
+      "honesty-judge-disclosure_transparency": 0.011080358539878887,
+      "honesty-judge-admission_of_uncertainty": 0.23483941188093346,
+      "explanatory-depth-judge-supportiveness": 0.38862584753180607,
+      "instruction-following-judge-format-adherence": 0.3877050884503746,
+      "conciseness-judge": 1.0,
+      "creativity-judge-imaginative-problem-solving": -0.35482941387961947
+    },
+    "creativity-judge-imaginative-problem-solving": {
+      "truthfulness-judge-source-reliability": -0.23574519363940902,
+      "harmlessness-judge": -0.31863235012898167,
+      "harmlessness-judge-content-safety": -0.16448602307231838,
+      "harmlessness-judge-privacy-protection": -0.18304346167913238,
+      "harmlessness-judge-refusal-effectiveness": -0.15320770477330625,
+      "honesty-judge-disclosure_transparency": -0.0427944531757493,
+      "honesty-judge-admission_of_uncertainty": -0.29562338132509647,
+      "explanatory-depth-judge-supportiveness": -0.686509548836425,
+      "instruction-following-judge-format-adherence": -0.19111819833011923,
+      "conciseness-judge": -0.35482941387961947,
+      "creativity-judge-imaginative-problem-solving": 1.0
+    }
+  },
+  "improvement": -0.044256007642357265,
+  "should_stop": false,
+  "stop_reason": null
+}

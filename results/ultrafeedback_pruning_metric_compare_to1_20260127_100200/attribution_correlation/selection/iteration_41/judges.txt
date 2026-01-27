@@ -1,0 +1,14 @@
+truthfulness-judge-factual-accuracy
+helpfulness-judge-completeness
+honesty-judge
+honesty-judge-accuracy_of_capability_representation
+explanatory-depth-judge-contextualization
+instruction-following-judge-task-focus
+instruction-following-judge-attention-to-detail
+clarity-judge-conceptual clarity
+clarity-judge-accessibility
+clarity-judge-coherence
+conciseness-judge
+conciseness-judge-wording-efficiency
+logical-consistency-judge-validity-and-soundness
+creativity-judge-relevance-and-balance

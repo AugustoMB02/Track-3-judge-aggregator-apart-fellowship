@@ -1,0 +1,14 @@
+helpsteer2-helpfulness-judge-actionability-and-specificity
+helpsteer2-helpfulness-judge-completeness-of-solution
+helpsteer2-correctness-judge-factual-accuracy
+helpsteer2-correctness-judge-grounding-and-non-hallucination
+helpsteer2-correctness-judge-procedural-correctness
+helpsteer2-coherence-judge-logical-flow-and-sequencing
+helpsteer2-coherence-judge-internal-consistency
+helpsteer2-coherence-judge-referential-clarity-and-terminology
+helpsteer2-coherence-judge-concision-and-non-redundancy
+helpsteer2-coherence-judge-structure-and-formatting-support
+helpsteer2-complexity-judge-terminology-density
+helpsteer2-complexity-judge-syntactic-complexity
+helpsteer2-complexity-judge-assumed-knowledge
+helpsteer2-verbosity-judge-minimal-overage

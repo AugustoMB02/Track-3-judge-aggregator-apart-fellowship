@@ -1,0 +1,156 @@
+{
+  "total_iterations": 21,
+  "final_n_judges": 5,
+  "final_r2": 0.337749524142988,
+  "best_r2": 0.3674247930798934,
+  "stop_reason": "target_judges_reached_5",
+  "iterations": [
+    {
+      "iteration": 0,
+      "n_judges": 25,
+      "test_r2": 0.3674247930798934,
+      "removed": "helpsteer2-verbosity-judge-framing-padding",
+      "added": null
+    },
+    {
+      "iteration": 1,
+      "n_judges": 24,
+      "test_r2": 0.36683220996957244,
+      "removed": "helpsteer2-correctness-judge-requirement-coverage",
+      "added": null
+    },
+    {
+      "iteration": 2,
+      "n_judges": 23,
+      "test_r2": 0.3666853151594546,
+      "removed": "helpsteer2-complexity-judge-lexical-sophistication",
+      "added": null
+    },
+    {
+      "iteration": 3,
+      "n_judges": 22,
+      "test_r2": 0.36626355798828236,
+      "removed": "helpsteer2-verbosity-judge-redundancy",
+      "added": null
+    },
+    {
+      "iteration": 4,
+      "n_judges": 21,
+      "test_r2": 0.36617234069602544,
+      "removed": "helpsteer2-helpfulness-judge-relevance-to-intent",
+      "added": null
+    },
+    {
+      "iteration": 5,
+      "n_judges": 20,
+      "test_r2": 0.36479307425621355,
+      "removed": "helpsteer2-helpfulness-judge-organization-for-immediate-application",
+      "added": null
+    },
+    {
+      "iteration": 6,
+      "n_judges": 19,
+      "test_r2": 0.3643331144101324,
+      "removed": "helpsteer2-verbosity-judge-extras-density",
+      "added": null
+    },
+    {
+      "iteration": 7,
+      "n_judges": 18,
+      "test_r2": 0.36509640511388075,
+      "removed": "helpsteer2-complexity-judge-formalism-and-references",
+      "added": null
+    },
+    {
+      "iteration": 8,
+      "n_judges": 17,
+      "test_r2": 0.36439146347709495,
+      "removed": "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions",
+      "added": null
+    },
+    {
+      "iteration": 9,
+      "n_judges": 16,
+      "test_r2": 0.36382658502327214,
+      "removed": "helpsteer2-correctness-judge-uncertainty-handling",
+      "added": null
+    },
+    {
+      "iteration": 10,
+      "n_judges": 15,
+      "test_r2": 0.36510556115497206,
+      "removed": "helpsteer2-verbosity-judge-structural-expansion",
+      "added": null
+    },
+    {
+      "iteration": 11,
+      "n_judges": 14,
+      "test_r2": 0.3659605629685828,
+      "removed": "helpsteer2-helpfulness-judge-actionability-and-specificity",
+      "added": null
+    },
+    {
+      "iteration": 12,
+      "n_judges": 13,
+      "test_r2": 0.36499873680338923,
+      "removed": "helpsteer2-coherence-judge-structure-and-formatting-support",
+      "added": null
+    },
+    {
+      "iteration": 13,
+      "n_judges": 12,
+      "test_r2": 0.3627111086401412,
+      "removed": "helpsteer2-coherence-judge-internal-consistency",
+      "added": null
+    },
+    {
+      "iteration": 14,
+      "n_judges": 11,
+      "test_r2": 0.36170667935155343,
+      "removed": "helpsteer2-coherence-judge-referential-clarity-and-terminology",
+      "added": null
+    },
+    {
+      "iteration": 15,
+      "n_judges": 10,
+      "test_r2": 0.36207717433355113,
+      "removed": "helpsteer2-complexity-judge-assumed-knowledge",
+      "added": null
+    },
+    {
+      "iteration": 16,
+      "n_judges": 9,
+      "test_r2": 0.36061608852598037,
+      "removed": "helpsteer2-correctness-judge-procedural-correctness",
+      "added": null
+    },
+    {
+      "iteration": 17,
+      "n_judges": 8,
+      "test_r2": 0.35609096097769843,
+      "removed": "helpsteer2-complexity-judge-syntactic-complexity",
+      "added": null
+    },
+    {
+      "iteration": 18,
+      "n_judges": 7,
+      "test_r2": 0.3509552921693534,
+      "removed": "helpsteer2-helpfulness-judge-completeness-of-solution",
+      "added": null
+    },
+    {
+      "iteration": 19,
+      "n_judges": 6,
+      "test_r2": 0.348839198684574,
+      "removed": "helpsteer2-complexity-judge-terminology-density",
+      "added": null
+    },
+    {
+      "iteration": 20,
+      "n_judges": 5,
+      "test_r2": 0.337749524142988,
+      "removed": null,
+      "added": null
+    }
+  ]
+}

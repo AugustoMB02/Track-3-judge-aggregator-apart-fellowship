@@ -1,0 +1,121 @@
+{
+  "iteration": 52,
+  "judge_names": [
+    "harmlessness-judge-privacy-protection",
+    "honesty-judge-admission_of_uncertainty",
+    "instruction-following-judge-format-adherence"
+  ],
+  "n_judges": 3,
+  "train_metrics": {
+    "mse": 4.214212818319485,
+    "mae": 1.6093502147729561,
+    "r2": 0.38592637018090403,
+    "spearman_rho": 0.5747569394049793,
+    "kendall_tau": 0.41750895116752024,
+    "pearson_r": 0.6212319368471027
+  },
+  "val_metrics": {
+    "mse": 4.309130474913832,
+    "mae": 1.5963723770318319,
+    "r2": 0.4081974595828487,
+    "spearman_rho": 0.6092254406968729,
+    "kendall_tau": 0.44374754406698985,
+    "pearson_r": 0.6461816708288192
+  },
+  "test_metrics": {
+    "mse": 4.141584084864372,
+    "mae": 1.6076300034533082,
+    "r2": 0.40706317014327353,
+    "spearman_rho": 0.5768750947304575,
+    "kendall_tau": 0.4184882302465602,
+    "pearson_r": 0.6402832373797562
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.40706317014327353,
+      "mse": 4.141584084864372,
+      "mae": 1.6076300034533082,
+      "spearman_rho": 0.5768750947304575,
+      "kendall_tau": 0.41848823024656023,
+      "pearson_r": 0.6402832373797562
+    },
+    "coverage": {
+      "variance_explained": 0.36670930236690624,
+      "coverage_score": 0.36670930236690624
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.14617940363931659,
+      "max_pairwise_correlation": 0.24901683598516772,
+      "redundancy_score": 0.8538205963606834,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 2.0814952970276956,
+      "diversity_index": 0.6938317656758985
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.411758088454667,
+      "entropy": 0.6054993492866125
+    },
+    "composite_score": 0.545697600938007
+  },
+  "importance_scores": {
+    "harmlessness-judge-privacy-protection": 1.0,
+    "honesty-judge-admission_of_uncertainty": 0.0,
+    "instruction-following-judge-format-adherence": 0.6190736387113795
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [
+      {
+        "type": "systematic_over",
+        "description": "Model systematically overpredicts by 0.253 on average",
+        "severity": 0.12667644848477402,
+        "affected_samples": 88,
+        "characteristics": {
+          "mean_overprediction": 0.25335289696954805,
+          "std": 2.060325892792441
+        },
+        "suggested_dimension": "critical-evaluation"
+      }
+    ],
+    "overall_error_stats": {
+      "mean_error": -0.25335289696954805,
+      "std_error": 2.060325892792441,
+      "mean_abs_error": 1.5963723770318319,
+      "median_abs_error": 1.2611258325474086,
+      "max_abs_error": 8.40942358926652,
+      "pct_high_error": 81.42857142857143,
+      "skewness": -0.6654827254749299,
+      "kurtosis": 0.7046673432430315
+    },
+    "judge_error_correlations": {
+      "harmlessness-judge-privacy-protection": 0.008370358046008768,
+      "honesty-judge-admission_of_uncertainty": 0.023208194699120305,
+      "instruction-following-judge-format-adherence": 0.04417306341717657
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 81.4% samples with error > 0.5\nMean absolute error: 1.596\nError skewness: -0.665\n\nIdentified 1 gap patterns:\n  1. [systematic_over] Model systematically overpredicts by 0.253 on average\n     Severity: 0.13, Affected: 88 samples"
+  },
+  "attribution_correlations": {
+    "harmlessness-judge-privacy-protection": {
+      "harmlessness-judge-privacy-protection": 1.0,
+      "honesty-judge-admission_of_uncertainty": 0.2490967195825595,
+      "instruction-following-judge-format-adherence": 0.17624715840577904
+    },
+    "honesty-judge-admission_of_uncertainty": {
+      "harmlessness-judge-privacy-protection": 0.2490967195825595,
+      "honesty-judge-admission_of_uncertainty": 1.0,
+      "instruction-following-judge-format-adherence": 0.10350434668102289
+    },
+    "instruction-following-judge-format-adherence": {
+      "harmlessness-judge-privacy-protection": 0.17624715840577904,
+      "honesty-judge-admission_of_uncertainty": 0.10350434668102289,
+      "instruction-following-judge-format-adherence": 1.0
+    }
+  },
+  "improvement": -0.29561782806124326,
+  "should_stop": false,
+  "stop_reason": null
+}

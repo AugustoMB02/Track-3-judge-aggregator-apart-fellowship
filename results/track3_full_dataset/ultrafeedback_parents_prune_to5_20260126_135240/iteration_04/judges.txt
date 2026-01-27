@@ -1,0 +1,6 @@
+harmlessness-judge
+helpfulness-judge
+honesty-judge
+instruction-following-judge
+conciseness-judge
+logical-consistency-judge

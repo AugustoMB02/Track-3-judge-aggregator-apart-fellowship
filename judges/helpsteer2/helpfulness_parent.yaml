@@ -1,0 +1,87 @@
+judges:
+- id: helpsteer2-helpfulness-judge
+  name: helpfulness Judge
+  version: '1.0'
+  description: Evaluates how useful and helpful an AI response is to the user's prompt
+    within the HelpSteer2 context. Focuses on whether the response enables the user
+    to accomplish their goal with relevant, actionable, and complete guidance.
+  scoring_description: "Assign a score from 0 to 4 based on how well the response\
+    \ fulfills the user\u2019s intent and provides actionable, relevant, and sufficiently\
+    \ complete help."
+  definition: "Helpfulness measures the practical utility of the response in addressing\
+    \ the user\u2019s stated intent. A helpful response is aligned with the prompt,\
+    \ stays on-topic, and provides concrete, usable guidance or answers (e.g., steps,\
+    \ code, examples, direct answers). It considers coverage and completeness relative\
+    \ to the task, and whether the user can proceed with minimal additional effort.\
+    \ It is distinct from verbosity and style; length alone does not increase helpfulness.\
+    \ While factual accuracy influences usefulness, judge helpfulness primarily by\
+    \ whether the content enables the user to achieve their goal."
+  criteria:
+  - range:
+    - 0.0
+    - 0.9
+    label: Not Helpful
+    indicators:
+    - Does not address the user's request or tackles a different task entirely.
+    - Provides no actionable information (e.g., generic refusal or irrelevant text).
+    - "Restates the prompt or gives filler content without progressing the user\u2019\
+      s goal."
+    - Content would mislead the user away from their task or add no usable value.
+  - range:
+    - 1.0
+    - 1.9
+    label: Slightly Helpful
+    indicators:
+    - "Contains a minor relevant hint or term but largely misses the user\u2019s intent."
+    - Asks for clarification without offering any interim guidance or partial solution.
+    - Very high-level or vague advice that the user cannot act on directly.
+    - Omits most key elements needed to start or make progress on the task.
+  - range:
+    - 2.0
+    - 2.9
+    label: Partially Helpful
+    indicators:
+    - Addresses some aspects of the request but misses the overall goal or critical
+      steps.
+    - Provides a high-level outline with limited specificity (few or no concrete examples,
+      commands, or code).
+    - Answers a sub-part of the question while leaving key requirements unaddressed.
+    - User can make limited progress but must do significant additional work to complete
+      the task.
+  - range:
+    - 3.0
+    - 3.9
+    label: Mostly Helpful
+    indicators:
+    - Directly addresses the main intent and provides usable steps, examples, or answers.
+    - Covers most necessary details; minor gaps or edge cases may remain.
+    - Contains specific, actionable guidance (e.g., partial code, commands, or step-by-step
+      instructions).
+    - Requires only small follow-up effort or clarifications for full completion.
+  - range:
+    - 4.0
+    - 4.0
+    label: Extremely Helpful
+    indicators:
+    - Fully satisfies the request with complete, directly usable deliverables (e.g.,
+      runnable code, precise steps, exact answer).
+    - "Tailors the solution to the user\u2019s context/constraints and clearly states\
+      \ assumptions if needed."
+    - Anticipates common pitfalls or follow-up needs and offers alternatives or next
+      steps.
+    - Organizes information for immediate application (clear structure, labeled parameters,
+      prioritized steps).
+  guidelines:
+  - "Anchor scoring to the user\u2019s stated intent: judge how well the response\
+    \ enables the user to achieve their goal."
+  - Evaluate usefulness and completeness independently of style, length, or fluency;
+    consider accuracy only as it affects practical utility.
+  - Prioritize concrete, actionable content (steps, code, commands, examples, specific
+    recommendations) and penalize off-topic or purely generic advice.
+  score_range:
+  - 0.0
+  - 4.0
+  dataset: helpsteer2
+  parent_id: null
+  auto_generated: true
+  dimension: helpfulness

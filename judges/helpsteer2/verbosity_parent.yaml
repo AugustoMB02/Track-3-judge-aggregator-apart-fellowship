@@ -1,0 +1,92 @@
+judges:
+- id: helpsteer2-verbosity-judge
+  name: verbosity Judge
+  version: '1.0'
+  description: "Evaluates how long or wordy an assistant\u2019s response is relative\
+    \ to what the user\u2019s prompt appears to call for. This is a descriptive measure\
+    \ of length/wordiness on a 0\u20134 spectrum from succinct to verbose, not a quality\
+    \ judgment."
+  scoring_description: Estimate the minimally sufficient response length for the prompt
+    type, then score where the actual response sits on the succinct-to-verbose spectrum
+    (0 = most concise, 4 = most verbose). Focus on length and added detail, not on
+    correctness or usefulness.
+  definition: "Verbosity measures the amount of text and degree of elaboration provided\
+    \ compared to what the prompt likely requires. It considers absolute length (e.g.,\
+    \ word/line count), structural expansion (paragraphs, lists, sections), and density\
+    \ of extras (examples, caveats, background, repetition). The scale is descriptive:\
+    \ a response can be appropriately short or long yet still be scored low or high\
+    \ purely on its length/wordiness. Code blocks count toward length; surrounding\
+    \ explanations, options, and disclaimers increase verbosity. Do not conflate verbosity\
+    \ with helpfulness or correctness\u2014only the quantity and expansiveness of\
+    \ the response content is rated."
+  criteria:
+  - range:
+    - 0.0
+    - 0.9
+    label: Succinct
+    indicators:
+    - "Extremely brief: typically 1\u20132 sentences or \u226450 words, or a single\
+      \ short code snippet (\u2248\u226410 lines) with no added narrative."
+    - Contains only the requested item (direct answer, single command/result) with
+      no examples, caveats, or background.
+    - No lists, headings, or multi-step procedures; no filler or repetition.
+  - range:
+    - 1.0
+    - 1.9
+    label: Pretty Short
+    indicators:
+    - "Brief: about 2\u20134 sentences or ~50\u2013100 words; code roughly \u2264\
+      20 lines with minimal commentary."
+    - Includes the core answer plus at most one brief clarifying clause or note; little
+      to no extra context.
+    - "At most one short list (\u22643 items) and no extended examples, caveats, or\
+      \ background; no noticeable repetition."
+  - range:
+    - 2.0
+    - 2.9
+    label: Average Length
+    indicators:
+    - "Moderate length: ~100\u2013200 words, 1\u20132 short paragraphs, or a compact\
+      \ list of ~3\u20136 items; code with minimal inline comments."
+    - Core answer plus brief supporting explanation or steps; stays close to the request.
+    - May include a single small example or caveat; little to no redundancy and minimal
+      structural expansion (few/no headings).
+  - range:
+    - 3.0
+    - 3.9
+    label: Moderately Long
+    indicators:
+    - "Longer: ~200\u2013400 words, multiple paragraphs, or multi-step lists (\u2265\
+      6 steps); code accompanied by explanatory narrative and options."
+    - 'Adds several extras beyond the minimum: examples, variations, caveats, tips,
+      or brief background.'
+    - May include headings/sections and minor repetition or restatement, indicating
+      expanded detail.
+  - range:
+    - 4.0
+    - 4.0
+    label: Verbose
+    indicators:
+    - 'Very long: >400 words or lengthy multi-section content; extensive lists or
+      large code blocks with substantial narrative.'
+    - Exhaustive detail with multiple examples, edge cases, background theory, and
+      tangential information beyond the request.
+    - Noticeable redundancy (repeated points or disclaimers), extended preambles/postambles,
+      and heavy structural expansion (headings, sub-bullets).
+  guidelines:
+  - Anchor your judgment to a minimally sufficient response for the specific prompt
+    type (e.g., fact lookup vs. step-by-step tutorial), then assess how much more
+    or less text was provided.
+  - Count both absolute length (words/lines) and added detail (examples, caveats,
+    background, repetition); code lines count toward length, and surrounding explanations
+    increase verbosity.
+  - "Do not consider correctness, helpfulness, tone, or formatting aesthetics\u2014\
+    only the quantity and expansiveness of the response content on the succinct-to-verbose\
+    \ spectrum."
+  score_range:
+  - 0.0
+  - 4.0
+  dataset: helpsteer2
+  parent_id: null
+  auto_generated: true
+  dimension: verbosity

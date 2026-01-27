@@ -1,0 +1,6 @@
+helpsteer2-helpfulness-judge
+helpsteer2-correctness-judge
+helpsteer2-verbosity-judge
+helpsteer2-correctness-judge-grounding-and-non-hallucination
+helpsteer2-coherence-judge-logical-flow-and-sequencing
+helpsteer2-coherence-judge-concision-and-non-redundancy

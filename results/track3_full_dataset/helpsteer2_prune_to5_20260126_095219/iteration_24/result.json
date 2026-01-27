@@ -1,0 +1,143 @@
+{
+  "iteration": 24,
+  "judge_names": [
+    "helpsteer2-helpfulness-judge",
+    "helpsteer2-correctness-judge",
+    "helpsteer2-verbosity-judge",
+    "helpsteer2-correctness-judge-grounding-and-non-hallucination",
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing",
+    "helpsteer2-coherence-judge-concision-and-non-redundancy"
+  ],
+  "n_judges": 6,
+  "train_metrics": {
+    "mse": 0.2769700869948251,
+    "mae": 0.4142617032504235,
+    "r2": 0.34125614968182927,
+    "spearman_rho": 0.4797617890604222,
+    "kendall_tau": 0.3519035262894157,
+    "pearson_r": 0.5841728835828668
+  },
+  "test_metrics": {
+    "mse": 0.2802144837952358,
+    "mae": 0.4149948384588023,
+    "r2": 0.3442710159688315,
+    "spearman_rho": 0.478764271359036,
+    "kendall_tau": 0.350623147332632,
+    "pearson_r": 0.586981156644746
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.3442710159688315,
+      "mse": 0.2802144837952358,
+      "mae": 0.4149948384588023,
+      "spearman_rho": 0.478764271359036,
+      "kendall_tau": 0.35062314733263195,
+      "pearson_r": 0.586981156644746
+    },
+    "coverage": {
+      "variance_explained": 0.3258341829977993,
+      "coverage_score": 0.3258341829977993
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.47223131410655417,
+      "max_pairwise_correlation": 0.8247205367951362,
+      "redundancy_score": 0.5277686858934458,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 2.439325473340741,
+      "diversity_index": 0.40655424555679015
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.5478194550660149,
+      "entropy": 0.6808601667611309
+    },
+    "composite_score": 0.3897398292771397
+  },
+  "importance_scores": {
+    "helpsteer2-helpfulness-judge": 0.0,
+    "helpsteer2-correctness-judge": 0.27084796463227123,
+    "helpsteer2-verbosity-judge": 1.0,
+    "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.20476512856582718,
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.13484719538707526,
+    "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.09368868464036148
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [],
+    "overall_error_stats": {
+      "mean_error": -0.0007988782667354703,
+      "std_error": 0.5293522887347808,
+      "mean_abs_error": 0.4149948384588023,
+      "median_abs_error": 0.34292121355718486,
+      "max_abs_error": 2.1491806157233997,
+      "pct_high_error": 31.403738930796983,
+      "skewness": -0.5950755588692833,
+      "kurtosis": 0.5032333926842845
+    },
+    "judge_error_correlations": {
+      "helpsteer2-helpfulness-judge": 0.02186515166531102,
+      "helpsteer2-correctness-judge": 0.03423832931830194,
+      "helpsteer2-verbosity-judge": 0.011795344334140444,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.0002804027806116633,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.026177773623339475,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.012334195964328287
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 31.4% samples with error > 0.5\nMean absolute error: 0.415\nError skewness: -0.595\n\nIdentified 0 gap patterns:"
+  },
+  "attribution_correlations": {
+    "helpsteer2-helpfulness-judge": {
+      "helpsteer2-helpfulness-judge": 1.0,
+      "helpsteer2-correctness-judge": -0.33909337901831194,
+      "helpsteer2-verbosity-judge": -0.190583841909862,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": -0.19709050339393647,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": -0.339010404129506,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": -0.21723385859461672
+    },
+    "helpsteer2-correctness-judge": {
+      "helpsteer2-helpfulness-judge": -0.33909337901831194,
+      "helpsteer2-correctness-judge": 1.0,
+      "helpsteer2-verbosity-judge": 0.1906693930612283,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.5794834756926526,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.6223698748975517,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.5004769265548038
+    },
+    "helpsteer2-verbosity-judge": {
+      "helpsteer2-helpfulness-judge": -0.190583841909862,
+      "helpsteer2-correctness-judge": 0.1906693930612283,
+      "helpsteer2-verbosity-judge": 1.0,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.11948274032646031,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.26765323405195773,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.01946551907372982
+    },
+    "helpsteer2-correctness-judge-grounding-and-non-hallucination": {
+      "helpsteer2-helpfulness-judge": -0.19709050339393647,
+      "helpsteer2-correctness-judge": 0.5794834756926526,
+      "helpsteer2-verbosity-judge": 0.11948274032646031,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 1.0,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.5810922329322333,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.5031374168272773
+    },
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing": {
+      "helpsteer2-helpfulness-judge": -0.339010404129506,
+      "helpsteer2-correctness-judge": 0.6223698748975517,
+      "helpsteer2-verbosity-judge": 0.26765323405195773,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.5810922329322333,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 1.0,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.6071358569547894
+    },
+    "helpsteer2-coherence-judge-concision-and-non-redundancy": {
+      "helpsteer2-helpfulness-judge": -0.21723385859461672,
+      "helpsteer2-correctness-judge": 0.5004769265548038,
+      "helpsteer2-verbosity-judge": 0.01946551907372982,
+      "helpsteer2-correctness-judge-grounding-and-non-hallucination": 0.5031374168272773,
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.6071358569547894,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 1.0
+    }
+  },
+  "improvement": -0.026840321895383434,
+  "should_stop": false,
+  "stop_reason": null
+}

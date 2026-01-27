@@ -1,0 +1,135 @@
+{
+  "iteration": 0,
+  "judge_names": [
+    "helpsteer2-helpfulness-judge-relevance-to-intent",
+    "helpsteer2-helpfulness-judge-actionability-and-specificity",
+    "helpsteer2-helpfulness-judge-completeness-of-solution",
+    "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions",
+    "helpsteer2-helpfulness-judge-organization-for-immediate-application"
+  ],
+  "n_judges": 5,
+  "train_metrics": {
+    "mse": 1.3081532725176708,
+    "mae": 0.9107897370298718,
+    "r2": 0.18460791233262985,
+    "spearman_rho": 0.3366218114577667,
+    "kendall_tau": 0.2588886552071915,
+    "pearson_r": 0.4296620622164391
+  },
+  "val_metrics": {
+    "mse": 1.3376189765463313,
+    "mae": 0.9256139327516322,
+    "r2": 0.17622756829803676,
+    "spearman_rho": 0.33546303969191826,
+    "kendall_tau": 0.2551814312579768,
+    "pearson_r": 0.41993456759462144
+  },
+  "test_metrics": {
+    "mse": 1.3387529242296667,
+    "mae": 0.9226106873692969,
+    "r2": 0.19231162140660052,
+    "spearman_rho": 0.3524526463948798,
+    "kendall_tau": 0.2709826408800639,
+    "pearson_r": 0.4385933840708708
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.19231162140660052,
+      "mse": 1.3387529242296667,
+      "mae": 0.9226106873692969,
+      "spearman_rho": 0.3524526463948798,
+      "kendall_tau": 0.2709826408800639,
+      "pearson_r": 0.4385933840708708
+    },
+    "coverage": {
+      "variance_explained": 0.15023137097720585,
+      "coverage_score": 0.15023137097720585
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.6204472082194867,
+      "max_pairwise_correlation": 0.7642034212242075,
+      "redundancy_score": 0.37955279178051327,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.9616489725231026,
+      "diversity_index": 0.3923297945046205
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.6642955375925155,
+      "entropy": 0.46582073671518703
+    },
+    "composite_score": 0.2613474400151082
+  },
+  "importance_scores": {
+    "helpsteer2-helpfulness-judge-relevance-to-intent": 1.0,
+    "helpsteer2-helpfulness-judge-actionability-and-specificity": 0.019633432448356247,
+    "helpsteer2-helpfulness-judge-completeness-of-solution": 0.051932634323602136,
+    "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions": 0.3038646472349999,
+    "helpsteer2-helpfulness-judge-organization-for-immediate-application": 0.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [],
+    "overall_error_stats": {
+      "mean_error": -0.013370398805359509,
+      "std_error": 1.1564775004219137,
+      "mean_abs_error": 0.9256139327516322,
+      "median_abs_error": 0.8317305326651128,
+      "max_abs_error": 3.5471938299539842,
+      "pct_high_error": 71.09471094710948,
+      "skewness": -0.6925354933907448,
+      "kurtosis": 0.10001441253698395
+    },
+    "judge_error_correlations": {
+      "helpsteer2-helpfulness-judge-relevance-to-intent": 0.015420053750722161,
+      "helpsteer2-helpfulness-judge-actionability-and-specificity": 0.03174051548936372,
+      "helpsteer2-helpfulness-judge-completeness-of-solution": 0.035597701245129745,
+      "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions": 0.02962700389979788,
+      "helpsteer2-helpfulness-judge-organization-for-immediate-application": 0.0480204475595951
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 71.1% samples with error > 0.5\nMean absolute error: 0.926\nError skewness: -0.693\n\nIdentified 0 gap patterns:"
+  },
+  "attribution_correlations": {
+    "helpsteer2-helpfulness-judge-relevance-to-intent": {
+      "helpsteer2-helpfulness-judge-relevance-to-intent": 1.0,
+      "helpsteer2-helpfulness-judge-actionability-and-specificity": -0.3238935272150672,
+      "helpsteer2-helpfulness-judge-completeness-of-solution": -0.11101219049406505,
+      "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions": 0.5694105075013565,
+      "helpsteer2-helpfulness-judge-organization-for-immediate-application": 0.3535939067000127
+    },
+    "helpsteer2-helpfulness-judge-actionability-and-specificity": {
+      "helpsteer2-helpfulness-judge-relevance-to-intent": -0.3238935272150672,
+      "helpsteer2-helpfulness-judge-actionability-and-specificity": 1.0,
+      "helpsteer2-helpfulness-judge-completeness-of-solution": -0.03554811210293619,
+      "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions": -0.24190122328395564,
+      "helpsteer2-helpfulness-judge-organization-for-immediate-application": -0.5322114747849981
+    },
+    "helpsteer2-helpfulness-judge-completeness-of-solution": {
+      "helpsteer2-helpfulness-judge-relevance-to-intent": -0.11101219049406505,
+      "helpsteer2-helpfulness-judge-actionability-and-specificity": -0.03554811210293619,
+      "helpsteer2-helpfulness-judge-completeness-of-solution": 1.0,
+      "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions": -0.37854526439581315,
+      "helpsteer2-helpfulness-judge-organization-for-immediate-application": 0.13165145390067215
+    },
+    "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions": {
+      "helpsteer2-helpfulness-judge-relevance-to-intent": 0.5694105075013565,
+      "helpsteer2-helpfulness-judge-actionability-and-specificity": -0.24190122328395564,
+      "helpsteer2-helpfulness-judge-completeness-of-solution": -0.37854526439581315,
+      "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions": 1.0,
+      "helpsteer2-helpfulness-judge-organization-for-immediate-application": 0.2226442066175168
+    },
+    "helpsteer2-helpfulness-judge-organization-for-immediate-application": {
+      "helpsteer2-helpfulness-judge-relevance-to-intent": 0.3535939067000127,
+      "helpsteer2-helpfulness-judge-actionability-and-specificity": -0.5322114747849981,
+      "helpsteer2-helpfulness-judge-completeness-of-solution": 0.13165145390067215,
+      "helpsteer2-helpfulness-judge-context-tailoring-and-assumptions": 0.2226442066175168,
+      "helpsteer2-helpfulness-judge-organization-for-immediate-application": 1.0
+    }
+  },
+  "improvement": Infinity,
+  "should_stop": false,
+  "stop_reason": null
+}

@@ -1,0 +1,27 @@
+data_file: datasets/helpsteer2_track3_full_dataset.pkl
+description: Prune to half the judges (30 -> 15) for HelpSteer2 full dataset
+gam_lam: 0.6
+gam_n_splines: 10
+initial_judge_file: judges/helpsteer2/all_judges.yaml
+llm_model: openai/gpt-5-nano
+max_correlation: 0.9
+max_iterations: 20
+max_judges: 30
+min_judges: 15
+name: iterative-selection-helpsteer2-prune-half-full
+output_dir: results/track3_full_dataset/helpsteer2_prune_half_20260126_091504
+plateau_patience: 50
+proposal_mode: decompose
+protected_judges:
+- helpsteer2-helpfulness-judge
+- helpsteer2-correctness-judge
+pruning_strategy: importance
+r2_degradation_threshold: null
+r2_improvement_threshold: 0.0
+save_intermediate: true
+selection_mode: backward
+target_column: target
+target_judges: 15
+train_test_split: 0.3
+use_llm_suggestions: false
+validation_split: 0.15

@@ -13,7 +13,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 import matplotlib.pyplot as plt
 
@@ -37,6 +37,25 @@ def _load_iteration_results(run_dir: Path) -> List[Dict]:
             results.append(_load_json(result_path))
     results.sort(key=lambda r: r.get("iteration", 0))
     return results
+
+
+def _extract_baseline_metrics(run_dir: Path) -> Optional[Dict[str, float]]:
+    iteration_results = _load_iteration_results(run_dir)
+    if not iteration_results:
+        return None
+    baseline = iteration_results[0]
+    test_metrics = baseline.get("test_metrics", {})
+    judge_set_metrics = baseline.get("judge_set_metrics", {})
+    return {
+        "n_judges": baseline.get("n_judges", 0),
+        "test_r2": test_metrics.get("r2", 0.0),
+        "test_mae": test_metrics.get("mae", 0.0),
+        "test_mse": test_metrics.get("mse", 0.0),
+        "test_spearman": test_metrics.get("spearman_rho", 0.0),
+        "test_kendall": test_metrics.get("kendall_tau", 0.0),
+        "test_pearson": test_metrics.get("pearson_r", 0.0),
+        "composite_score": judge_set_metrics.get("composite_score", 0.0),
+    }
 
 
 def _extract_series(iteration_results: List[Dict]) -> Dict[str, List[float]]:
@@ -66,7 +85,12 @@ def _extract_series(iteration_results: List[Dict]) -> Dict[str, List[float]]:
     return metrics
 
 
-def _plot_series(run_dir: Path, series: Dict[str, List[float]], output_dir: Path) -> None:
+def _plot_series(
+    run_dir: Path,
+    series: Dict[str, List[float]],
+    output_dir: Path,
+    baseline: Optional[Dict[str, float]] = None,
+) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     iterations = series["iteration"]
@@ -76,31 +100,67 @@ def _plot_series(run_dir: Path, series: Dict[str, List[float]], output_dir: Path
 
     ax = axes[0, 0]
     ax.plot(iterations, series["test_r2"], marker="o", label="Test R2")
+    if baseline is not None:
+        ax.axhline(
+            baseline["test_r2"],
+            color="tab:blue",
+            linestyle="--",
+            linewidth=1.2,
+            label="Baseline (5 parents)",
+        )
     ax.set_title("Predictive Performance (R2)")
     ax.set_xlabel("Iteration")
     ax.set_ylabel("R2")
     ax.grid(True, alpha=0.3)
+    ax.legend()
 
     ax = axes[0, 1]
     ax.plot(iterations, series["test_mae"], marker="o", color="tab:orange", label="Test MAE")
+    if baseline is not None:
+        ax.axhline(
+            baseline["test_mae"],
+            color="tab:orange",
+            linestyle="--",
+            linewidth=1.2,
+            label="Baseline (5 parents)",
+        )
     ax.set_title("Prediction Error (MAE)")
     ax.set_xlabel("Iteration")
     ax.set_ylabel("MAE")
     ax.grid(True, alpha=0.3)
+    ax.legend()
 
     ax = axes[1, 0]
     ax.plot(iterations, series["composite_score"], marker="o", color="tab:green", label="Composite Score")
+    if baseline is not None:
+        ax.axhline(
+            baseline["composite_score"],
+            color="tab:green",
+            linestyle="--",
+            linewidth=1.2,
+            label="Baseline (5 parents)",
+        )
     ax.set_title("Judge Set Composite Score")
     ax.set_xlabel("Iteration")
     ax.set_ylabel("Score")
     ax.grid(True, alpha=0.3)
+    ax.legend()
 
     ax = axes[1, 1]
     ax.step(iterations, series["n_judges"], where="post", marker="o", color="tab:purple", label="Judges")
+    if baseline is not None:
+        ax.axhline(
+            baseline["n_judges"],
+            color="tab:purple",
+            linestyle="--",
+            linewidth=1.2,
+            label="Baseline (5 parents)",
+        )
     ax.set_title("Number of Judges")
     ax.set_xlabel("Iteration")
     ax.set_ylabel("Count")
     ax.grid(True, alpha=0.3)
+    ax.legend()
 
     fig.tight_layout(rect=[0, 0, 1, 0.95])
     fig_path = output_dir / "selection_metrics.png"
@@ -112,6 +172,28 @@ def _plot_series(run_dir: Path, series: Dict[str, List[float]], output_dir: Path
     ax.plot(iterations, series["test_spearman"], marker="o", label="Spearman")
     ax.plot(iterations, series["test_kendall"], marker="o", label="Kendall")
     ax.plot(iterations, series["test_pearson"], marker="o", label="Pearson")
+    if baseline is not None:
+        ax.axhline(
+            baseline["test_spearman"],
+            color="tab:blue",
+            linestyle="--",
+            linewidth=1.0,
+            label="Baseline Spearman",
+        )
+        ax.axhline(
+            baseline["test_kendall"],
+            color="tab:orange",
+            linestyle="--",
+            linewidth=1.0,
+            label="Baseline Kendall",
+        )
+        ax.axhline(
+            baseline["test_pearson"],
+            color="tab:green",
+            linestyle="--",
+            linewidth=1.0,
+            label="Baseline Pearson",
+        )
     ax.set_title("Rank Correlations (Test)")
     ax.set_xlabel("Iteration")
     ax.set_ylabel("Correlation")
@@ -148,6 +230,12 @@ def main() -> None:
         default="",
         help="Output directory for plots (default: <run-dir>/plots)",
     )
+    parser.add_argument(
+        "--baseline-run",
+        type=str,
+        default="",
+        help="Optional baseline run directory to plot as reference",
+    )
     args = parser.parse_args()
 
     results_root = Path("results")
@@ -169,8 +257,18 @@ def main() -> None:
     output_dir = Path(args.output) if args.output else run_dir / "plots"
     summary = _load_json(summary_path)
     series = _extract_series(iteration_results)
+    baseline = None
+    if args.baseline_run:
+        baseline_dir = Path(args.baseline_run)
+        if not baseline_dir.exists():
+            print(f"Baseline run directory not found: {baseline_dir}", file=sys.stderr)
+            sys.exit(1)
+        baseline = _extract_baseline_metrics(baseline_dir)
+        if baseline is None:
+            print(f"No baseline iteration results in {baseline_dir}", file=sys.stderr)
+            sys.exit(1)
 
-    _plot_series(run_dir, series, output_dir)
+    _plot_series(run_dir, series, output_dir, baseline=baseline)
     _write_removals(run_dir, summary, output_dir)
 
     print(f"Saved plots to {output_dir}")

@@ -1,0 +1,109 @@
+{
+  "iteration": 2,
+  "judge_names": [
+    "helpsteer2-complexity-judge-lexical-sophistication",
+    "helpsteer2-complexity-judge-terminology-density",
+    "helpsteer2-complexity-judge-syntactic-complexity"
+  ],
+  "n_judges": 3,
+  "train_metrics": {
+    "mse": 0.33220824652337755,
+    "mae": 0.45455493636193106,
+    "r2": 0.3187629177479572,
+    "spearman_rho": 0.5447296292513124,
+    "kendall_tau": 0.4445145150034614,
+    "pearson_r": 0.5645912024917782
+  },
+  "val_metrics": {
+    "mse": 0.3221038751218191,
+    "mae": 0.44404135417692875,
+    "r2": 0.3173497024859262,
+    "spearman_rho": 0.540816515273401,
+    "kendall_tau": 0.44096302189933995,
+    "pearson_r": 0.5636527069057484
+  },
+  "test_metrics": {
+    "mse": 0.3389688527251618,
+    "mae": 0.45745753605258993,
+    "r2": 0.3072924864420925,
+    "spearman_rho": 0.5329727480634605,
+    "kendall_tau": 0.43384229967828325,
+    "pearson_r": 0.5547135913674657
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.3072924864420925,
+      "mse": 0.3389688527251618,
+      "mae": 0.45745753605258993,
+      "spearman_rho": 0.5329727480634605,
+      "kendall_tau": 0.43384229967828325,
+      "pearson_r": 0.5547135913674657
+    },
+    "coverage": {
+      "variance_explained": 0.291939194327821,
+      "coverage_score": 0.291939194327821
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.6026933926594442,
+      "max_pairwise_correlation": 0.7923730802239817,
+      "redundancy_score": 0.3973066073405558,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.7103323422441432,
+      "diversity_index": 0.5701107807480478
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.3464973836488887,
+      "entropy": 0.6302197516473385
+    },
+    "composite_score": 0.3747883110601219
+  },
+  "importance_scores": {
+    "helpsteer2-complexity-judge-lexical-sophistication": 0.0,
+    "helpsteer2-complexity-judge-terminology-density": 0.9240164515593032,
+    "helpsteer2-complexity-judge-syntactic-complexity": 1.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [],
+    "overall_error_stats": {
+      "mean_error": -0.010075305826339705,
+      "std_error": 0.5674525207753727,
+      "mean_abs_error": 0.44404135417692875,
+      "median_abs_error": 0.36847531943358236,
+      "max_abs_error": 2.4826954069104428,
+      "pct_high_error": 37.53514526710403,
+      "skewness": 0.17532147102735188,
+      "kurtosis": 0.34596061229074415
+    },
+    "judge_error_correlations": {
+      "helpsteer2-complexity-judge-lexical-sophistication": -0.035144575552906815,
+      "helpsteer2-complexity-judge-terminology-density": -0.010398751403250993,
+      "helpsteer2-complexity-judge-syntactic-complexity": -0.007107074435061573
+    },
+    "suggested_dimensions": [],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 37.5% samples with error > 0.5\nMean absolute error: 0.444\nError skewness: 0.175\n\nIdentified 0 gap patterns:"
+  },
+  "attribution_correlations": {
+    "helpsteer2-complexity-judge-lexical-sophistication": {
+      "helpsteer2-complexity-judge-lexical-sophistication": 1.0,
+      "helpsteer2-complexity-judge-terminology-density": 0.5886999851296599,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.6605803219986468
+    },
+    "helpsteer2-complexity-judge-terminology-density": {
+      "helpsteer2-complexity-judge-lexical-sophistication": 0.5886999851296599,
+      "helpsteer2-complexity-judge-terminology-density": 1.0,
+      "helpsteer2-complexity-judge-syntactic-complexity": 0.3226363722825902
+    },
+    "helpsteer2-complexity-judge-syntactic-complexity": {
+      "helpsteer2-complexity-judge-lexical-sophistication": 0.6605803219986468,
+      "helpsteer2-complexity-judge-terminology-density": 0.3226363722825902,
+      "helpsteer2-complexity-judge-syntactic-complexity": 1.0
+    }
+  },
+  "improvement": -0.0043140815006100786,
+  "should_stop": true,
+  "stop_reason": "target_judges_reached_3"
+}

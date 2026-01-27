@@ -1,0 +1,30 @@
+{
+  "total_iterations": 3,
+  "final_n_judges": 3,
+  "final_r2": 0.3717913057587491,
+  "best_r2": 0.38813557655089603,
+  "stop_reason": "target_judges_reached_3",
+  "iterations": [
+    {
+      "iteration": 0,
+      "n_judges": 5,
+      "test_r2": 0.38395521797665655,
+      "removed": "helpsteer2-verbosity-judge-framing-padding",
+      "added": null
+    },
+    {
+      "iteration": 1,
+      "n_judges": 4,
+      "test_r2": 0.37766953443391926,
+      "removed": "helpsteer2-verbosity-judge-extras-density",
+      "added": null
+    },
+    {
+      "iteration": 2,
+      "n_judges": 3,
+      "test_r2": 0.3717913057587491,
+      "removed": null,
+      "added": null
+    }
+  ]
+}

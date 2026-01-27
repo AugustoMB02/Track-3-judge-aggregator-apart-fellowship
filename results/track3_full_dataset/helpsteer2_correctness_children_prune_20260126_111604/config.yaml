@@ -1,0 +1,25 @@
+data_file: datasets/helpsteer2_correctness_children_dataset.pkl
+description: correctness children-only prune to 3
+gam_lam: 0.6
+gam_n_splines: 10
+initial_judge_file: judges/helpsteer2/correctness_children.yaml
+llm_model: openai/gpt-5-nano
+max_correlation: 0.9
+max_iterations: 10
+max_judges: 5
+min_judges: 3
+name: helpsteer2-correctness-children-prune
+output_dir: results/track3_full_dataset/helpsteer2_correctness_children_prune_20260126_111604
+plateau_patience: 50
+proposal_mode: decompose
+protected_judges: []
+pruning_strategy: importance
+r2_degradation_threshold: null
+r2_improvement_threshold: 0.0
+save_intermediate: true
+selection_mode: backward
+target_column: target
+target_judges: 3
+train_test_split: 0.3
+use_llm_suggestions: false
+validation_split: 0.15

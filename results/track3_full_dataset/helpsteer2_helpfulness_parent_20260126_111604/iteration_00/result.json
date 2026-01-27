@@ -1,0 +1,108 @@
+{
+  "iteration": 0,
+  "judge_names": [
+    "helpsteer2-helpfulness-judge"
+  ],
+  "n_judges": 1,
+  "train_metrics": {
+    "mse": 1.3911352860064325,
+    "mae": 0.9442374133593506,
+    "r2": 0.13841193986502964,
+    "spearman_rho": 0.28970089974655544,
+    "kendall_tau": 0.24643941438484848,
+    "pearson_r": 0.37203788377215696
+  },
+  "val_metrics": {
+    "mse": 1.3757570454121237,
+    "mae": 0.9343556103465609,
+    "r2": 0.15082886892380676,
+    "spearman_rho": 0.29572549768232215,
+    "kendall_tau": 0.2517080979909541,
+    "pearson_r": 0.3892021882352192
+  },
+  "test_metrics": {
+    "mse": 1.3987391165518746,
+    "mae": 0.949820195479952,
+    "r2": 0.13590980336200442,
+    "spearman_rho": 0.2968958736495604,
+    "kendall_tau": 0.25377940294016355,
+    "pearson_r": 0.36894748796903354
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.13590980336200442,
+      "mse": 1.3987391165518746,
+      "mae": 0.949820195479952,
+      "spearman_rho": 0.2968958736495603,
+      "kendall_tau": 0.25377940294016355,
+      "pearson_r": 0.3689474879690334
+    },
+    "coverage": {
+      "variance_explained": 0.12958086692775372,
+      "coverage_score": 0.12958086692775372
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.0,
+      "max_pairwise_correlation": 0.0,
+      "redundancy_score": 1.0,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.0,
+      "diversity_index": 1.0
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.0,
+      "entropy": 0.0
+    },
+    "composite_score": 0.48028009473035255
+  },
+  "importance_scores": {
+    "helpsteer2-helpfulness-judge": 0.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [
+      {
+        "type": "cluster",
+        "description": "Cluster 1: Model overpredicts for samples with distinctive judge score patterns",
+        "severity": 0.8029837389418081,
+        "affected_samples": 177,
+        "characteristics": {
+          "cluster_id": 1,
+          "mean_error": -0.0462888121306789,
+          "mean_abs_error": 1.5005447229946731,
+          "notable_judges": [
+            [
+              "helpsteer2-helpfulness-judge",
+              -2.9067137388210256
+            ]
+          ]
+        },
+        "suggested_dimension": "cross-dimension-interaction"
+      }
+    ],
+    "overall_error_stats": {
+      "mean_error": 0.018273776662702055,
+      "std_error": 1.172784342706964,
+      "mean_abs_error": 0.9343556103465609,
+      "median_abs_error": 0.8182936547197288,
+      "max_abs_error": 3.181706345280271,
+      "pct_high_error": 70.43111527647609,
+      "skewness": -0.7122470286368252,
+      "kurtosis": 0.14116453618385938
+    },
+    "judge_error_correlations": {
+      "helpsteer2-helpfulness-judge": 0.03507415133602483
+    },
+    "suggested_dimensions": [
+      "cross-dimension-interaction"
+    ],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 70.4% samples with error > 0.5\nMean absolute error: 0.934\nError skewness: -0.712\n\nIdentified 1 gap patterns:\n  1. [cluster] Cluster 1: Model overpredicts for samples with distinctive judge score patterns\n     Severity: 0.80, Affected: 177 samples\n\nSuggested new dimensions: cross-dimension-interaction"
+  },
+  "attribution_correlations": null,
+  "improvement": Infinity,
+  "should_stop": true,
+  "stop_reason": "target_judges_reached_1"
+}

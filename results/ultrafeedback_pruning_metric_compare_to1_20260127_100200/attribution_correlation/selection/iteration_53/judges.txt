@@ -1,0 +1,2 @@
+instruction-following-judge-attention-to-detail
+conciseness-judge-wording-efficiency

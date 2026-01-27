@@ -1,0 +1,492 @@
+[
+  {
+    "config": {
+      "n_splines": 35,
+      "lam": 100.0,
+      "max_iter": 100,
+      "tol": 0.0001
+    },
+    "train_metrics": {
+      "mse": 0.34810274873923175,
+      "mae": 0.44215483463193084,
+      "r2": 0.3783053337033033,
+      "spearman_rho": 0.5673641309190603,
+      "kendall_tau": 0.4622604614916607,
+      "pearson_r": 0.6150665949056631
+    },
+    "gam_metrics": {
+      "aic": 24735.05243559542,
+      "edof": 48.58282319225301,
+      "gcv": 0.3515546275143611,
+      "n_terms": 6
+    },
+    "feature_importance": {
+      "Helpsteer2 Verbosity Judge Minimal Overage": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Structural Expansion": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Extras Density": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Redundancy": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Framing Padding": 0.9999999999999999
+    },
+    "cv_summary": {
+      "train_r2_mean": 0.3788158010711702,
+      "train_r2_std": 0.0035481723849111356,
+      "val_r2_mean": 0.37257169561490106,
+      "val_r2_std": 0.015332287667250206,
+      "train_mse_mean": 0.3478106570256629,
+      "train_mse_std": 0.0023940027690630816,
+      "val_mse_mean": 0.351211037097498,
+      "val_mse_std": 0.010005552571304172,
+      "best_lam_mean": 100.0,
+      "best_lam_std": 0.0
+    },
+    "test_metrics": {
+      "mse": 0.36404522373334336,
+      "mae": 0.4544698499863768,
+      "r2": 0.3720489545361857,
+      "spearman_rho": 0.5648286054841991,
+      "kendall_tau": 0.4581084185609333,
+      "pearson_r": 0.6106209844194823
+    }
+  },
+  {
+    "config": {
+      "n_splines": 30,
+      "lam": 89.6658604771435,
+      "max_iter": 100,
+      "tol": 0.0001
+    },
+    "train_metrics": {
+      "mse": 0.34831262273901065,
+      "mae": 0.44225363811861873,
+      "r2": 0.3779305088944518,
+      "spearman_rho": 0.5670167333789488,
+      "kendall_tau": 0.4619400845549657,
+      "pearson_r": 0.6147618613730318
+    },
+    "gam_metrics": {
+      "aic": 24737.323459246927,
+      "edof": 45.55866250890356,
+      "gcv": 0.3515500858257334,
+      "n_terms": 6
+    },
+    "feature_importance": {
+      "Helpsteer2 Verbosity Judge Minimal Overage": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Structural Expansion": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Extras Density": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Redundancy": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Framing Padding": 0.9999999999999999
+    },
+    "cv_summary": {
+      "train_r2_mean": 0.37843236297641775,
+      "train_r2_std": 0.0035119081671639964,
+      "val_r2_mean": 0.37239850768980015,
+      "val_r2_std": 0.015424653574398341,
+      "train_mse_mean": 0.3480246160570616,
+      "train_mse_std": 0.002266535135027149,
+      "val_mse_mean": 0.3513066386016202,
+      "val_mse_std": 0.009999693739242598,
+      "best_lam_mean": 89.6658604771435,
+      "best_lam_std": 20.668279045712993
+    },
+    "test_metrics": {
+      "mse": 0.3640563846727603,
+      "mae": 0.4544851343601652,
+      "r2": 0.3720297027424021,
+      "spearman_rho": 0.5648695805107554,
+      "kendall_tau": 0.45815574468712605,
+      "pearson_r": 0.6106148667727215
+    }
+  },
+  {
+    "config": {
+      "n_splines": 25,
+      "lam": 61.05693998789131,
+      "max_iter": 100,
+      "tol": 0.0001
+    },
+    "train_metrics": {
+      "mse": 0.3484969051603323,
+      "mae": 0.4423617210965319,
+      "r2": 0.37760138940647625,
+      "spearman_rho": 0.5667174774169931,
+      "kendall_tau": 0.46166669322556364,
+      "pearson_r": 0.6144940257384677
+    },
+    "gam_metrics": {
+      "aic": 24740.462502951188,
+      "edof": 43.476628513009366,
+      "gcv": 0.35158706756748603,
+      "n_terms": 6
+    },
+    "feature_importance": {
+      "Helpsteer2 Verbosity Judge Minimal Overage": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Structural Expansion": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Extras Density": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Redundancy": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Framing Padding": 0.9999999999999999
+    },
+    "cv_summary": {
+      "train_r2_mean": 0.37821748550030587,
+      "train_r2_std": 0.0035020736606232107,
+      "val_r2_mean": 0.3721395511014486,
+      "val_r2_std": 0.015506510331736943,
+      "train_mse_mean": 0.3481451582280159,
+      "train_mse_std": 0.002295580065274301,
+      "val_mse_mean": 0.3514511044548393,
+      "val_mse_std": 0.01001767723776597,
+      "best_lam_mean": 61.05693998789131,
+      "best_lam_std": 32.773065878757386
+    },
+    "test_metrics": {
+      "mse": 0.36411665958529393,
+      "mae": 0.45453546494448954,
+      "r2": 0.3719257329829514,
+      "spearman_rho": 0.5649851244056179,
+      "kendall_tau": 0.45823878864440765,
+      "pearson_r": 0.6105336736719292
+    }
+  },
+  {
+    "config": {
+      "n_splines": 20,
+      "lam": 47.074749202449745,
+      "max_iter": 100,
+      "tol": 0.0001
+    },
+    "train_metrics": {
+      "mse": 0.3488303271389996,
+      "mae": 0.4425493166061638,
+      "r2": 0.377005913885199,
+      "spearman_rho": 0.5661065499338911,
+      "kendall_tau": 0.46109984644256413,
+      "pearson_r": 0.6140090811442291
+    },
+    "gam_metrics": {
+      "aic": 24746.36153887702,
+      "edof": 39.82373393356037,
+      "gcv": 0.351661983041095,
+      "n_terms": 6
+    },
+    "feature_importance": {
+      "Helpsteer2 Verbosity Judge Minimal Overage": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Structural Expansion": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Extras Density": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Redundancy": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Framing Padding": 0.9999999999999999
+    },
+    "cv_summary": {
+      "train_r2_mean": 0.3779758039093937,
+      "train_r2_std": 0.0035330856001154322,
+      "val_r2_mean": 0.3719130880768978,
+      "val_r2_std": 0.015522291730707115,
+      "train_mse_mean": 0.34828046512583355,
+      "train_mse_std": 0.0023066732205118535,
+      "val_mse_mean": 0.35157728300343594,
+      "val_mse_std": 0.01000213261174739,
+      "best_lam_mean": 47.074749202449745,
+      "best_lam_std": 43.295536368503946
+    },
+    "test_metrics": {
+      "mse": 0.3642616512405078,
+      "mae": 0.45461271643140944,
+      "r2": 0.37167563311749685,
+      "spearman_rho": 0.565001782650263,
+      "kendall_tau": 0.45829504422837264,
+      "pearson_r": 0.6103331525913754
+    }
+  },
+  {
+    "config": {
+      "n_splines": 18,
+      "lam": 62.66063889693662,
+      "max_iter": 100,
+      "tol": 0.0001
+    },
+    "train_metrics": {
+      "mse": 0.3491605808336737,
+      "mae": 0.4427885698620212,
+      "r2": 0.3764160967658362,
+      "spearman_rho": 0.5656110704010029,
+      "kendall_tau": 0.46065440030975946,
+      "pearson_r": 0.6135283753988263
+    },
+    "gam_metrics": {
+      "aic": 24751.65591394348,
+      "edof": 35.93734284645815,
+      "gcv": 0.3517167983617549,
+      "n_terms": 6
+    },
+    "feature_importance": {
+      "Helpsteer2 Verbosity Judge Minimal Overage": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Structural Expansion": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Extras Density": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Redundancy": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Framing Padding": 0.9999999999999999
+    },
+    "cv_summary": {
+      "train_r2_mean": 0.37738431608320494,
+      "train_r2_std": 0.003397292316477705,
+      "val_r2_mean": 0.3718525688723496,
+      "val_r2_std": 0.015553815585721945,
+      "train_mse_mean": 0.34861107908282724,
+      "train_mse_std": 0.0021528977150432555,
+      "val_mse_mean": 0.3516129142343254,
+      "val_mse_std": 0.010076656900862768,
+      "best_lam_mean": 62.66063889693662,
+      "best_lam_std": 45.73744636654189
+    },
+    "test_metrics": {
+      "mse": 0.36445939868117316,
+      "mae": 0.45479548492342714,
+      "r2": 0.37133453342985323,
+      "spearman_rho": 0.5648075295467815,
+      "kendall_tau": 0.458127170422255,
+      "pearson_r": 0.6100568664356196
+    }
+  },
+  {
+    "config": {
+      "n_splines": 15,
+      "lam": 100.0,
+      "max_iter": 100,
+      "tol": 0.0001
+    },
+    "train_metrics": {
+      "mse": 0.34958057303575435,
+      "mae": 0.4431991823035233,
+      "r2": 0.3756660110142429,
+      "spearman_rho": 0.5648760817634588,
+      "kendall_tau": 0.45997371572506635,
+      "pearson_r": 0.6129168971352797
+    },
+    "gam_metrics": {
+      "aic": 24755.748592067517,
+      "edof": 29.68433686715827,
+      "gcv": 0.35169253951749196,
+      "n_terms": 6
+    },
+    "feature_importance": {
+      "Helpsteer2 Verbosity Judge Minimal Overage": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Structural Expansion": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Extras Density": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Redundancy": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Framing Padding": 0.9999999999999999
+    },
+    "cv_summary": {
+      "train_r2_mean": 0.3760157505471661,
+      "train_r2_std": 0.003708365925681588,
+      "val_r2_mean": 0.3718240684250717,
+      "val_r2_std": 0.01538526350027801,
+      "train_mse_mean": 0.34937842404081265,
+      "train_mse_std": 0.0024706107556347993,
+      "val_mse_mean": 0.3516306056813314,
+      "val_mse_std": 0.010059092455415142,
+      "best_lam_mean": 100.0,
+      "best_lam_std": 0.0
+    },
+    "test_metrics": {
+      "mse": 0.3646994257480209,
+      "mae": 0.45523539348154374,
+      "r2": 0.370920504518772,
+      "spearman_rho": 0.5645848383178196,
+      "kendall_tau": 0.45794143770059287,
+      "pearson_r": 0.6097312370513337
+    }
+  },
+  {
+    "config": {
+      "n_splines": 12,
+      "lam": 73.96338295238384,
+      "max_iter": 100,
+      "tol": 0.0001
+    },
+    "train_metrics": {
+      "mse": 0.34977852595362496,
+      "mae": 0.443494764626983,
+      "r2": 0.37531247668087797,
+      "spearman_rho": 0.5645753629790693,
+      "kendall_tau": 0.4596901089062708,
+      "pearson_r": 0.612628946395917
+    },
+    "gam_metrics": {
+      "aic": 24756.57488565218,
+      "edof": 26.189285643197366,
+      "gcv": 0.3516418902257357,
+      "n_terms": 6
+    },
+    "feature_importance": {
+      "Helpsteer2 Verbosity Judge Minimal Overage": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Structural Expansion": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Extras Density": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Redundancy": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Framing Padding": 0.9999999999999999
+    },
+    "cv_summary": {
+      "train_r2_mean": 0.3761954330874613,
+      "train_r2_std": 0.0035518805250149966,
+      "val_r2_mean": 0.3716709393046549,
+      "val_r2_std": 0.01503212850792021,
+      "train_mse_mean": 0.3492741158491313,
+      "train_mse_std": 0.0017695663236161848,
+      "val_mse_mean": 0.351715916219445,
+      "val_mse_std": 0.009888957801552434,
+      "best_lam_mean": 73.96338295238384,
+      "best_lam_std": 38.67844034199381
+    },
+    "test_metrics": {
+      "mse": 0.36480320376464404,
+      "mae": 0.45563867101745864,
+      "r2": 0.37074149512711896,
+      "spearman_rho": 0.5644981428781038,
+      "kendall_tau": 0.45782981947844015,
+      "pearson_r": 0.6096003814942631
+    }
+  },
+  {
+    "config": {
+      "n_splines": 5,
+      "lam": 0.24320234253214007,
+      "max_iter": 100,
+      "tol": 0.0001
+    },
+    "train_metrics": {
+      "mse": 0.35030637258122066,
+      "mae": 0.44405049457103074,
+      "r2": 0.37436976814385126,
+      "spearman_rho": 0.5639736224596651,
+      "kendall_tau": 0.4591444268112411,
+      "pearson_r": 0.6118583801243511
+    },
+    "gam_metrics": {
+      "aic": 24764.006191589375,
+      "edof": 19.490544480328726,
+      "gcv": 0.35169379821412206,
+      "n_terms": 6
+    },
+    "feature_importance": {
+      "Helpsteer2 Verbosity Judge Minimal Overage": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Structural Expansion": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Extras Density": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Redundancy": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Framing Padding": 0.9999999999999999
+    },
+    "cv_summary": {
+      "train_r2_mean": 0.3746185402486195,
+      "train_r2_std": 0.0033761533937046936,
+      "val_r2_mean": 0.371610592767729,
+      "val_r2_std": 0.014026189013518315,
+      "train_mse_mean": 0.3501616823901653,
+      "train_mse_std": 0.002454175512103835,
+      "val_mse_mean": 0.35175893972064276,
+      "val_mse_std": 0.009772482265812165,
+      "best_lam_mean": 0.24320234253214007,
+      "best_lam_std": 0.044444196422021846
+    },
+    "test_metrics": {
+      "mse": 0.36512043836759495,
+      "mae": 0.4565983271533499,
+      "r2": 0.37019428893515904,
+      "spearman_rho": 0.5647279146684013,
+      "kendall_tau": 0.4580039439049984,
+      "pearson_r": 0.6091753011650114
+    }
+  },
+  {
+    "config": {
+      "n_splines": 10,
+      "lam": 40.38866094217831,
+      "max_iter": 100,
+      "tol": 0.0001
+    },
+    "train_metrics": {
+      "mse": 0.34988600146287013,
+      "mae": 0.4436390011973041,
+      "r2": 0.3751205306215686,
+      "spearman_rho": 0.5644041376299421,
+      "kendall_tau": 0.45954012181752474,
+      "pearson_r": 0.6124725204775032
+    },
+    "gam_metrics": {
+      "aic": 24757.29450642743,
+      "edof": 24.42782084527478,
+      "gcv": 0.3516241051044244,
+      "n_terms": 6
+    },
+    "feature_importance": {
+      "Helpsteer2 Verbosity Judge Minimal Overage": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Structural Expansion": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Extras Density": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Redundancy": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Framing Padding": 0.9999999999999999
+    },
+    "cv_summary": {
+      "train_r2_mean": 0.3754279048982233,
+      "train_r2_std": 0.003761024598454408,
+      "val_r2_mean": 0.3716038808294654,
+      "val_r2_std": 0.015045966963868947,
+      "train_mse_mean": 0.34970754467474896,
+      "train_mse_std": 0.0024935840753470408,
+      "val_mse_mean": 0.3517547118495269,
+      "val_mse_std": 0.009938520098051386,
+      "best_lam_mean": 40.38866094217831,
+      "best_lam_std": 10.250288908715714
+    },
+    "test_metrics": {
+      "mse": 0.36488141321759726,
+      "mae": 0.45586826677291187,
+      "r2": 0.3706065896138878,
+      "spearman_rho": 0.5645701752061929,
+      "kendall_tau": 0.45791018459839006,
+      "pearson_r": 0.6094956337392469
+    }
+  },
+  {
+    "config": {
+      "n_splines": 7,
+      "lam": 1.6385471034328778,
+      "max_iter": 100,
+      "tol": 0.0001
+    },
+    "train_metrics": {
+      "mse": 0.34985760988400627,
+      "mae": 0.44341304817887955,
+      "r2": 0.3751712366076929,
+      "spearman_rho": 0.5644109823409953,
+      "kendall_tau": 0.45955479600118376,
+      "pearson_r": 0.6125130153523564
+    },
+    "gam_metrics": {
+      "aic": 24756.430014034115,
+      "edof": 24.55619695810448,
+      "gcv": 0.35160474022354576,
+      "n_terms": 6
+    },
+    "feature_importance": {
+      "Helpsteer2 Verbosity Judge Minimal Overage": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Structural Expansion": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Extras Density": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Redundancy": 0.9999999999999999,
+      "Helpsteer2 Verbosity Judge Framing Padding": 0.9999999999999999
+    },
+    "cv_summary": {
+      "train_r2_mean": 0.37550936492663756,
+      "train_r2_std": 0.003750719043501957,
+      "val_r2_mean": 0.3715957504398039,
+      "val_r2_std": 0.014821921567603714,
+      "train_mse_mean": 0.34966183463461153,
+      "train_mse_std": 0.002474443785513662,
+      "val_mse_mean": 0.35176323846965757,
+      "val_mse_std": 0.009976407967544001,
+      "best_lam_mean": 1.6385471034328778,
+      "best_lam_std": 0.6708840796685732
+    },
+    "test_metrics": {
+      "mse": 0.36495950826124957,
+      "mae": 0.45560385389220714,
+      "r2": 0.37047188144822607,
+      "spearman_rho": 0.5644397326400806,
+      "kendall_tau": 0.45777892156913846,
+      "pearson_r": 0.6093718168189735
+    }
+  }
+]

@@ -1,0 +1,177 @@
+{
+  "iteration": 2,
+  "judge_names": [
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing",
+    "helpsteer2-coherence-judge-concision-and-non-redundancy",
+    "helpsteer2-coherence-judge-structure-and-formatting-support"
+  ],
+  "n_judges": 3,
+  "train_metrics": {
+    "mse": 0.37106605968373607,
+    "mae": 0.4718438592106977,
+    "r2": 0.09843813056392381,
+    "spearman_rho": 0.23429922194728453,
+    "kendall_tau": 0.19023138480374976,
+    "pearson_r": 0.31374947504148276
+  },
+  "val_metrics": {
+    "mse": 0.3752784807951587,
+    "mae": 0.46764065961322593,
+    "r2": 0.12068307304343284,
+    "spearman_rho": 0.26887567692914816,
+    "kendall_tau": 0.2184970814326542,
+    "pearson_r": 0.34939122324593863
+  },
+  "test_metrics": {
+    "mse": 0.3878827445927416,
+    "mae": 0.4761565607838488,
+    "r2": 0.10760000150600268,
+    "spearman_rho": 0.2547617004458083,
+    "kendall_tau": 0.20714960428335183,
+    "pearson_r": 0.32958043370197043
+  },
+  "judge_set_metrics": {
+    "predictive_power": {
+      "r2": 0.10760000150600268,
+      "mse": 0.3878827445927416,
+      "mae": 0.4761565607838488,
+      "spearman_rho": 0.2547617004458083,
+      "kendall_tau": 0.20714960428335186,
+      "pearson_r": 0.3295804337019704
+    },
+    "coverage": {
+      "variance_explained": 0.10231686587419431,
+      "coverage_score": 0.10231686587419431
+    },
+    "redundancy": {
+      "mean_pairwise_correlation": 0.662751242075843,
+      "max_pairwise_correlation": 0.8179719912763398,
+      "redundancy_score": 0.337248757924157,
+      "highly_correlated_pairs": []
+    },
+    "diversity": {
+      "effective_dimensionality": 1.597492028269852,
+      "diversity_index": 0.5324973427566173
+    },
+    "importance_distribution": {
+      "gini_coefficient": 0.5050497579777502,
+      "entropy": 0.5041446499790031
+    },
+    "composite_score": 0.2374525939133948
+  },
+  "importance_scores": {
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.0,
+    "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.32000195225224115,
+    "helpsteer2-coherence-judge-structure-and-formatting-support": 1.0
+  },
+  "removed_judge": null,
+  "added_judge": null,
+  "gap_analysis": {
+    "patterns": [
+      {
+        "type": "high_variance",
+        "description": "High error variance when 'helpsteer2-coherence-judge-logical-flow-and-sequencing' scores are low",
+        "severity": 0.660329977891463,
+        "affected_samples": 520,
+        "characteristics": {
+          "judge": "helpsteer2-coherence-judge-logical-flow-and-sequencing",
+          "low_score_error_var": 0.7212268434018997,
+          "high_score_error_var": 0.2630554675500611
+        },
+        "suggested_dimension": "helpsteer2-coherence-judge-logical-flow-and-sequencing-specificity"
+      },
+      {
+        "type": "high_variance",
+        "description": "High error variance when 'helpsteer2-coherence-judge-concision-and-non-redundancy' scores are low",
+        "severity": 0.6069252989971337,
+        "affected_samples": 820,
+        "characteristics": {
+          "judge": "helpsteer2-coherence-judge-concision-and-non-redundancy",
+          "low_score_error_var": 0.5971390422021077,
+          "high_score_error_var": 0.23596892038806236
+        },
+        "suggested_dimension": "helpsteer2-coherence-judge-concision-and-non-redundancy-specificity"
+      },
+      {
+        "type": "high_variance",
+        "description": "High error variance when 'helpsteer2-coherence-judge-structure-and-formatting-support' scores are low",
+        "severity": 0.5592095688184535,
+        "affected_samples": 1063,
+        "characteristics": {
+          "judge": "helpsteer2-coherence-judge-structure-and-formatting-support",
+          "low_score_error_var": 0.5250407076590139,
+          "high_score_error_var": 0.22472448297351447
+        },
+        "suggested_dimension": "helpsteer2-coherence-judge-structure-and-formatting-support-specificity"
+      },
+      {
+        "type": "cluster",
+        "description": "Cluster 2: Model overpredicts for samples with distinctive judge score patterns",
+        "severity": 0.9847490417896598,
+        "affected_samples": 90,
+        "characteristics": {
+          "cluster_id": 2,
+          "mean_error": -0.1445127109082018,
+          "mean_abs_error": 0.9210173829120174,
+          "notable_judges": [
+            [
+              "helpsteer2-coherence-judge-concision-and-non-redundancy",
+              -2.3022919920857543
+            ],
+            [
+              "helpsteer2-coherence-judge-structure-and-formatting-support",
+              -2.7423169842757047
+            ],
+            [
+              "helpsteer2-coherence-judge-logical-flow-and-sequencing",
+              -2.9996230344683403
+            ]
+          ]
+        },
+        "suggested_dimension": "cross-dimension-interaction"
+      }
+    ],
+    "overall_error_stats": {
+      "mean_error": 0.006647766155474027,
+      "std_error": 0.6125637011775191,
+      "mean_abs_error": 0.46764065961322593,
+      "median_abs_error": 0.3095008994881798,
+      "max_abs_error": 3.665457446113356,
+      "pct_high_error": 30.178069353327086,
+      "skewness": -1.7778567940062509,
+      "kurtosis": 4.181302618058382
+    },
+    "judge_error_correlations": {
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.04778287579481777,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.03756776099528318,
+      "helpsteer2-coherence-judge-structure-and-formatting-support": 0.0390921326007248
+    },
+    "suggested_dimensions": [
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing-specificity",
+      "helpsteer2-coherence-judge-concision-and-non-redundancy-specificity",
+      "helpsteer2-coherence-judge-structure-and-formatting-support-specificity",
+      "cross-dimension-interaction"
+    ],
+    "analysis_summary": "Gap Analysis Summary\n========================================\nOverall: 30.2% samples with error > 0.5\nMean absolute error: 0.468\nError skewness: -1.778\n\nIdentified 4 gap patterns:\n  1. [high_variance] High error variance when 'helpsteer2-coherence-judge-logical-flow-and-sequencing' scores are low\n     Severity: 0.66, Affected: 520 samples\n  2. [high_variance] High error variance when 'helpsteer2-coherence-judge-concision-and-non-redundancy' scores are low\n     Severity: 0.61, Affected: 820 samples\n  3. [high_variance] High error variance when 'helpsteer2-coherence-judge-structure-and-formatting-support' scores are low\n     Severity: 0.56, Affected: 1063 samples\n  4. [cluster] Cluster 2: Model overpredicts for samples with distinctive judge score patterns\n     Severity: 0.98, Affected: 90 samples\n\nSuggested new dimensions: helpsteer2-coherence-judge-logical-flow-and-sequencing-specificity, helpsteer2-coherence-judge-concision-and-non-redundancy-specificity, helpsteer2-coherence-judge-structure-and-formatting-support-specificity, cross-dimension-interaction"
+  },
+  "attribution_correlations": {
+    "helpsteer2-coherence-judge-logical-flow-and-sequencing": {
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 1.0,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 0.6562107580856463,
+      "helpsteer2-coherence-judge-structure-and-formatting-support": -0.45888970720777217
+    },
+    "helpsteer2-coherence-judge-concision-and-non-redundancy": {
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": 0.6562107580856463,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": 1.0,
+      "helpsteer2-coherence-judge-structure-and-formatting-support": -0.28894973884590464
+    },
+    "helpsteer2-coherence-judge-structure-and-formatting-support": {
+      "helpsteer2-coherence-judge-logical-flow-and-sequencing": -0.45888970720777217,
+      "helpsteer2-coherence-judge-concision-and-non-redundancy": -0.28894973884590464,
+      "helpsteer2-coherence-judge-structure-and-formatting-support": 1.0
+    }
+  },
+  "improvement": -0.010788959965445488,
+  "should_stop": true,
+  "stop_reason": "target_judges_reached_3"
+}

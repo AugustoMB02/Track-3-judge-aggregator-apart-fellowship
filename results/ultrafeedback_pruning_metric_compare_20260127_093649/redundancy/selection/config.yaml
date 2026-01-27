@@ -1,0 +1,28 @@
+data_file: datasets/ultrafeedback_track3_full_dataset.pkl
+description: Prune to half the UltraFeedback judges (55 -> 27) on workshop data [strategy=redundancy]
+gam_lam: 0.6
+gam_n_splines: 10
+initial_judge_file: experiments/track3_automated_selection/generated_judges/all-judges-decomposed-20251111T005856Z.yaml
+llm_model: openai/gpt-5-nano
+max_correlation: 0.9
+max_iterations: 40
+max_judges: 55
+min_judges: 27
+name: iterative-selection-ultrafeedback-prune-half-full-redundancy
+output_dir: results/ultrafeedback_pruning_metric_compare_20260127_093649/redundancy/selection
+plateau_patience: 50
+proposal_mode: decompose
+protected_judges:
+- truthfulness-judge
+- harmlessness-judge
+- helpfulness-judge
+pruning_strategy: redundancy
+r2_degradation_threshold: null
+r2_improvement_threshold: 0.0
+save_intermediate: true
+selection_mode: backward
+target_column: target
+target_judges: 27
+train_test_split: 0.3
+use_llm_suggestions: false
+validation_split: 0.15

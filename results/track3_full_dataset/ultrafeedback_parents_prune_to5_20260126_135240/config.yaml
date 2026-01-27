@@ -1,0 +1,25 @@
+data_file: datasets/ultrafeedback_track3_parents_dataset.pkl
+description: Prune UltraFeedback parent judges to 5 using workshop dataset
+gam_lam: 0.6
+gam_n_splines: 10
+initial_judge_file: judges/ultrafeedback/depth_0_parents.yaml
+llm_model: openai/gpt-5-nano
+max_correlation: 0.9
+max_iterations: 20
+max_judges: 10
+min_judges: 5
+name: ultrafeedback-parents-prune-to-5
+output_dir: results/track3_full_dataset/ultrafeedback_parents_prune_to5_20260126_135240
+plateau_patience: 50
+proposal_mode: decompose
+protected_judges: []
+pruning_strategy: importance
+r2_degradation_threshold: null
+r2_improvement_threshold: 0.0
+save_intermediate: true
+selection_mode: backward
+target_column: target
+target_judges: 5
+train_test_split: 0.3
+use_llm_suggestions: false
+validation_split: 0.15

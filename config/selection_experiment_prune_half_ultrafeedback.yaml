@@ -1,10 +1,10 @@
 # Iterative Judge Selection Experiment Configuration (Prune Half, UltraFeedback)
 
-name: "iterative-selection-ultrafeedback-prune-half"
-description: "Prune to half the UltraFeedback judges on workshop data"
+name: "iterative-selection-ultrafeedback-prune-half-full"
+description: "Prune to half the UltraFeedback judges (55 -> 27) on workshop data"
 
 # Initial judge set configuration
-initial_judge_file: "judges/ultrafeedback/depth_0_parents.yaml"
+initial_judge_file: "experiments/track3_automated_selection/generated_judges/all-judges-decomposed-20251111T005856Z.yaml"
 
 # Judges that should never be removed (core evaluation dimensions)
 protected_judges:
@@ -13,18 +13,18 @@ protected_judges:
   - "helpfulness-judge"
 
 # Data configuration
-data_file: "datasets/data_with_judge_scores.pkl"
+data_file: "datasets/ultrafeedback_track3_full_dataset.pkl"
 target_column: "target"
 train_test_split: 0.3
 validation_split: 0.15
 
 # Stopping criteria
-max_iterations: 20
-min_judges: 3
-target_judges: 5  # 10 -> 5 judges
-max_judges: 15
+max_iterations: 40
+min_judges: 27
+target_judges: 27  # 55 -> 27 judges
+max_judges: 55
 r2_improvement_threshold: 0.0
-plateau_patience: 10
+plateau_patience: 50
 
 # Redundancy control
 max_correlation: 0.9

@@ -1,0 +1,7 @@
+helpfulness-judge-completeness
+instruction-following-judge-attention-to-detail
+clarity-judge-accessibility
+clarity-judge-coherence
+conciseness-judge-redundancy-elimination
+conciseness-judge-wording-efficiency
+logical-consistency-judge-validity-and-soundness
